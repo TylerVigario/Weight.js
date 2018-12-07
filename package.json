@@ -1,0 +1,18 @@
+{
+  "name": "weight.js",
+  "version": "1.0.2",
+  "description": "Utility class to convert imperial mass units as well as output and parse as text.",
+  "main": "weight.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weight",
+    "conversion",
+    "imperial",
+    "pound",
+    "ounce"
+  ],
+  "author": "MeekLogic (Tyler Vigario)",
+  "license": "MIT"
+}
