@@ -1,10 +1,9 @@
 {
-  "name": "weight.js",
+  "name": "Weight.js",
   "version": "1.0.2",
   "description": "Utility class to convert imperial mass units as well as output and parse as text.",
-  "main": "weight.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./tests/index.js | tap-spec"
   },
   "keywords": [
     "weight",
@@ -13,6 +12,12 @@
     "pound",
     "ounce"
   ],
+  "repository": "https://github.com/MeekLogic/Weight.js",
   "author": "MeekLogic (Tyler Vigario)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  },
+  "dependencies": {}
 }

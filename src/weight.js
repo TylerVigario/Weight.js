@@ -1,12 +1,13 @@
 /**
- * Imperial Weight Conversions
+ * Weight.js
  *
  * @author  Tyler Vigario
+ * @description Utility class to convert imperial mass units as well as output and parse as text.
  * @license http://opensource.org/licenses/MIT  MIT License
- * @version 1.0.1
+ * @version 1.0.2
  */
 
-export default class Weight {
+module.exports = class Weight {
     /**
      * Convert pounds to human relatable text.
      *
