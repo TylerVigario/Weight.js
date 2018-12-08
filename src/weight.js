@@ -4,7 +4,7 @@
  * @author  Tyler Vigario
  * @description Utility class to convert imperial mass units as well as output and parse as text.
  * @license http://opensource.org/licenses/MIT  MIT License
- * @version 1.0.2
+ * @version 1.1.0
  */
 
 module.exports = class Weight {
@@ -83,13 +83,19 @@ module.exports = class Weight {
             throw 'Invalid parameter type.'
         }
 
+        // Trim whitespace from beginning & end
+        text = text.trim();
+
         // No need
         if (text.length === 0) {
             return 0;
         }
 
         // Convert to lowercase to avoid case sensitivity
-        text = text.trim().toLowerCase();
+        text = text.toLowerCase();
+
+        // Remove double spaces
+        text = text.replace(/ +/g, " ");
 
         if (text.indexOf(',') !== -1) {
             // Dual units split by a comma (3lb, 4oz)
