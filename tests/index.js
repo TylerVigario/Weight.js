@@ -4,7 +4,7 @@ var Weight = require('../src/weight');
 test('Parse tests', function (t) {
     let strings = [
         '10lbs 4oz',
-        '10lb  4oz',
+        '8lb    36oz',
         '164oz',
         '48.85oz',
         '3lbs, 1oz',
@@ -16,6 +16,6 @@ test('Parse tests', function (t) {
     strings.forEach((string) => {
         let ounces = Weight.textToOunces(string);
 
-        t.equal(typeof ounces, 'number', `${string} = ${ounces} = ${Weight.ouncesToText(ounces)}`);
+        t.equal(typeof ounces, 'number', `${string} = ${Weight.ouncesToText(ounces)}`);
     });
 });
