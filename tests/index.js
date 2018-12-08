@@ -1,19 +1,21 @@
 var test = require('tape');
 var Weight = require('../src/weight');
 
-test('Weight.js Tests', function (t) {
-    t.plan(4);
+test('Parse tests', function (t) {
+    let strings = [
+        '10lbs 4oz',
+        '10lb  4oz',
+        '164oz',
+        '48.85oz',
+        '3lbs, 1oz',
+        '2lbs,  17oz'
+    ];
 
-    let text = '10lbs 4oz';
-    let ounces = Weight.textToOunces(text); // 164oz
+    t.plan(strings.length);
 
-    t.equal(ounces, 164, 'Parse ounces from text.');
+    strings.forEach((string) => {
+        let ounces = Weight.textToOunces(string);
 
-    let pounds = Weight.ouncesToPounds(ounces); // 10.25lbs
-
-    t.equal(pounds, 10.25, 'Convert ounces to pounds.');
-
-    t.equal(Weight.poundsToOunces(pounds), ounces, 'Convert pounds to ounces.');
-
-    t.equal(Weight.poundsToText(pounds), text, 'Format weight to text.');
+        t.equal(typeof ounces, 'number', `${string} = ${ounces} = ${Weight.ouncesToText(ounces)}`);
+    });
 });
