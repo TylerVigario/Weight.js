@@ -151,7 +151,7 @@ export default class Ounces {
         weight = Ounces.getValue(weight);
 
         if (isNaN(weight)) {
-            throw 'Invalid parameter passed to function add.';
+            throw 'Invalid parameter passed to function "add".';
         }
 
         this.ounces += weight;
@@ -169,7 +169,7 @@ export default class Ounces {
         weight = Ounces.getValue(weight);
 
         if (isNaN(weight)) {
-            throw 'Invalid parameter passed to function subtract.';
+            throw 'Invalid parameter passed to function "subtract".';
         }
 
         this.ounces -= weight;
@@ -187,10 +187,26 @@ export default class Ounces {
         weight = Ounces.getValue(weight);
 
         if (isNaN(weight)) {
-            throw 'Invalid parameter passed to function equals.';
+            throw 'Invalid parameter passed to function "equals".';
         }
 
         return this.ounces === weight;
+    }
+
+    /**
+     * Check if current object value is not equal to weight.
+     * 
+     * @param {(Ounces|Pounds|number|string)} weight Weight to compare.
+     * @returns {boolean} False if same or true if not.
+     */
+    notEqual(weight) {
+        weight = Ounces.getValue(weight);
+
+        if (isNaN(weight)) {
+            throw 'Invalid parameter passed to function "notEqual".';
+        }
+
+        return this.ounces !== weight;
     }
 
     static getValue(weight) {
