@@ -1,9 +1,10 @@
 {
-  "name": "Weight.js",
-  "version": "1.0.2",
+  "name": "weight.js",
+  "version": "1.1.0",
   "description": "Utility class to convert imperial mass units as well as output and parse as text.",
   "scripts": {
-    "test": "node ./tests/index.js | tap-spec"
+    "build": "npx babel src --out-dir dist",
+    "test": "node --experimental-modules ./tests/index.mjs | tap-spec"
   },
   "keywords": [
     "weight",
@@ -16,6 +17,9 @@
   "author": "MeekLogic (Tyler Vigario)",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"
   },

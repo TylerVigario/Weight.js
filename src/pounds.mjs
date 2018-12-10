@@ -1,6 +1,6 @@
-var Ounces = require('../src/ounces');
+import Ounces from './ounces.mjs';
 
-module.exports = class Pounds {
+export default class Pounds {
     constructor(pounds) {
         this.value = pounds;
     }
@@ -23,7 +23,7 @@ module.exports = class Pounds {
 
     set value(value) {
         value = parseFloat(value);
-        
+
         if (isNaN(value)) {
             throw 'Parameter passed to constructor must be a number.';
         }
@@ -38,12 +38,14 @@ module.exports = class Pounds {
             this.pounds += weight.toPounds().value;
         } else {
             weight = parseFloat(weight);
-        
+
             if (isNaN(weight)) {
                 throw 'Invalid paramater passed to function add.';
             }
 
             this.pounds = this.pounds + weight;
-        } 
+        }
+
+        return this;
     }
 }

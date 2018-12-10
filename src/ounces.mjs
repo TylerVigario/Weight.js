@@ -1,6 +1,6 @@
-var Pounds = require('../src/pounds');
+import Pounds from './pounds.mjs';
 
-module.exports = class Ounces {
+export default class Ounces {
     constructor(ounces) {
         this.value = ounces;
     }
@@ -13,7 +13,7 @@ module.exports = class Ounces {
 
         // We expect to parse a string
         if (typeof text !== 'string') {
-            throw 'Invalid parameter type.'
+            return false;
         }
 
         // Trim whitespace from beginning & end
@@ -63,13 +63,14 @@ module.exports = class Ounces {
     }
 
     toPounds() {
+        let pounds = 0;
+
         // Prevent unnecessary calculations
         if (this.ounces <= 0) {
-            return 0;
+            return new Pounds(pounds);
         }
 
         let ounces = this.ounces;
-        let pounds = 0;
 
         // Excess ounces?
         if (ounces >= 16) {
@@ -80,12 +81,12 @@ module.exports = class Ounces {
             // If there are no leftover ounces
             // We no longer need to continue calculations
             if (ounces === 0) {
-                return pounds;
+                return new Pounds(pounds);
             }
         }
 
         // Ounces to pounds
-        return pounds + (ounces / 16);
+        return new Pounds(pounds).add(new Ounces(ounces));
     }
 
     toString() {
@@ -145,5 +146,7 @@ module.exports = class Ounces {
 
             this.ounces += weight;
         }
+
+        return this;
     }
 }

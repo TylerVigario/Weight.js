@@ -1,5 +1,5 @@
-var test = require('tape');
-var Ounces = require('../src/ounces');
+import test from 'tape';
+import Ounces from '../src/ounces.mjs';
 
 test('Parse tests', function (t) {
     let strings = [
@@ -16,6 +16,6 @@ test('Parse tests', function (t) {
     strings.forEach((string) => {
         let ounces = Ounces.parse(string);
 
-        t.equal(typeof ounces, 'object', `${string} = ${ounces.toString()}`);
+        t.equal(typeof ounces, 'object', string);
     });
 });
