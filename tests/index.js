@@ -1,5 +1,5 @@
 var test = require('tape');
-var Weight = require('../src/weight');
+var Ounces = require('../src/ounces');
 
 test('Parse tests', function (t) {
     let strings = [
@@ -14,8 +14,8 @@ test('Parse tests', function (t) {
     t.plan(strings.length);
 
     strings.forEach((string) => {
-        let ounces = Weight.textToOunces(string);
+        let ounces = Ounces.parse(string);
 
-        t.equal(typeof ounces, 'number', `${string} = ${Weight.ouncesToText(ounces)}`);
+        t.equal(typeof ounces, 'object', `${string} = ${ounces.toString()}`);
     });
 });
