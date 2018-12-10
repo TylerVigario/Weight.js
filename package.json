@@ -1,6 +1,6 @@
 {
   "name": "weight.js",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "ES6 classes to convert imperial mass units as well as output and parse as text.",
   "scripts": {
     "test": "node --experimental-modules ./tests/index.mjs | tap-spec"
