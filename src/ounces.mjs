@@ -1,14 +1,36 @@
 import Pounds from './pounds.mjs';
 
 export default class Ounces {
-    constructor(ounces) {
-        this.value = ounces;
+    /**
+     * @constructor
+     * @param {(Ounces|Pounds|number|string)} ounces
+     * @returns {Ounces}
+     */
+    constructor(weight = 0) {
+        weight = Ounces.getValue(weight);
+
+        if (isNaN(weight)) {
+            throw 'Invalid parameter passed to object constructor.';
+        }
+
+        this.ounces = weight;
     }
 
+    /**
+     * Parse text for weight.
+     * 
+     * @param {(string|number)} text Text to parse for weight.
+     * @returns {Ounces} Ounces object.
+     */
     static parse(text) {
         // No need
-        if (typeof text === 'number') {
+        if (isNaN(text) === false) {
             return new this(text);
+        }
+
+        // Support for objects that have "toString" method
+        if (typeof text === 'object' && typeof text.toString === 'function') {
+            text = text.toString();
         }
 
         // We expect to parse a string
@@ -54,7 +76,7 @@ export default class Ounces {
             // Single unit (3lb or 4oz)
             if (text.indexOf('lb') !== -1) {
                 // Pounds (must include: lb or lbs)
-                return new Pounds(text).toOunces();
+                return (new Pounds(text)).toOunces();
             } else {
                 // Ounces (default)
                 return new Ounces(text);
@@ -62,34 +84,21 @@ export default class Ounces {
         }
     }
 
+    /**
+     * Convert ounces to pounds.
+     * 
+     * @returns {Pounds} Pounds object.
+     */
     toPounds() {
-        let pounds = 0;
-
-        // Prevent unnecessary calculations
-        if (this.ounces <= 0) {
-            return new Pounds(pounds);
-        }
-
-        let ounces = this.ounces;
-
-        // Excess ounces?
-        if (ounces >= 16) {
-            pounds = Math.floor(ounces / 16);
-
-            ounces -= pounds * 16;
-
-            // If there are no leftover ounces
-            // We no longer need to continue calculations
-            if (ounces === 0) {
-                return new Pounds(pounds);
-            }
-        }
-
-        // Ounces to pounds
-        return new Pounds(pounds).add(new Ounces(ounces));
+        return new Pounds(this.ounces / 16);
     }
 
-    toString() {
+    /**
+     * Convert weight to text.
+     * 
+     * @returns {string} Formatted weight.
+     */
+    toString(roundTo = 0) {
         let formattedWeight = '';
 
         let ounces = this.ounces;
@@ -99,7 +108,7 @@ export default class Ounces {
             // Extract pounds from ounces
             let pounds = Math.floor(this.toPounds().value);
 
-            ounces -= new Pounds(pounds).toOunces().value;
+            ounces -= (new Pounds(pounds)).toOunces().value;
 
             // Format pounds for human consumption
             formattedWeight = pounds.toString() + (pounds === 1 ? 'lb' : 'lbs');
@@ -122,31 +131,75 @@ export default class Ounces {
         return this.ounces;
     }
 
-    set value(value) {
-        value = parseFloat(value);
+    set value(ounces) {
+        ounces = Ounces.getValue(ounces);
 
-        if (isNaN(value)) {
-            throw 'Parameter passed to constructor must be a number.';
+        if (ounces === false) {
+            throw 'Parameter passed to constructor is not a valid weight.';
         }
 
-        this.ounces = value;
+        this.ounces = ounces;
     }
 
+    /**
+     * Add weight to current object.
+     * 
+     * @param {(Ounces|Pounds|number|string)} weight Weight to add.
+     * @returns {Ounces} Returns current ounces object.
+     */
     add(weight) {
-        if (weight instanceof Ounces || isNaN(weight) === false) {
-            this.ounces += weight.value;
-        } else if (weight instanceof Pounds) {
-            this.ounces += weight.toOunces().value;
-        } else {
-            weight = parseFloat(weight);
+        weight = Ounces.getValue(weight);
 
-            if (isNaN(weight)) {
-                throw 'Invalid paramater passed to function add.';
-            }
-
-            this.ounces += weight;
+        if (isNaN(weight)) {
+            throw 'Invalid parameter passed to function add.';
         }
 
+        this.ounces += weight;
+
         return this;
+    }
+
+    /**
+     * Subtract weight to current object.
+     * 
+     * @param {(Ounces|Pounds|number|string)} weight Weight to subtract.
+     * @returns {Ounces} Returns current ounces object.
+     */
+    subtract(weight) {
+        weight = Ounces.getValue(weight);
+
+        if (isNaN(weight)) {
+            throw 'Invalid parameter passed to function subtract.';
+        }
+
+        this.ounces -= weight;
+
+        return this;
+    }
+
+    /**
+     * Check if current object value is equal to weight.
+     * 
+     * @param {(Ounces|Pounds|number|string)} weight Weight to compare.
+     * @returns {boolean} True if same or false is not.
+     */
+    equals(weight) {
+        weight = Ounces.getValue(weight);
+
+        if (isNaN(weight)) {
+            throw 'Invalid parameter passed to function equals.';
+        }
+
+        return this.ounces === weight;
+    }
+
+    static getValue(weight) {
+        if (weight instanceof Ounces) {
+            return weight.value;
+        } else if (weight instanceof Pounds) {
+            return weight.toOunces().value;
+        } else {
+            return parseFloat(weight);
+        }
     }
 }
