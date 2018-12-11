@@ -1,5 +1,7 @@
 var test = require('tape');
 var Weight = require('../dist/weight.js');
+var Pounds = Weight.Pounds;
+var Ounces = Weight.Ounces;
 
 // Strings for parse tests
 var strings = [
@@ -13,9 +15,9 @@ test('Ounces parse tests', function (t) {
 
     // Validate Ounces.parse()
     strings.forEach((string) => {
-        let ounces = Weight.Ounces.parse(string);
+        let ounces = Ounces.parse(string);
 
-        t.true(ounces instanceof Weight.Ounces, string);
+        t.true(ounces instanceof Ounces, string);
     });
 });
 
@@ -24,9 +26,9 @@ test('Pounds parse tests', function (t) {
 
     // Validate Pounds.parse()
     strings.forEach((string) => {
-        let pounds = Weight.Pounds.parse(string);
+        let pounds = Pounds.parse(string);
 
-        t.true(pounds instanceof Weight.Pounds, string);
+        t.true(pounds instanceof Pounds, string);
     });
 });
 
@@ -34,14 +36,14 @@ test('Additional tests', function (t) {
     t.plan(3);
 
     // Create Ounces object from number
-    let ounces1 = new Weight.Ounces(24);
+    let ounces1 = new Ounces(24);
 
-    t.true(ounces1 instanceof Weight.Ounces, 'Object handling #1');
+    t.true(ounces1 instanceof Ounces, 'Object handling #1');
 
     // Create Ounces object from Ounces object
-    let ounces2 = new Weight.Ounces(ounces1);
+    let ounces2 = new Ounces(ounces1);
 
-    t.true(ounces2 instanceof Weight.Ounces, 'Object handling #2');
+    t.true(ounces2 instanceof Ounces, 'Object handling #2');
 
     // Validate both objects are equal
     t.equal(ounces2.value, ounces1.value, 'Object handling #3');
