@@ -1,7 +1,7 @@
 {
   "name": "weight.js",
   "version": "1.3.2",
-  "description": "ES6 classes to convert imperial mass units as well as output and parse as text.",
+  "description": "JavaScript classes to convert imperial mass units as well as output and parse as text.",
   "scripts": {
     "build": "npx webpack --config webpack.config.js",
     "test": "node ./tests/index.js | tap-spec"

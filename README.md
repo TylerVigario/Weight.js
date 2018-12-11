@@ -1,7 +1,6 @@
 Weight.js
 =========
-
-Utility class to convert imperial mass units as well as output and parse as text.
+JavaScript classes to convert imperial mass units as well as output and parse as text.
 
 Install
 -------
