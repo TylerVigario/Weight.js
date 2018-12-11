@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.0 
+ * @version 1.3.2
  */
 
 import MassUnit from './mass_unit';
@@ -44,6 +44,40 @@ export default class Pounds extends MassUnit {
      */
     static parse(text) {
         let ounces = Ounces.parse(text);
+
+        if (ounces === false) {
+            return false;
+        }
+
+        return ounces.toPounds();
+    }
+
+    /**
+     * Parse text for single unit weight.
+     * @param {(string|number)} text - Text to parse for single unit weight.
+     * @returns {Ounces} Ounces object.
+     */
+    static parseSingleUnit(text) {
+        text = text.trim();
+
+        // Single unit (3lb or 4oz)
+        if (text.indexOf('oz') !== -1) {
+            // Ounces (must include: oz)
+            return (new Ounces(text)).toPounds();
+        } else {
+            // Pounds (default)
+            return new Pounds(text);
+        }
+    }
+
+    /**
+     * Parse text for weight.
+     * @param {(string|number)} text - Text to parse for weight.
+     * @param {string} separator
+     * @returns {Pounds} Pounds object.
+     */
+    static parseDualUnit(text, separator) {
+        let ounces = Ounces.parseDualUnit(text, separator);
 
         if (ounces === false) {
             return false;

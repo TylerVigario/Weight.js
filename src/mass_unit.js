@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.0 
+ * @version 1.3.2
  */
 
 /** Class representing a mass unit. */

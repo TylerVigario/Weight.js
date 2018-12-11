@@ -3,32 +3,67 @@ var Weight = require('../dist/weight.js');
 var Pounds = Weight.Pounds;
 var Ounces = Weight.Ounces;
 
-// Strings for parse tests
-var strings = [
-    '8lb    36oz',
-    '164.85oz',
-    '2lbs,  17oz'
+var problems = [{
+        question: '8lb 36oz',
+        ounces: 164,
+        pounds: 10.25
+    },
+    {
+        question: '164.85oz',
+        ounces: 164.85,
+        pounds: 10.303125
+    },
+    {
+        question: '10lbs',
+        ounces: 160,
+        pounds: 10
+    },
+    {
+        question: '2lbs ,  17oz',
+        ounces: 49,
+        pounds: 3.0625
+    },
+    {
+        question: 48,
+        ounces: 48,
+        pounds: 3
+    },
+    {
+        question: '17 lb 14 oz',
+        ounces: 286,
+        pounds: 17.875
+    },
+    {
+        question: '3lbs4oz',
+        ounces: 52,
+        pounds: 3.25
+    },
+    {
+        question: '3lbs 4',
+        ounces: 52,
+        pounds: 3.25
+    }
 ];
 
 test('Ounces parse tests', function (t) {
-    t.plan(strings.length);
+    t.plan(problems.length);
 
     // Validate Ounces.parse()
-    strings.forEach((string) => {
-        let ounces = Ounces.parse(string);
+    problems.forEach((problem) => {
+        let ounces = Ounces.parse(problem.question);
 
-        t.true(ounces instanceof Ounces, string);
+        t.equal(ounces.value, problem.ounces, problem.question);
     });
 });
 
 test('Pounds parse tests', function (t) {
-    t.plan(strings.length);
+    t.plan(problems.length);
 
     // Validate Pounds.parse()
-    strings.forEach((string) => {
-        let pounds = Pounds.parse(string);
+    problems.forEach((problem) => {
+        let pounds = Pounds.parse(problem.question);
 
-        t.true(pounds instanceof Pounds, string);
+        t.equal(pounds.value, problem.pounds, problem.question);
     });
 });
 

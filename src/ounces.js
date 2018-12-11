@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.0 
+ * @version 1.3.2
  */
 
 import MassUnit from './mass_unit';
@@ -45,7 +45,7 @@ export default class Ounces extends MassUnit {
     static parse(text) {
         // No need
         if (isNaN(text) === false) {
-            return new this(text);
+            return new Ounces(text);
         }
 
         // Support for objects that have "toString" method
@@ -63,10 +63,10 @@ export default class Ounces extends MassUnit {
 
         // No need
         if (text.length === 0) {
-            return new this(0);
+            return new Ounces(0);
         }
 
-        // Convert to lowercase to avoid case sensitivity
+        // Remove case sensitivity
         text = text.toLowerCase();
 
         // Remove double spaces
@@ -74,34 +74,61 @@ export default class Ounces extends MassUnit {
 
         if (text.indexOf(',') !== -1) {
             // Dual units split by a comma (3lb, 4oz)
-            text = text.split(',');
-
-            // Invalid?
-            if (text.length !== 2) {
-                return false;
-            }
-
-            return (new Pounds(text[0])).toOunces().add(text[1]);
+            return Ounces.parseDualUnit(text, ',');
         } else if (text.indexOf(' ') !== -1) {
-            // Dual units split by a single space (3lb 4oz)
-            text = text.split(' ');
-
-            // Invalid?
-            if (text.length !== 2) {
-                return false;
-            }
-
-            return (new Pounds(text[0])).toOunces().add(text[1]);
-        } else {
-            // Single unit (3lb or 4oz)
+            // Dual units split by "lb" and a space (3lb  4oz)
             if (text.indexOf('lb') !== -1) {
-                // Pounds (must include: lb or lbs)
-                return (new Pounds(text)).toOunces();
-            } else {
-                // Ounces (default)
-                return new Ounces(text);
+                return Ounces.parseDualUnit(text, 'lb');
             }
+
+            // Dual units split by a space (3lb 4oz)
+            return Ounces.parseDualUnit(text, ' ');
+        } else {
+            // Unfortunately since Pounds uses this parse function
+            // The below means this function is weighted towards ounces
+            return Ounces.parseSingleUnit(text);
         }
+    }
+
+    /**
+     * Parse text for single unit weight.
+     * @param {(string|number)} text - Text to parse for single unit weight.
+     * @returns {Ounces} Ounces object.
+     */
+    static parseSingleUnit(text) {
+        text = text.trim();
+
+        // Single unit (3lb or 4oz)
+        if (text.indexOf('lb') !== -1) {
+            // Pounds (must include: lb or lbs)
+            return (new Pounds(text)).toOunces();
+        } else {
+            // Ounces (default)
+            return new Ounces(text);
+        }
+    }
+
+    /**
+     * Parse text for weight.
+     * @param {(string|number)} text - Text to parse for weight.
+     * @param {string} separator
+     * @returns {Ounces} Ounces object.
+     */
+    static parseDualUnit(text, separator) {
+        if (!separator) {
+            return false;
+        }
+
+        // Dual units split by a comma (3lb, 4oz)
+        text = text.split(separator);
+
+        // Invalid?
+        if (text.length !== 2) {
+            return false;
+        }
+
+        // Pounds should precede ounces (unless signifier is preset: lb or oz)
+        return Pounds.parseSingleUnit(text[0]).toOunces().add(Ounces.parseSingleUnit(text[1]));
     }
 
     /**

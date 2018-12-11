@@ -11,22 +11,28 @@ npm install weight.js
 
 Usage
 -----
-**[ES6] Importing (one of the below)**
+**ES6**
 ```javascript
-import {Ounces, Pounds} from 'weight.js/src/weight.mjs';
+import {Ounces, Pounds} from 'weight.js/src/weight';
 ```
 ```javascript
-import Ounces from 'weight.js/src/ounces.mjs';
+import Ounces from 'weight.js/src/ounces';
 ```
 ```javascript
-import Pounds from 'weight.js/src/pounds.mjs';
+import Pounds from 'weight.js/src/pounds';
 ```
 
 **CommonJS**
 ```javascript
 var Weight = require('../dist/weight.js');
-var Pounds = Weight.Pounds;
 var Ounces = Weight.Ounces;
+var Pounds = Weight.Pounds;
+```
+```javascript
+var Ounces = require('../dist/weight.js').Ounces;
+```
+```javascript
+var Pounds = require('../dist/weight.js').Pounds;
 ```
 
 Example
