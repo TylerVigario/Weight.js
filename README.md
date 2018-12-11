@@ -1,12 +1,16 @@
-# Weight.js
+Weight.js
+=========
 
 Utility class to convert imperial mass units as well as output and parse as text.
 
-**Install**
+Install
+-------
 ```javascript
 npm install weight.js
 ```
 
+Usage
+-----
 **[ES6] Importing (one of the below)**
 ```javascript
 import {Ounces, Pounds} from 'weight.js/src/weight.mjs';
@@ -18,7 +22,13 @@ import Ounces from 'weight.js/src/ounces.mjs';
 import Pounds from 'weight.js/src/pounds.mjs';
 ```
 
-**Usage**
+**CommonJS**
+```javascript
+var Weight = require('Weight.js');
+```
+
+Example
+-------
 ```javascript
 let ounces = Ounces.parse('   5lb ,  4oz');
 
