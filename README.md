@@ -13,11 +13,9 @@ Usage
 **ES6**
 ```javascript
 import {Ounces, Pounds} from 'weight.js/src/weight';
-```
-```javascript
+//or
 import Ounces from 'weight.js/src/ounces';
-```
-```javascript
+//or
 import Pounds from 'weight.js/src/pounds';
 ```
 
@@ -26,11 +24,9 @@ import Pounds from 'weight.js/src/pounds';
 var Weight = require('../dist/weight.js');
 var Ounces = Weight.Ounces;
 var Pounds = Weight.Pounds;
-```
-```javascript
+//or
 var Ounces = require('../dist/weight.js').Ounces;
-```
-```javascript
+//or
 var Pounds = require('../dist/weight.js').Pounds;
 ```
 
