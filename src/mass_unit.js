@@ -65,20 +65,20 @@ export default class MassUnit {
     }
 
     /**
-     * Check if current object value is equal to weight.
+     * Check if current object value is same as given weight.
      * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.
      * @returns {boolean} True if same or false is not.
      */
-    equal(weight) {
+    isSame(weight) {
         return this.weight === this.getValue(weight);
     }
 
     /**
-     * Check if current object value is not equal to weight.
+     * Check if current object value is not same as given weight.
      * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.
      * @returns {boolean} False if same or true if not.
      */
-    notEqual(weight) {
+    isNotSame(weight) {
         return this.weight !== this.getValue(weight);
     }
 
@@ -89,5 +89,14 @@ export default class MassUnit {
      */
     isHeavier(weight) {
         return this.weight > this.getValue(weight);
+    }
+
+    /**
+     * Check if current mass is lighter than a given weight.
+     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.
+     * @returns {boolean} True if current object is lighter or false if not.
+     */
+    isLighter(weight) {
+        return this.weight < this.getValue(weight);
     }
 }

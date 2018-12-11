@@ -3,7 +3,8 @@
   "version": "1.3.0",
   "description": "ES6 classes to convert imperial mass units as well as output and parse as text.",
   "scripts": {
-    "test": "node --experimental-modules ./tests/index.mjs | tap-spec"
+    "build": "npx webpack --config webpack.config.js",
+    "test": "node ./tests/index.js | tap-spec"
   },
   "keywords": [
     "weight",
@@ -17,13 +18,18 @@
     "url": "git+https://github.com/MeekLogic/Weight.js"
   },
   "bugs": {
-      "url": "https://github.com/MeekLogic/Weight.js/issues"
+    "url": "https://github.com/MeekLogic/Weight.js/issues"
   },
   "author": "MeekLogic (Tyler Vigario)",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "tape": "^4.9.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {}
 }

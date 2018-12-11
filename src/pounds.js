@@ -6,8 +6,8 @@
  * @version 1.3.0 
  */
 
-import MassUnit from './mass_unit.mjs';
-import Ounces from './ounces.mjs';
+import MassUnit from './mass_unit';
+import Ounces from './ounces';
 
 /**
  * Class representing pound mass units.
