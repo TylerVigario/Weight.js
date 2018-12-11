@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.3
+ * @version 1.3.4
  */
 
 import Ounces from './ounces';

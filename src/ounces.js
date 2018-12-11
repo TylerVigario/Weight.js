@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.3
+ * @version 1.3.4
  */
 
 import MassUnit from './mass_unit';
@@ -152,20 +152,21 @@ export default class Ounces extends MassUnit {
     toString(spaces = true, roundTo = 0) {
         let formattedWeight = '';
 
-        let ounces = this.weight;
+        let ounces = this;
 
         // Excess ounces = pounds
-        if (ounces >= 16) {
-            // Extract pounds from ounces
-            let pounds = Math.floor(this.toPounds().value);
+        if (ounces.isHeavier(15)) {
+            // Extract whole pounds from ounces
+            let pounds = ounces.toPounds().floor();
 
-            ounces -= (new Pounds(pounds)).toOunces().value;
+            // Reduce ounces by whole pounds
+            ounces.subtract(pounds);
 
             // Format pounds for human consumption
-            formattedWeight = pounds.toString() + (spaces ? ' ' : '') + (pounds === 1 ? 'lb' : 'lbs');
+            formattedWeight = pounds.toFixed() + (spaces ? ' ' : '') + (pounds.isSame(1) ? 'lb' : 'lbs');
 
             // Any ounces remaining?
-            if (ounces === 0) {
+            if (ounces.isEmpty()) {
                 // Return if no ounces are remaining
                 return formattedWeight;
             }

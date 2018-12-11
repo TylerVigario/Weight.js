@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.3
+ * @version 1.3.4
  */
 
 /** Class representing a mass unit. */
@@ -17,6 +17,7 @@ export default class MassUnit {
     }
 
     /**
+     * Return weight value.
      * @type {number}
      */
     get value() {
@@ -24,21 +25,46 @@ export default class MassUnit {
     }
 
     set value(weight) {
-        weight = this.getValue(weight);
+        this.weight = this.getValue(weight);
+    }
 
-        if (pounds === false) {
-            throw 'Parameter passed to constructor is not a valid weight.';
-        }
+    /**
+     * Round weight down.
+     * @returns {object}
+     */
+    floor() {
+        this.weight = Math.floor(this.weight);
 
-        this.weight = weight;
+        return this;
+    }
+
+    /**
+     * Round weight up.
+     * @returns {object}
+     */
+    ceil() {
+        this.weight = Math.ceil(this.weight);
+
+        return this;
+    }
+
+    /**
+     * Round weight.
+     * @param {number} [digits = 0]
+     * @returns {object}
+     */
+    round(digits = 0) {
+        this.weight = this.toFixed(digits);
+
+        return this;
     }
 
     /**
      * The toFixed() method formats a number using fixed-point notation.
-     * @param {digits} [digits = 0] - Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.
+     * @param {number} [digits = 0] - Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.
      * @returns {string} A string representing the given number using fixed-point notation.
      */
-    toFixed(digits) {
+    toFixed(digits = 0) {
         return this.weight.toFixed(digits);
     }
 
@@ -98,5 +124,13 @@ export default class MassUnit {
      */
     isLighter(weight) {
         return this.weight < this.getValue(weight);
+    }
+
+    /**
+     * Check if current object is empty.
+     * @returns {boolean} True if current object is empty or false if not.
+     */
+    isEmpty() {
+        return (this.weight === 0);
     }
 }

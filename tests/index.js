@@ -5,46 +5,55 @@ var Ounces = Weight.Ounces;
 
 var problems = [{
         question: '8lb 36oz',
+        answer: '10 lbs 4 oz',
         ounces: 164,
         pounds: 10.25
     },
     {
         question: '164.85oz',
+        answer: '10 lbs 5 oz',
         ounces: 164.85,
         pounds: 10.303125
     },
     {
         question: '10lbs',
+        answer: '10 lbs',
         ounces: 160,
         pounds: 10
     },
     {
         question: '2lbs ,  17oz',
+        answer: '3 lbs 1 oz',
         ounces: 49,
         pounds: 3.0625
     },
     {
         question: 48,
+        answer: '3 lbs',
         ounces: 48,
         pounds: 3
     },
     {
         question: '17 lb 14 oz',
+        answer: '17 lbs 14 oz',
         ounces: 286,
         pounds: 17.875
     },
     {
         question: '3lbs4oz',
+        answer: '3 lbs 4 oz',
         ounces: 52,
         pounds: 3.25
     },
     {
         question: '3lbs 4',
+        answer: '3 lbs 4 oz',
         ounces: 52,
         pounds: 3.25
     },
     {
         question: '4 oz',
+        answer: '4 oz',
         ounces: 4,
         pounds: 0.25
     }
@@ -61,6 +70,17 @@ test('Ounces parse tests', function (t) {
     });
 });
 
+test('Ounces format tests', function (t) {
+    t.plan(problems.length);
+
+    // Validate Ounces .toString()
+    problems.forEach((problem) => {
+        let ounces = Ounces.parse(problem.question).toString();
+
+        t.equal(ounces, problem.answer, ounces);
+    });
+});
+
 test('Pounds parse tests', function (t) {
     t.plan(problems.length);
 
@@ -69,6 +89,17 @@ test('Pounds parse tests', function (t) {
         let pounds = Pounds.parse(problem.question);
 
         t.equal(pounds.value, problem.pounds, problem.question);
+    });
+});
+
+test('Pounds format tests', function (t) {
+    t.plan(problems.length);
+
+    // Validate Ounces .toString()
+    problems.forEach((problem) => {
+        let pounds = Pounds.parse(problem.question).toString();
+
+        t.equal(pounds, problem.answer, pounds);
     });
 });
 

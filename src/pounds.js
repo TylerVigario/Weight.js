@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.3
+ * @version 1.3.4
  */
 
 import MassUnit from './mass_unit';
@@ -98,7 +98,7 @@ export default class Pounds extends MassUnit {
      * Convert weight to text.
      * @returns {string} Formatted weight.
      */
-    toString(roundTo = 0) {
-        return this.toOunces().toString(roundTo);
+    toString(spaces = true, roundTo = 0) {
+        return this.toOunces().toString(spaces, roundTo);
     }
 }
