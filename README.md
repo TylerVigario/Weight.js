@@ -7,7 +7,7 @@ Utility class to convert imperial mass units as well as output and parse as text
 npm install weight.js
 ```
 
-**Usage (one of the below)**
+**[ES6] Importing (one of the below)**
 ```javascript
 import {Ounces, Pounds} from 'weight.js/src/weight.mjs';
 ```
@@ -16,4 +16,21 @@ import Ounces from 'weight.js/src/ounces.mjs';
 ```
 ```javascript
 import Pounds from 'weight.js/src/pounds.mjs';
+```
+
+**Usage**
+```javascript
+let ounces = Ounces.parse('   5lb ,  4oz');
+
+console.log(ounces.value); // 84
+
+let extraOunces = new Ounces(6);
+
+ounces.add(extraOunces);
+
+console.log(ounces.value); // 90
+
+if (ounces.equals(Ounces.parse('90oz'))) {
+  console.log(ounces.toString()); // "5lbs 10oz"
+}
 ```
