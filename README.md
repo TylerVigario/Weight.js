@@ -37,17 +37,15 @@ var Pounds = require('../dist/weight.js').Pounds;
 Example
 -------
 ```javascript
-let ounces = Ounces.parse('   5lb ,  4oz');
+let ounces = Ounces.parse('5lbs  4 oz');
 
 console.log(ounces.value); // 84
 
-let extraOunces = new Ounces(6);
-
-ounces.add(extraOunces);
+ounces.add(new Ounces(6));
 
 console.log(ounces.value); // 90
 
-if (ounces.equals(Ounces.parse('90oz'))) {
-  console.log(ounces.toString()); // "5lbs 10oz"
+if (ounces.isSame(new Ounces(90))) {
+    console.log(ounces.toString()); // "5 lbs 10 oz"
 }
 ```
