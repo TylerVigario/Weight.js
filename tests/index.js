@@ -42,6 +42,11 @@ var problems = [{
         question: '3lbs 4',
         ounces: 52,
         pounds: 3.25
+    },
+    {
+        question: '4 oz',
+        ounces: 4,
+        pounds: 0.25
     }
 ];
 
