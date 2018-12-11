@@ -24,7 +24,9 @@ import Pounds from 'weight.js/src/pounds.mjs';
 
 **CommonJS**
 ```javascript
-var Weight = require('Weight.js');
+var Weight = require('../dist/weight.js');
+var Pounds = Weight.Pounds;
+var Ounces = Weight.Ounces;
 ```
 
 Example
