@@ -63,3 +63,6 @@ Functions
 - **isHeavier**
 - **isLighter**
 - **isEmpty**
+- **toString**
+- **toOunces** (only for Pounds)
+- **toPounds** (only for Ounces)
