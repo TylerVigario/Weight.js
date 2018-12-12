@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.5
+ * @version 1.3.6
  */
 
 import MassUnit from './mass_unit';
@@ -133,13 +133,7 @@ export default class Ounces extends MassUnit {
         }
 
         // Dual units split at index
-        text = [
-            text.substring(0, splitAt),
-            text.substring(splitAt)
-        ];
-
-        // Pounds should precede ounces (unless signifier is preset: "lb" or "oz")
-        return Pounds.parseSingleUnit(text[0]).toOunces().add(Ounces.parseSingleUnit(text[1]));
+        return Ounces.parseSingleUnit(text.substring(splitAt)).add(Pounds.parseSingleUnit(text.substring(0, splitAt)));
     }
 
     /**
@@ -168,7 +162,7 @@ export default class Ounces extends MassUnit {
             ounces.subtract(pounds);
 
             // Format pounds for human consumption
-            formattedWeight = pounds.toFixed() + (spaces ? ' ' : '') + (pounds.isSame(1) ? 'lb' : 'lbs');
+            formattedWeight = pounds.toFixed(0) + (spaces ? ' ' : '') + (pounds.isSame(1) ? 'lb' : 'lbs');
 
             // Any ounces remaining?
             if (ounces.isEmpty()) {

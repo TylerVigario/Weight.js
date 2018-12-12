@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.5
+ * @version 1.3.6
  */
 
 import MassUnit from './mass_unit';
@@ -73,17 +73,17 @@ export default class Pounds extends MassUnit {
     /**
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
-     * @param {string} separator
+     * @param {string} splitAt
      * @returns {Pounds} Pounds object.
      */
-    static parseDualUnit(text, separator) {
-        let ounces = Ounces.parseDualUnit(text, separator);
-
-        if (ounces === false) {
+    static parseDualUnit(text, splitAt) {
+        // "splitAt" must be defined and must be a number
+        if (typeof splitAt !== 'number') {
             return false;
         }
 
-        return ounces.toPounds();
+        // Dual units split at index
+        return Pounds.parseSingleUnit(text.substring(0, splitAt)).add(Ounces.parseSingleUnit(text.substring(splitAt)));
     }
 
     /**
