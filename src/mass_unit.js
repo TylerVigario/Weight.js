@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.6
+ * @version 1.4.0
  */
 
 /** Class representing a mass unit. */
@@ -13,7 +13,7 @@ export default class MassUnit {
      * @param {(Ounces|Pounds|number|string)} [weight = 0]
      */
     constructor(weight = 0) {
-        this.weight = this.getValue(weight);
+        this.value = this.getValue(weight);
     }
 
     /**
@@ -25,7 +25,17 @@ export default class MassUnit {
     }
 
     set value(weight) {
-        this.weight = this.getValue(weight);
+        // Validate weight
+        if (isNaN(weight)) {
+            throw 'Weight must be a number.';
+        }
+
+        // Weight does not measure in negative
+        if (weight < 0) {
+            weight = 0
+        }
+
+        this.weight = weight;
     }
 
     /**
@@ -85,7 +95,14 @@ export default class MassUnit {
      * @returns {object} Returns current object.
      */
     subtract(weight) {
-        this.weight -= this.getValue(weight);
+        weight = this.getValue(weight);
+
+        // Make sure we do not subtract more than the current weight
+        if (weight > this.weight) {
+            weight = this.weight;
+        }
+
+        this.weight -= weight;
 
         return this;
     }

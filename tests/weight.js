@@ -56,7 +56,24 @@ var problems = [{
         answer: '4 oz',
         ounces: 4,
         pounds: 0.25
+    },
+    {
+        question: '16oz4lb',
+        answer: '5 lbs',
+        ounces: 80,
+        pounds: 5
+    },
+    {
+        question: -45,
+        answer: '0 oz',
+        ounces: 0,
+        pounds: 0
     }
+];
+var invalidWeights = [
+    '  ',
+    'weight.js',
+    'not,a,weight'
 ];
 
 test('Ounces parse tests', function (t) {
@@ -65,6 +82,10 @@ test('Ounces parse tests', function (t) {
     // Validate Ounces.parse()
     problems.forEach((problem) => {
         let ounces = Ounces.parse(problem.question);
+
+        if (!ounces instanceof Ounces) {
+            t.error('Error during parse.');
+        }
 
         t.equal(ounces.value, problem.ounces, problem.question);
     });
@@ -100,6 +121,17 @@ test('Pounds format tests', function (t) {
         let pounds = Pounds.parse(problem.question).toString();
 
         t.equal(pounds, problem.answer, pounds);
+    });
+});
+
+test('Invalid parse tests', function (t) {
+    t.plan(invalidWeights.length);
+
+    // Ounces.parse() invalid weight handling
+    invalidWeights.forEach((weight) => {
+        let ounces = Ounces.parse(weight);
+
+        t.equal(ounces, false, weight);
     });
 });
 

@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.6
+ * @version 1.4.0
  */
 
 import MassUnit from './mass_unit';
@@ -25,12 +25,20 @@ export default class Ounces extends MassUnit {
         } else if (weight instanceof Pounds) {
             return weight.toOunces().value;
         } else if (typeof weight === 'number') {
+            if (weight < 0) {
+                return 0;
+            }
+
             return weight;
         } else {
             weight = parseFloat(weight);
 
             if (isNaN(weight)) {
                 throw 'Invalid parameter passed to function.';
+            }
+
+            if (weight < 0) {
+                return 0;
             }
 
             return weight;
@@ -43,61 +51,85 @@ export default class Ounces extends MassUnit {
      * @returns {Ounces} Ounces object.
      */
     static parse(text) {
-        // Already a valid number
-        if (isNaN(text) === false) {
+        // Can't glean much info from a number
+        if (typeof text === 'number') {
             return new Ounces(text);
         }
-
         // Support for objects that have "toString" method
-        if (typeof text === 'object') {
+        else if (typeof text === 'object') {
             if (typeof text.toString !== 'function') {
                 return false;
             }
 
             text = text.toString();
         }
-
         // We expect to parse a string
-        if (typeof text !== 'string') {
+        else if (typeof text !== 'string') {
             return false;
         }
 
-        // Trim whitespace from beginning & end
-        text = text.trim();
+        // Remove spaces
+        text = text.replace(/\s/g, '');
 
         // Is string empty?
         if (text.length === 0) {
-            return new Ounces(0);
+            return false;
         }
 
         // Remove case sensitivity
         text = text.toLowerCase();
 
-        // Remove double spaces
-        text = text.replace("  ", " ");
-
-        // Remove possible space before "lb" & "oz"
-        text = text.replace(' oz', 'oz').replace(' lb', 'lb');
-
         let separator = -1;
+        let ozID = text.indexOf('oz');
+        let lbID = text.indexOf('lb');
 
-        // Dual unit or single unit?
-        if ((separator = text.indexOf(',')) !== -1 || // Dual units split by a comma (i.e. 3lb, 4oz)
-            (separator = text.indexOf(' ')) !== -1) { // Dual units split by a space (i.e. 3lb 4oz)
-            return Ounces.parseDualUnit(text, separator + 1);
-        } else if ((separator = text.indexOf('lb')) !== -1 && text.indexOf('oz') !== -1) {
-            // Dual units smashed together
-            separator += 2;
+        // Does it include signifiers?
+        if (ozID !== -1 && lbID !== -1) {
+            // Pounds precedes ounces (normal)
+            if (lbID < ozID) {
+                lbID += 2;
+
+                // Did they use "lbs"?
+                if (text.indexOf('lbs') !== -1) {
+                    lbID += 1;
+                }
+
+                return Ounces.parseDualUnit(text, lbID);
+            } else {
+                // Ounces precedes pounds (out-of-order)
+                ozID += 2;
+
+                return Ounces.parseDualUnit(text, ozID, true);
+            }
+        } else if (ozID !== -1) {
+            // Let's keep "oz" for parseSingleUnit
+            separator = ozID + 2;
+
+            // Is Single unit?
+            if (separator === text.length) {
+                return Ounces.parseSingleUnit(text);
+            }
+
+            return Ounces.parseDualUnit(text, separator, true);
+        } else if (lbID !== -1) {
+            separator = lbID + 2;
 
             // Did they use "lbs"?
             if (text.indexOf('lbs') !== -1) {
-                separator += 1;
+                separator++;
+            }
+
+            // Is Single unit?
+            if (separator === text.length) {
+                return Ounces.parseSingleUnit(text, Pounds);
             }
 
             return Ounces.parseDualUnit(text, separator);
+        } else if ((separator = text.indexOf(',')) !== -1) {
+            // Dual units split by a comma (i.e. 3lb, 4oz)
+            return Ounces.parseDualUnit(text, separator + 1);
         } else {
-            // Unfortunately since Pounds uses this parse function
-            // The below means this function is weighted towards ounces
+            // Single unit
             return Ounces.parseSingleUnit(text);
         }
     }
@@ -105,18 +137,43 @@ export default class Ounces extends MassUnit {
     /**
      * Parse text for single unit weight.
      * @param {(string|number)} text - Text to parse for single unit weight.
+     * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.
      * @returns {Ounces} Ounces object.
      */
-    static parseSingleUnit(text) {
+    static parseSingleUnit(text, unitType = Ounces) {
         text = text.trim();
+
+        // Last validation before initializing.
+        if (isNaN(parseFloat(text))) {
+            return false;
+        }
 
         // Single unit (3lb or 4oz)
         if (text.indexOf('lb') !== -1) {
             // Pounds (must include: lb or lbs)
             return (new Pounds(text)).toOunces();
-        } else {
-            // Ounces (default)
+        } else if (text.indexOf('oz') !== -1) {
+            // Ounces
             return new Ounces(text);
+        } else {
+            // Undefined (use default unitType)
+            switch (unitType) {
+                case 'Ounces':
+                case 'ounces':
+                case 'oz':
+                case Ounces:
+                    return new Ounces(text);
+                case 'Pound':
+                case 'pound':
+                case 'Pounds':
+                case 'pounds':
+                case 'lb':
+                case 'lbs':
+                case Pounds:
+                    return (new Pounds(text)).toOunces();
+                default:
+                    throw 'Invalid unit type.'
+            }
         }
     }
 
@@ -126,14 +183,39 @@ export default class Ounces extends MassUnit {
      * @param {number} splitAt Index to split string.
      * @returns {Ounces} Ounces object.
      */
-    static parseDualUnit(text, splitAt) {
+    static parseDualUnit(text, splitAt, outOfOrder = false) {
         // "splitAt" must be defined and must be a number
         if (typeof splitAt !== 'number') {
             return false;
         }
 
+        // Remove commas (shown to be problematic with our current flow)
+        text = text.replace(',', '');
+
         // Dual units split at index
-        return Ounces.parseSingleUnit(text.substring(splitAt)).add(Pounds.parseSingleUnit(text.substring(0, splitAt)));
+        if (outOfOrder === true) {
+            text = [
+                text.substring(0, splitAt),
+                text.substring(splitAt)
+            ];
+        } else {
+            text = [
+                text.substring(splitAt),
+                text.substring(0, splitAt)
+            ];
+        }
+
+        // Parse
+        let ounces = Ounces.parseSingleUnit(text[0]);
+        let pounds = Pounds.parseSingleUnit(text[1]);
+
+        // Did we have any trouble parsing single units?
+        if (ounces === false || pounds === false) {
+            return false;
+        }
+
+        // Return adding pounds to ounces (to maintain a Ounces object)
+        return ounces.add(pounds);
     }
 
     /**
