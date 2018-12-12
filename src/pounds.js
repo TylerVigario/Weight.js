@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.4.0
+ * @version 1.4.1
  */
 
 import MassUnit from './mass_unit';

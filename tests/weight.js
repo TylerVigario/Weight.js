@@ -68,10 +68,21 @@ var problems = [{
         answer: '0 oz',
         ounces: 0,
         pounds: 0
+    },
+    {
+        question: '  ',
+        answer: '0 oz',
+        ounces: 0,
+        pounds: 0
+    },
+    {
+        question: '20  lb, 20 o z ',
+        answer: '21 lbs 4 oz',
+        ounces: 340,
+        pounds: 21.25
     }
 ];
 var invalidWeights = [
-    '  ',
     'weight.js',
     'not,a,weight'
 ];

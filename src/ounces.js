@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.4.0
+ * @version 1.4.1
  */
 
 import MassUnit from './mass_unit';
@@ -73,7 +73,7 @@ export default class Ounces extends MassUnit {
 
         // Is string empty?
         if (text.length === 0) {
-            return false;
+            return new Ounces(0);
         }
 
         // Remove case sensitivity
