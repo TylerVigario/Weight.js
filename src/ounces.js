@@ -43,7 +43,7 @@ export default class Ounces extends MassUnit {
      * @returns {Ounces} Ounces object.
      */
     static parse(text) {
-        // No need
+        // Already a valid number
         if (isNaN(text) === false) {
             return new Ounces(text);
         }
@@ -65,7 +65,7 @@ export default class Ounces extends MassUnit {
         // Trim whitespace from beginning & end
         text = text.trim();
 
-        // No need
+        // Is string empty?
         if (text.length === 0) {
             return new Ounces(0);
         }
@@ -83,7 +83,7 @@ export default class Ounces extends MassUnit {
 
         // Dual unit or single unit?
         if ((separator = text.indexOf(',')) !== -1 || // Dual units split by a comma (i.e. 3lb, 4oz)
-            (separator = text.indexOf(' ')) !== -1) { // Dual units split by a space (i.e. 3lb 4oz)) {
+            (separator = text.indexOf(' ')) !== -1) { // Dual units split by a space (i.e. 3lb 4oz)
             return Ounces.parseDualUnit(text, separator + 1);
         } else if ((separator = text.indexOf('lb')) !== -1 && text.indexOf('oz') !== -1) {
             // Dual units smashed together

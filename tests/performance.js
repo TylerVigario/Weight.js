@@ -26,7 +26,7 @@ console.log('parse: ' + Math.round(i / (time / 1000)).toLocaleString() + ' op/s'
 time = microtime.now();
 
 for (i = 0; i < 1000000; i++) {
-    Ounces.parseSingleUnit('25 lb  ');
+    Ounces.parseSingleUnit('25 oz  ');
 }
 
 time = microtime.now() - time;
