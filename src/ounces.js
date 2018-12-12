@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license MIT
- * @version 1.3.4
+ * @version 1.3.5
  */
 
 import MassUnit from './mass_unit';
@@ -49,7 +49,11 @@ export default class Ounces extends MassUnit {
         }
 
         // Support for objects that have "toString" method
-        if (typeof text === 'object' && typeof text.toString === 'function') {
+        if (typeof text === 'object') {
+            if (typeof text.toString !== 'function') {
+                return false;
+            }
+
             text = text.toString();
         }
 
@@ -70,7 +74,7 @@ export default class Ounces extends MassUnit {
         text = text.toLowerCase();
 
         // Remove double spaces
-        text = text.replace(/ +/g, " ");
+        text = text.replace("  ", " ");
 
         // Remove possible space before "lb" & "oz"
         text = text.replace(' oz', 'oz').replace(' lb', 'lb');
@@ -85,6 +89,7 @@ export default class Ounces extends MassUnit {
             // Dual units smashed together
             separator += 2;
 
+            // Did they use "lbs"?
             if (text.indexOf('lbs') !== -1) {
                 separator += 1;
             }
@@ -122,7 +127,7 @@ export default class Ounces extends MassUnit {
      * @returns {Ounces} Ounces object.
      */
     static parseDualUnit(text, splitAt) {
-        // Split at must be defined and must be a number
+        // "splitAt" must be defined and must be a number
         if (typeof splitAt !== 'number') {
             return false;
         }
