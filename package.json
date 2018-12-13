@@ -5,8 +5,8 @@
   "scripts": {
     "build": "npx webpack --config webpack.config.js",
     "lint": "./node_modules/.bin/eslint --config ./.eslintrc.js ./src",
-    "test": "node ./tests/weight.js | tap-spec",
-    "tests": "npm run lint | npm run test",
+    "test": "npm run tests",
+    "tests": "node ./tests/weight.js | tap-spec",
     "speed": "npm run performance",
     "performance": "node ./tests/performance.js",
     "example": "node ./tests/example.js"
