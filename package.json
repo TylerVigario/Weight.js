@@ -7,7 +7,8 @@
     "lint": "./node_modules/.bin/eslint --config ./.eslintrc.js ./src",
     "test": "npm run tests",
     "tests": "node ./tests/weight.js | tap-spec",
-    "tests:coverage": "node ./node_modules/.bin/istanbul cover npm run tests",
+    "test:coverage": "npm run tests:coverage",
+    "tests:coverage": "npx istanbul cover ./tests/weight.js",
     "speed": "npm run performance",
     "performance": "node ./tests/performance.js",
     "example": "node ./tests/example.js"
