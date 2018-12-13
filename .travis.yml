@@ -10,6 +10,7 @@ install:
     - npm install
 
 before_script:
+    - npm install nyc --no-save
     - npm install coveralls --no-save
 
 script:
