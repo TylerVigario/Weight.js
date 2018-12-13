@@ -2,8 +2,8 @@
  * Pound mass unit.
  *
  * @author Tyler Vigario (MeekLogic)
- * @license MIT
- * @version 1.4.1
+ * @license GPL-3.0-or-later
+ * @version 1.4.2
  */
 
 import MassUnit from './mass_unit';
