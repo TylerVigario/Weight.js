@@ -1,8 +1,11 @@
 {
     "cSpell.words": [
+        "lcov",
         "linebreak",
         "microtime",
-        "signifiers"
+        "reporter",
+        "signifiers",
+        "text"
     ],
 	"editor.detectIndentation": false
 }
