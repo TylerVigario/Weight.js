@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.org/MeekLogic/Weight.js) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)
+[![Build Status](https://travis-ci.org/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.org/MeekLogic/Weight.js) https://github.com/MeekLogic/Weight.js [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)
 
 Weight.js
 =========
@@ -68,7 +68,3 @@ Functions
 - **toString**
 - **toOunces** (only for Pounds)
 - **toPounds** (only for Ounces)
-
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_large)
