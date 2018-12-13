@@ -4,7 +4,7 @@
   "description": "JavaScript classes to convert imperial mass units as well as output and parse as text.",
   "scripts": {
     "build": "npx webpack --config webpack.config.js",
-    "lint": "./node_modules/.bin/eslint ./src",
+    "lint": "./node_modules/.bin/eslint --config ./.eslintrc.js ./src",
     "test": "node ./tests/weight.js | tap-spec",
     "tests": "npm run lint | npm run test",
     "speed": "npm run performance",
