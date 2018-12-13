@@ -7,6 +7,7 @@
     "lint": "./node_modules/.bin/eslint --config ./.eslintrc.js ./src",
     "test": "npm run tests",
     "tests": "node ./tests/weight.js | tap-spec",
+    "tests:coverage": "node ./node_modules/.bin/istanbul cover npm run tests",
     "speed": "npm run performance",
     "performance": "node ./tests/performance.js",
     "example": "node ./tests/example.js"
@@ -32,6 +33,7 @@
     "@babel/preset-env": "^7.2.0",
     "babel-loader": "^8.0.4",
     "eslint": "^5.10.0",
+    "istanbul": "^0.4.5",
     "microtime": "^2.1.8",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
