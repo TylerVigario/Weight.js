@@ -10,11 +10,11 @@ install:
     - npm install
 
 before_script:
-    - npm install nyc --no-save
     - npm install coveralls --no-save
 
 script:
     - npm run lint
     - npm run build
     - npm run tests
+    - npm run coverage
     - npm run performance
