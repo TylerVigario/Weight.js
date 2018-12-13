@@ -10,12 +10,10 @@ install:
     - npm install
 
 before_script:
-    - npm install -g codecov
+    - npm install --save-dev coveralls
 
 script:
     - npm run lint
     - npm run build
     - npm run tests
-    - npm run tests:coverage
-    - npm run performance
-    - npx codecov
+    - npx coveralls -v
