@@ -98,7 +98,7 @@ export default class Pounds extends MassUnit {
                 case Pounds:
                     return (new Pounds(text));
                 default:
-                    throw 'Invalid unit type.'
+                    throw 'Invalid unit type.';
             }
         }
     }

@@ -172,7 +172,7 @@ export default class Ounces extends MassUnit {
                 case Pounds:
                     return (new Pounds(text)).toOunces();
                 default:
-                    throw 'Invalid unit type.'
+                    throw 'Invalid unit type.';
             }
         }
     }

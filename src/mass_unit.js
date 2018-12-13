@@ -32,7 +32,7 @@ export default class MassUnit {
 
         // Weight does not measure in negative
         if (weight < 0) {
-            weight = 0
+            weight = 0;
         }
 
         this.weight = weight;
