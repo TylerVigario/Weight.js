@@ -8,7 +8,8 @@
     "tests": "node ./tests/weight.js | tap-spec",
     "speed": "npm run performance",
     "performance": "node ./tests/performance.js",
-    "example": "node ./tests/example.js"
+    "example": "node ./tests/example.js",
+    "lint": "./node_modules/.bin/eslint ./src"
   },
   "keywords": [
     "weight",
