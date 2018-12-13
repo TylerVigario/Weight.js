@@ -9,6 +9,9 @@ cache:
 install:
     - npm install
 
+before_script:
+    - npm install coveralls --no-save
+
 script:
     - npm run lint
     - npm run build
