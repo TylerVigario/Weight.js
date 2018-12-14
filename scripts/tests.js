@@ -147,6 +147,17 @@ test('Invalid parse tests', function (t) {
     });
 });
 
+test('Comparison tests', function (t) {
+    t.plan(3);
+
+    let smallWeight = new Pounds(1);
+    let largeWeight = new Pounds(80);
+
+    t.true(largeWeight.isHeavier(smallWeight), 'isHeavier');
+    t.true(smallWeight.isLighter(largeWeight), 'isLighter');
+    t.true(smallWeight.isNotSame(largeWeight), 'isNotSame');
+});
+
 test('Additional tests', function (t) {
     t.plan(3);
 
