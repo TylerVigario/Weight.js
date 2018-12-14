@@ -4,6 +4,8 @@ Weight.js
 =========
 JavaScript classes to convert imperial mass units as well as output and parse as text.
 
+**[Documentation](https://meeklogic.github.io/Weight.js/)**
+
 Install
 -------
 ```javascript
