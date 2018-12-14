@@ -1,6 +1,6 @@
 {
   "name": "weight.js",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "JavaScript classes to convert imperial mass units as well as output and parse as text.",
   "scripts": {
     "build": "npx webpack --config webpack.config.js",
@@ -13,7 +13,7 @@
     "speed": "npm run performance",
     "performance": "node ./scripts/performance.js",
     "docs": "npm run documentation",
-    "documentation": "npx documentation build src/weight.js --format md --output docs/weight.js",
+    "documentation": "npx documentation build src/weight.js --format md --output docs/functions.md",
     "example": "node ./scripts/example.js"
   },
   "keywords": [
