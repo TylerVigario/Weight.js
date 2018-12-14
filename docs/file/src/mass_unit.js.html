@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/mass_unit.js | weight.js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="JavaScript classes to convert imperial mass units as well as output and parse as text."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="weight.js"><meta property="twitter:description" content="JavaScript classes to convert imperial mass units as well as output and parse as text."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/MeekLogic/Weight.js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mass_unit.js~MassUnit.html">MassUnit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/mass_unit.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** 
+ * Imperial mass unit.
+ *
+ * @author Tyler Vigario (MeekLogic)
+ * @license GPL-3.0-only
+ * @version 1.4.3
+ */
+
+/**
+ * Class representing a mass unit.
+ * @param {(Ounces|Pounds|number|string)} [weight = 0]
+ */
+export default class MassUnit {
+    constructor(weight = 0) {
+        this.value = this.getValue(weight);
+    }
+
+    /**
+     * Return weight value.
+     * @type {number}
+     */
+    get value() {
+        return this.weight;
+    }
+
+    set value(weight) {
+        // Validate weight
+        if (isNaN(weight)) {
+            throw &apos;Weight must be a number.&apos;;
+        }
+
+        // Weight does not measure in negative
+        if (weight &lt; 0) {
+            weight = 0;
+        }
+
+        this.weight = weight;
+    }
+
+    /**
+     * Round weight down.
+     * @returns {Object}
+     */
+    floor() {
+        this.weight = Math.floor(this.weight);
+
+        return this;
+    }
+
+    /**
+     * Round weight up.
+     * @returns {Object}
+     */
+    ceil() {
+        this.weight = Math.ceil(this.weight);
+
+        return this;
+    }
+
+    /**
+     * Round weight.
+     * @param {number} [digits = 0]
+     * @returns {Object}
+     */
+    round(digits = 0) {
+        this.weight = this.toFixed(digits);
+
+        return this;
+    }
+
+    /**
+     * The toFixed() method formats a number using fixed-point notation.
+     * @param {number} [digits = 0] - Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.
+     * @returns {string} A string representing the given number using fixed-point notation.
+     */
+    toFixed(digits = 0) {
+        return this.weight.toFixed(digits);
+    }
+
+    /**
+     * Add weight to current object.
+     * @param {(Ounces|Pounds|number|string)} weight - Weight to add.
+     * @returns {Object} Returns current object.
+     */
+    add(weight) {
+        this.weight += this.getValue(weight);
+
+        return this;
+    }
+
+    /**
+     * Subtract weight to current object.
+     * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.
+     * @returns {Object} Returns current object.
+     */
+    subtract(weight) {
+        weight = this.getValue(weight);
+
+        // Make sure we do not subtract more than the current weight
+        if (weight &gt; this.weight) {
+            weight = this.weight;
+        }
+
+        this.weight -= weight;
+
+        return this;
+    }
+
+    /**
+     * Check if current object value is same as given weight.
+     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.
+     * @returns {boolean} True if same or false is not.
+     */
+    isSame(weight) {
+        return this.weight === this.getValue(weight);
+    }
+
+    /**
+     * Check if current object value is not same as given weight.
+     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.
+     * @returns {boolean} False if same or true if not.
+     */
+    isNotSame(weight) {
+        return this.weight !== this.getValue(weight);
+    }
+
+    /**
+     * Check if current mass is heavier than a given weight.
+     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.
+     * @returns {boolean} True if current object is heavier or false if not.
+     */
+    isHeavier(weight) {
+        return this.weight &gt; this.getValue(weight);
+    }
+
+    /**
+     * Check if current mass is lighter than a given weight.
+     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.
+     * @returns {boolean} True if current object is lighter or false if not.
+     */
+    isLighter(weight) {
+        return this.weight &lt; this.getValue(weight);
+    }
+
+    /**
+     * Check if current object is empty.
+     * @returns {boolean} True if current object is empty or false if not.
+     */
+    isEmpty() {
+        return (this.weight === 0);
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

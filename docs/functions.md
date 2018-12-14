@@ -138,12 +138,14 @@ Convert ounces to pounds.
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 
-### `toString(): string`
+### `toString(spaces: boolean, roundTo: number): string`
 
 Convert weight to text.
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
+| spaces | boolean | nullable: undefined, optional: true, default: true |
+| roundTo | number | nullable: undefined, optional: true, default: 0 |
 
 ## `Pounds`
 
@@ -191,11 +193,13 @@ Convert pounds to ounces.
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 
-### `toString(): string`
+### `toString(spaces: boolean, roundTo: number): string`
 
 Convert weight to text.
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
+| spaces | boolean | nullable: undefined, optional: true, default: true |
+| roundTo | number | nullable: undefined, optional: true, default: 0 |
 
 # Function

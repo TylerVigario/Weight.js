@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Ounces.parseDualUnit",
+    "filePath": "src/ounces.js",
+    "lines": [
+      {
+        "lineNumber": 179,
+        "line": "    /**\r"
+      },
+      {
+        "lineNumber": 180,
+        "line": "     * Parse text for weight.\r"
+      },
+      {
+        "lineNumber": 181,
+        "line": "     * @param {(string|number)} text - Text to parse for weight.\r"
+      },
+      {
+        "lineNumber": 182,
+        "line": "     * @param {number} splitAt Index to split string.\r"
+      },
+      {
+        "lineNumber": 183,
+        "line": "     * @returns {Ounces} Ounces object.\r"
+      },
+      {
+        "lineNumber": 184,
+        "line": "     */\r"
+      },
+      {
+        "lineNumber": 185,
+        "line": "    static parseDualUnit(text, splitAt, outOfOrder = false) {\r"
+      }
+    ],
+    "codeParams": [
+      "text",
+      "splitAt",
+      "outOfOrder"
+    ],
+    "docParams": [
+      "text",
+      "splitAt"
+    ]
+  }
+]
