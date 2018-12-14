@@ -47,24 +47,3 @@ if (ounces.isSame(new Ounces(90))) {
     console.log(ounces.toString()); // "5 lbs 10 oz"
 }
 ```
-
-Functions
----------
-### Static
-- **parse**
-
-### Object
-- **floor**
-- **ceil**
-- **round**
-- **toFixed**
-- **add**
-- **subtract**
-- **isSame**
-- **isNotSame**
-- **isHeavier**
-- **isLighter**
-- **isEmpty**
-- **toString**
-- **toOunces** (only for Pounds)
-- **toPounds** (only for Ounces)
