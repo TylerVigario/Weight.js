@@ -2,264 +2,116 @@
 
 ### Table of Contents
 
--   [Ounces][1]
-    -   [getValue][2]
-        -   [Parameters][3]
-    -   [toPounds][4]
-    -   [toString][5]
+-   [MassUnit][1]
+    -   [value][2]
+    -   [floor][3]
+    -   [ceil][4]
+    -   [round][5]
         -   [Parameters][6]
-    -   [parse][7]
+    -   [toFixed][7]
         -   [Parameters][8]
-    -   [parseSingleUnit][9]
+    -   [add][9]
         -   [Parameters][10]
-    -   [parseDualUnit][11]
+    -   [subtract][11]
         -   [Parameters][12]
--   [Ounces][13]
-    -   [getValue][14]
-        -   [Parameters][15]
-    -   [toPounds][16]
-    -   [toString][17]
+    -   [isSame][13]
+        -   [Parameters][14]
+    -   [isNotSame][15]
+        -   [Parameters][16]
+    -   [isHeavier][17]
         -   [Parameters][18]
-    -   [parse][19]
+    -   [isLighter][19]
         -   [Parameters][20]
-    -   [parseSingleUnit][21]
-        -   [Parameters][22]
-    -   [parseDualUnit][23]
-        -   [Parameters][24]
--   [MassUnit][25]
-    -   [value][26]
-    -   [floor][27]
-    -   [ceil][28]
-    -   [round][29]
+    -   [isEmpty][21]
+-   [MassUnit][22]
+    -   [Parameters][23]
+    -   [value][24]
+    -   [floor][25]
+    -   [ceil][26]
+    -   [round][27]
+        -   [Parameters][28]
+    -   [toFixed][29]
         -   [Parameters][30]
-    -   [toFixed][31]
+    -   [add][31]
         -   [Parameters][32]
-    -   [add][33]
+    -   [subtract][33]
         -   [Parameters][34]
-    -   [subtract][35]
+    -   [isSame][35]
         -   [Parameters][36]
-    -   [isSame][37]
+    -   [isNotSame][37]
         -   [Parameters][38]
-    -   [isNotSame][39]
+    -   [isHeavier][39]
         -   [Parameters][40]
-    -   [isHeavier][41]
+    -   [isLighter][41]
         -   [Parameters][42]
-    -   [isLighter][43]
-        -   [Parameters][44]
-    -   [isEmpty][45]
--   [MassUnit][46]
-    -   [Parameters][47]
-    -   [value][48]
-    -   [floor][49]
-    -   [ceil][50]
-    -   [round][51]
+    -   [isEmpty][43]
+-   [MassUnit][44]
+    -   [Parameters][45]
+    -   [value][46]
+    -   [floor][47]
+    -   [ceil][48]
+    -   [round][49]
+        -   [Parameters][50]
+    -   [toFixed][51]
         -   [Parameters][52]
-    -   [toFixed][53]
+    -   [add][53]
         -   [Parameters][54]
-    -   [add][55]
+    -   [subtract][55]
         -   [Parameters][56]
-    -   [subtract][57]
+    -   [isSame][57]
         -   [Parameters][58]
-    -   [isSame][59]
+    -   [isNotSame][59]
         -   [Parameters][60]
-    -   [isNotSame][61]
+    -   [isHeavier][61]
         -   [Parameters][62]
-    -   [isHeavier][63]
+    -   [isLighter][63]
         -   [Parameters][64]
-    -   [isLighter][65]
-        -   [Parameters][66]
-    -   [isEmpty][67]
--   [MassUnit][68]
-    -   [Parameters][69]
-    -   [value][70]
-    -   [floor][71]
-    -   [ceil][72]
-    -   [round][73]
-        -   [Parameters][74]
-    -   [toFixed][75]
-        -   [Parameters][76]
-    -   [add][77]
-        -   [Parameters][78]
-    -   [subtract][79]
-        -   [Parameters][80]
-    -   [isSame][81]
-        -   [Parameters][82]
-    -   [isNotSame][83]
-        -   [Parameters][84]
-    -   [isHeavier][85]
-        -   [Parameters][86]
-    -   [isLighter][87]
-        -   [Parameters][88]
-    -   [isEmpty][89]
--   [MassUnit][90]
-    -   [value][91]
-    -   [floor][92]
-    -   [ceil][93]
-    -   [round][94]
-        -   [Parameters][95]
-    -   [toFixed][96]
-        -   [Parameters][97]
-    -   [add][98]
-        -   [Parameters][99]
-    -   [subtract][100]
+    -   [isEmpty][65]
+-   [MassUnit][66]
+    -   [value][67]
+    -   [floor][68]
+    -   [ceil][69]
+    -   [round][70]
+        -   [Parameters][71]
+    -   [toFixed][72]
+        -   [Parameters][73]
+    -   [add][74]
+        -   [Parameters][75]
+    -   [subtract][76]
+        -   [Parameters][77]
+    -   [isSame][78]
+        -   [Parameters][79]
+    -   [isNotSame][80]
+        -   [Parameters][81]
+    -   [isHeavier][82]
+        -   [Parameters][83]
+    -   [isLighter][84]
+        -   [Parameters][85]
+    -   [isEmpty][86]
+-   [Ounces][87]
+    -   [getValue][88]
+        -   [Parameters][89]
+    -   [toPounds][90]
+    -   [toString][91]
+        -   [Parameters][92]
+    -   [parse][93]
+        -   [Parameters][94]
+    -   [parseSingleUnit][95]
+        -   [Parameters][96]
+    -   [parseDualUnit][97]
+        -   [Parameters][98]
+-   [Pounds][99]
+    -   [getValue][100]
         -   [Parameters][101]
-    -   [isSame][102]
-        -   [Parameters][103]
-    -   [isNotSame][104]
-        -   [Parameters][105]
-    -   [isHeavier][106]
-        -   [Parameters][107]
-    -   [isLighter][108]
-        -   [Parameters][109]
-    -   [isEmpty][110]
--   [Pounds][111]
-    -   [getValue][112]
-        -   [Parameters][113]
-    -   [toOunces][114]
-    -   [toString][115]
-        -   [Parameters][116]
-    -   [parse][117]
-        -   [Parameters][118]
-    -   [parseSingleUnit][119]
-        -   [Parameters][120]
-    -   [parseDualUnit][121]
-        -   [Parameters][122]
-
-## Ounces
-
-Weight.js
-
-**Meta**
-
--   **version**: 1.4.3
--   **author**: Tyler Vigario (MeekLogic)
--   **license**: GPL-3.0-only
-
-### getValue
-
-Get value from variable.
-
-#### Parameters
-
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Variable to extract weight from.
-
-Returns **[number][125]** 
-
-### toPounds
-
-Convert ounces to pounds.
-
-Returns **[Pounds][124]** Pounds object.
-
-### toString
-
-Convert weight to text.
-
-#### Parameters
-
--   `spaces`   (optional, default `true`)
--   `roundTo`   (optional, default `0`)
-
-Returns **[string][126]** Formatted weight.
-
-### parse
-
-Parse text for weight.
-
-#### Parameters
-
--   `text` **([string][126] \| [number][125])** Text to parse for weight.
-
-Returns **[Ounces][123]** Ounces object.
-
-### parseSingleUnit
-
-Parse text for single unit weight.
-
-#### Parameters
-
--   `text` **([string][126] \| [number][125])** Text to parse for single unit weight.
--   `unitType` **([Ounces][123] \| [Pounds][124] \| [string][126])** Default unit type if no signifier is found. (optional, default `Ounces`)
-
-Returns **[Ounces][123]** Ounces object.
-
-### parseDualUnit
-
-Parse text for weight.
-
-#### Parameters
-
--   `text` **([string][126] \| [number][125])** Text to parse for weight.
--   `splitAt` **[number][125]** Index to split string.
--   `outOfOrder`   (optional, default `false`)
-
-Returns **[Ounces][123]** Ounces object.
-
-## Ounces
-
-**Extends MassUnit**
-
-Class representing ounce mass units.
-
-### getValue
-
-Get value from variable.
-
-#### Parameters
-
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Variable to extract weight from.
-
-Returns **[number][125]** 
-
-### toPounds
-
-Convert ounces to pounds.
-
-Returns **[Pounds][124]** Pounds object.
-
-### toString
-
-Convert weight to text.
-
-#### Parameters
-
--   `spaces`   (optional, default `true`)
--   `roundTo`   (optional, default `0`)
-
-Returns **[string][126]** Formatted weight.
-
-### parse
-
-Parse text for weight.
-
-#### Parameters
-
--   `text` **([string][126] \| [number][125])** Text to parse for weight.
-
-Returns **[Ounces][123]** Ounces object.
-
-### parseSingleUnit
-
-Parse text for single unit weight.
-
-#### Parameters
-
--   `text` **([string][126] \| [number][125])** Text to parse for single unit weight.
--   `unitType` **([Ounces][123] \| [Pounds][124] \| [string][126])** Default unit type if no signifier is found. (optional, default `Ounces`)
-
-Returns **[Ounces][123]** Ounces object.
-
-### parseDualUnit
-
-Parse text for weight.
-
-#### Parameters
-
--   `text` **([string][126] \| [number][125])** Text to parse for weight.
--   `splitAt` **[number][125]** Index to split string.
--   `outOfOrder`   (optional, default `false`)
-
-Returns **[Ounces][123]** Ounces object.
+    -   [toOunces][102]
+    -   [toString][103]
+        -   [Parameters][104]
+    -   [parse][105]
+        -   [Parameters][106]
+    -   [parseSingleUnit][107]
+        -   [Parameters][108]
+    -   [parseDualUnit][109]
+        -   [Parameters][110]
 
 ## MassUnit
 
@@ -275,19 +127,19 @@ Ounce mass unit.
 
 Return weight value.
 
-Type: [number][125]
+Type: [number][111]
 
 ### floor
 
 Round weight down.
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### ceil
 
 Round weight up.
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### round
 
@@ -295,9 +147,9 @@ Round weight.
 
 #### Parameters
 
--   `digits` **[number][125]**  (optional, default `0`)
+-   `digits` **[number][111]**  (optional, default `0`)
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### toFixed
 
@@ -305,9 +157,9 @@ The toFixed() method formats a number using fixed-point notation.
 
 #### Parameters
 
--   `digits` **[number][125]** Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0. (optional, default `0`)
+-   `digits` **[number][111]** Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0. (optional, default `0`)
 
-Returns **[string][126]** A string representing the given number using fixed-point notation.
+Returns **[string][113]** A string representing the given number using fixed-point notation.
 
 ### add
 
@@ -315,9 +167,9 @@ Add weight to current object.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to add.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to add.
 
-Returns **[Object][127]** Returns current object.
+Returns **[Object][112]** Returns current object.
 
 ### subtract
 
@@ -325,9 +177,9 @@ Subtract weight to current object.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to subtract.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to subtract.
 
-Returns **[Object][127]** Returns current object.
+Returns **[Object][112]** Returns current object.
 
 ### isSame
 
@@ -335,9 +187,9 @@ Check if current object value is same as given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if same or false is not.
+Returns **[boolean][116]** True if same or false is not.
 
 ### isNotSame
 
@@ -345,9 +197,9 @@ Check if current object value is not same as given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** False if same or true if not.
+Returns **[boolean][116]** False if same or true if not.
 
 ### isHeavier
 
@@ -355,9 +207,9 @@ Check if current mass is heavier than a given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if current object is heavier or false if not.
+Returns **[boolean][116]** True if current object is heavier or false if not.
 
 ### isLighter
 
@@ -365,15 +217,15 @@ Check if current mass is lighter than a given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if current object is lighter or false if not.
+Returns **[boolean][116]** True if current object is lighter or false if not.
 
 ### isEmpty
 
 Check if current object is empty.
 
-Returns **[boolean][128]** True if current object is empty or false if not.
+Returns **[boolean][116]** True if current object is empty or false if not.
 
 ## MassUnit
 
@@ -393,19 +245,19 @@ Imperial mass unit.
 
 Return weight value.
 
-Type: [number][125]
+Type: [number][111]
 
 ### floor
 
 Round weight down.
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### ceil
 
 Round weight up.
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### round
 
@@ -413,9 +265,9 @@ Round weight.
 
 #### Parameters
 
--   `digits` **[number][125]**  (optional, default `0`)
+-   `digits` **[number][111]**  (optional, default `0`)
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### toFixed
 
@@ -423,9 +275,9 @@ The toFixed() method formats a number using fixed-point notation.
 
 #### Parameters
 
--   `digits` **[number][125]** Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0. (optional, default `0`)
+-   `digits` **[number][111]** Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0. (optional, default `0`)
 
-Returns **[string][126]** A string representing the given number using fixed-point notation.
+Returns **[string][113]** A string representing the given number using fixed-point notation.
 
 ### add
 
@@ -433,9 +285,9 @@ Add weight to current object.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to add.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to add.
 
-Returns **[Object][127]** Returns current object.
+Returns **[Object][112]** Returns current object.
 
 ### subtract
 
@@ -443,9 +295,9 @@ Subtract weight to current object.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to subtract.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to subtract.
 
-Returns **[Object][127]** Returns current object.
+Returns **[Object][112]** Returns current object.
 
 ### isSame
 
@@ -453,9 +305,9 @@ Check if current object value is same as given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if same or false is not.
+Returns **[boolean][116]** True if same or false is not.
 
 ### isNotSame
 
@@ -463,9 +315,9 @@ Check if current object value is not same as given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** False if same or true if not.
+Returns **[boolean][116]** False if same or true if not.
 
 ### isHeavier
 
@@ -473,9 +325,9 @@ Check if current mass is heavier than a given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if current object is heavier or false if not.
+Returns **[boolean][116]** True if current object is heavier or false if not.
 
 ### isLighter
 
@@ -483,15 +335,15 @@ Check if current mass is lighter than a given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if current object is lighter or false if not.
+Returns **[boolean][116]** True if current object is lighter or false if not.
 
 ### isEmpty
 
 Check if current object is empty.
 
-Returns **[boolean][128]** True if current object is empty or false if not.
+Returns **[boolean][116]** True if current object is empty or false if not.
 
 ## MassUnit
 
@@ -499,25 +351,25 @@ Class representing a mass unit.
 
 ### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])**  (optional, default `0`)
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])**  (optional, default `0`)
 
 ### value
 
 Return weight value.
 
-Type: [number][125]
+Type: [number][111]
 
 ### floor
 
 Round weight down.
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### ceil
 
 Round weight up.
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### round
 
@@ -525,9 +377,9 @@ Round weight.
 
 #### Parameters
 
--   `digits` **[number][125]**  (optional, default `0`)
+-   `digits` **[number][111]**  (optional, default `0`)
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### toFixed
 
@@ -535,9 +387,9 @@ The toFixed() method formats a number using fixed-point notation.
 
 #### Parameters
 
--   `digits` **[number][125]** Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0. (optional, default `0`)
+-   `digits` **[number][111]** Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0. (optional, default `0`)
 
-Returns **[string][126]** A string representing the given number using fixed-point notation.
+Returns **[string][113]** A string representing the given number using fixed-point notation.
 
 ### add
 
@@ -545,9 +397,9 @@ Add weight to current object.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to add.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to add.
 
-Returns **[Object][127]** Returns current object.
+Returns **[Object][112]** Returns current object.
 
 ### subtract
 
@@ -555,9 +407,9 @@ Subtract weight to current object.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to subtract.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to subtract.
 
-Returns **[Object][127]** Returns current object.
+Returns **[Object][112]** Returns current object.
 
 ### isSame
 
@@ -565,9 +417,9 @@ Check if current object value is same as given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if same or false is not.
+Returns **[boolean][116]** True if same or false is not.
 
 ### isNotSame
 
@@ -575,9 +427,9 @@ Check if current object value is not same as given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** False if same or true if not.
+Returns **[boolean][116]** False if same or true if not.
 
 ### isHeavier
 
@@ -585,9 +437,9 @@ Check if current mass is heavier than a given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if current object is heavier or false if not.
+Returns **[boolean][116]** True if current object is heavier or false if not.
 
 ### isLighter
 
@@ -595,15 +447,15 @@ Check if current mass is lighter than a given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if current object is lighter or false if not.
+Returns **[boolean][116]** True if current object is lighter or false if not.
 
 ### isEmpty
 
 Check if current object is empty.
 
-Returns **[boolean][128]** True if current object is empty or false if not.
+Returns **[boolean][116]** True if current object is empty or false if not.
 
 ## MassUnit
 
@@ -619,19 +471,19 @@ Pound mass unit.
 
 Return weight value.
 
-Type: [number][125]
+Type: [number][111]
 
 ### floor
 
 Round weight down.
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### ceil
 
 Round weight up.
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### round
 
@@ -639,9 +491,9 @@ Round weight.
 
 #### Parameters
 
--   `digits` **[number][125]**  (optional, default `0`)
+-   `digits` **[number][111]**  (optional, default `0`)
 
-Returns **[Object][127]** 
+Returns **[Object][112]** 
 
 ### toFixed
 
@@ -649,9 +501,9 @@ The toFixed() method formats a number using fixed-point notation.
 
 #### Parameters
 
--   `digits` **[number][125]** Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0. (optional, default `0`)
+-   `digits` **[number][111]** Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0. (optional, default `0`)
 
-Returns **[string][126]** A string representing the given number using fixed-point notation.
+Returns **[string][113]** A string representing the given number using fixed-point notation.
 
 ### add
 
@@ -659,9 +511,9 @@ Add weight to current object.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to add.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to add.
 
-Returns **[Object][127]** Returns current object.
+Returns **[Object][112]** Returns current object.
 
 ### subtract
 
@@ -669,9 +521,9 @@ Subtract weight to current object.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to subtract.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to subtract.
 
-Returns **[Object][127]** Returns current object.
+Returns **[Object][112]** Returns current object.
 
 ### isSame
 
@@ -679,9 +531,9 @@ Check if current object value is same as given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if same or false is not.
+Returns **[boolean][116]** True if same or false is not.
 
 ### isNotSame
 
@@ -689,9 +541,9 @@ Check if current object value is not same as given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** False if same or true if not.
+Returns **[boolean][116]** False if same or true if not.
 
 ### isHeavier
 
@@ -699,9 +551,9 @@ Check if current mass is heavier than a given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if current object is heavier or false if not.
+Returns **[boolean][116]** True if current object is heavier or false if not.
 
 ### isLighter
 
@@ -709,15 +561,81 @@ Check if current mass is lighter than a given weight.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Weight to compare.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Weight to compare.
 
-Returns **[boolean][128]** True if current object is lighter or false if not.
+Returns **[boolean][116]** True if current object is lighter or false if not.
 
 ### isEmpty
 
 Check if current object is empty.
 
-Returns **[boolean][128]** True if current object is empty or false if not.
+Returns **[boolean][116]** True if current object is empty or false if not.
+
+## Ounces
+
+**Extends MassUnit**
+
+Class representing ounce mass units.
+
+### getValue
+
+Get value from variable.
+
+#### Parameters
+
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Variable to extract weight from.
+
+Returns **[number][111]** 
+
+### toPounds
+
+Convert ounces to pounds.
+
+Returns **[Pounds][115]** Pounds object.
+
+### toString
+
+Convert weight to text.
+
+#### Parameters
+
+-   `spaces`   (optional, default `true`)
+-   `roundTo`   (optional, default `0`)
+
+Returns **[string][113]** Formatted weight.
+
+### parse
+
+Parse text for weight.
+
+#### Parameters
+
+-   `text` **([string][113] \| [number][111])** Text to parse for weight.
+
+Returns **[Ounces][114]** Ounces object.
+
+### parseSingleUnit
+
+Parse text for single unit weight.
+
+#### Parameters
+
+-   `text` **([string][113] \| [number][111])** Text to parse for single unit weight.
+-   `unitType` **([Ounces][114] \| [Pounds][115] \| [string][113])** Default unit type if no signifier is found. (optional, default `Ounces`)
+
+Returns **[Ounces][114]** Ounces object.
+
+### parseDualUnit
+
+Parse text for weight.
+
+#### Parameters
+
+-   `text` **([string][113] \| [number][111])** Text to parse for weight.
+-   `splitAt` **[number][111]** Index to split string.
+-   `outOfOrder`   (optional, default `false`)
+
+Returns **[Ounces][114]** Ounces object.
 
 ## Pounds
 
@@ -731,15 +649,15 @@ Get value from variable.
 
 #### Parameters
 
--   `weight` **([Ounces][123] \| [Pounds][124] \| [number][125] \| [string][126])** Variable to extract weight from.
+-   `weight` **([Ounces][114] \| [Pounds][115] \| [number][111] \| [string][113])** Variable to extract weight from.
 
-Returns **[number][125]** 
+Returns **[number][111]** 
 
 ### toOunces
 
 Convert pounds to ounces.
 
-Returns **[Ounces][123]** Ounces object.
+Returns **[Ounces][114]** Ounces object.
 
 ### toString
 
@@ -750,7 +668,7 @@ Convert weight to text.
 -   `spaces`   (optional, default `true`)
 -   `roundTo`   (optional, default `0`)
 
-Returns **[string][126]** Formatted weight.
+Returns **[string][113]** Formatted weight.
 
 ### parse
 
@@ -758,9 +676,9 @@ Parse text for weight.
 
 #### Parameters
 
--   `text` **([string][126] \| [number][125])** Text to parse for weight.
+-   `text` **([string][113] \| [number][111])** Text to parse for weight.
 
-Returns **[Pounds][124]** Pounds object.
+Returns **[Pounds][115]** Pounds object.
 
 ### parseSingleUnit
 
@@ -768,10 +686,10 @@ Parse text for single unit weight.
 
 #### Parameters
 
--   `text` **([string][126] \| [number][125])** Text to parse for single unit weight.
--   `unitType` **([Ounces][123] \| [Pounds][124] \| [string][126])** Default unit type if no signifier is found. (optional, default `Pounds`)
+-   `text` **([string][113] \| [number][111])** Text to parse for single unit weight.
+-   `unitType` **([Ounces][114] \| [Pounds][115] \| [string][113])** Default unit type if no signifier is found. (optional, default `Pounds`)
 
-Returns **[Ounces][123]** Ounces object.
+Returns **[Ounces][114]** Ounces object.
 
 ### parseDualUnit
 
@@ -779,264 +697,240 @@ Parse text for weight.
 
 #### Parameters
 
--   `text` **([string][126] \| [number][125])** Text to parse for weight.
--   `splitAt` **[string][126]** 
--   `outOfOrder` **[boolean][128]** Ounces before pounds. (optional, default `false`)
+-   `text` **([string][113] \| [number][111])** Text to parse for weight.
+-   `splitAt` **[string][113]** 
+-   `outOfOrder` **[boolean][116]** Ounces before pounds. (optional, default `false`)
 
-Returns **[Pounds][124]** Pounds object.
+Returns **[Pounds][115]** Pounds object.
 
-[1]: #ounces
+[1]: #massunit
 
-[2]: #getvalue
+[2]: #value
 
-[3]: #parameters
+[3]: #floor
 
-[4]: #topounds
+[4]: #ceil
 
-[5]: #tostring
+[5]: #round
 
-[6]: #parameters-1
+[6]: #parameters
 
-[7]: #parse
+[7]: #tofixed
 
-[8]: #parameters-2
+[8]: #parameters-1
 
-[9]: #parsesingleunit
+[9]: #add
 
-[10]: #parameters-3
+[10]: #parameters-2
 
-[11]: #parsedualunit
+[11]: #subtract
 
-[12]: #parameters-4
+[12]: #parameters-3
 
-[13]: #ounces-1
+[13]: #issame
 
-[14]: #getvalue-1
+[14]: #parameters-4
 
-[15]: #parameters-5
+[15]: #isnotsame
 
-[16]: #topounds-1
+[16]: #parameters-5
 
-[17]: #tostring-1
+[17]: #isheavier
 
 [18]: #parameters-6
 
-[19]: #parse-1
+[19]: #islighter
 
 [20]: #parameters-7
 
-[21]: #parsesingleunit-1
+[21]: #isempty
 
-[22]: #parameters-8
+[22]: #massunit-1
 
-[23]: #parsedualunit-1
+[23]: #parameters-8
 
-[24]: #parameters-9
+[24]: #value-1
 
-[25]: #massunit
+[25]: #floor-1
 
-[26]: #value
+[26]: #ceil-1
 
-[27]: #floor
+[27]: #round-1
 
-[28]: #ceil
+[28]: #parameters-9
 
-[29]: #round
+[29]: #tofixed-1
 
 [30]: #parameters-10
 
-[31]: #tofixed
+[31]: #add-1
 
 [32]: #parameters-11
 
-[33]: #add
+[33]: #subtract-1
 
 [34]: #parameters-12
 
-[35]: #subtract
+[35]: #issame-1
 
 [36]: #parameters-13
 
-[37]: #issame
+[37]: #isnotsame-1
 
 [38]: #parameters-14
 
-[39]: #isnotsame
+[39]: #isheavier-1
 
 [40]: #parameters-15
 
-[41]: #isheavier
+[41]: #islighter-1
 
 [42]: #parameters-16
 
-[43]: #islighter
+[43]: #isempty-1
 
-[44]: #parameters-17
+[44]: #massunit-2
 
-[45]: #isempty
+[45]: #parameters-17
 
-[46]: #massunit-1
+[46]: #value-2
 
-[47]: #parameters-18
+[47]: #floor-2
 
-[48]: #value-1
+[48]: #ceil-2
 
-[49]: #floor-1
+[49]: #round-2
 
-[50]: #ceil-1
+[50]: #parameters-18
 
-[51]: #round-1
+[51]: #tofixed-2
 
 [52]: #parameters-19
 
-[53]: #tofixed-1
+[53]: #add-2
 
 [54]: #parameters-20
 
-[55]: #add-1
+[55]: #subtract-2
 
 [56]: #parameters-21
 
-[57]: #subtract-1
+[57]: #issame-2
 
 [58]: #parameters-22
 
-[59]: #issame-1
+[59]: #isnotsame-2
 
 [60]: #parameters-23
 
-[61]: #isnotsame-1
+[61]: #isheavier-2
 
 [62]: #parameters-24
 
-[63]: #isheavier-1
+[63]: #islighter-2
 
 [64]: #parameters-25
 
-[65]: #islighter-1
+[65]: #isempty-2
 
-[66]: #parameters-26
+[66]: #massunit-3
 
-[67]: #isempty-1
+[67]: #value-3
 
-[68]: #massunit-2
+[68]: #floor-3
 
-[69]: #parameters-27
+[69]: #ceil-3
 
-[70]: #value-2
+[70]: #round-3
 
-[71]: #floor-2
+[71]: #parameters-26
 
-[72]: #ceil-2
+[72]: #tofixed-3
 
-[73]: #round-2
+[73]: #parameters-27
 
-[74]: #parameters-28
+[74]: #add-3
 
-[75]: #tofixed-2
+[75]: #parameters-28
 
-[76]: #parameters-29
+[76]: #subtract-3
 
-[77]: #add-2
+[77]: #parameters-29
 
-[78]: #parameters-30
+[78]: #issame-3
 
-[79]: #subtract-2
+[79]: #parameters-30
 
-[80]: #parameters-31
+[80]: #isnotsame-3
 
-[81]: #issame-2
+[81]: #parameters-31
 
-[82]: #parameters-32
+[82]: #isheavier-3
 
-[83]: #isnotsame-2
+[83]: #parameters-32
 
-[84]: #parameters-33
+[84]: #islighter-3
 
-[85]: #isheavier-2
+[85]: #parameters-33
 
-[86]: #parameters-34
+[86]: #isempty-3
 
-[87]: #islighter-2
+[87]: #ounces
 
-[88]: #parameters-35
+[88]: #getvalue
 
-[89]: #isempty-2
+[89]: #parameters-34
 
-[90]: #massunit-3
+[90]: #topounds
 
-[91]: #value-3
+[91]: #tostring
 
-[92]: #floor-3
+[92]: #parameters-35
 
-[93]: #ceil-3
+[93]: #parse
 
-[94]: #round-3
+[94]: #parameters-36
 
-[95]: #parameters-36
+[95]: #parsesingleunit
 
-[96]: #tofixed-3
+[96]: #parameters-37
 
-[97]: #parameters-37
+[97]: #parsedualunit
 
-[98]: #add-3
+[98]: #parameters-38
 
-[99]: #parameters-38
+[99]: #pounds
 
-[100]: #subtract-3
+[100]: #getvalue-1
 
 [101]: #parameters-39
 
-[102]: #issame-3
+[102]: #toounces
 
-[103]: #parameters-40
+[103]: #tostring-1
 
-[104]: #isnotsame-3
+[104]: #parameters-40
 
-[105]: #parameters-41
+[105]: #parse-1
 
-[106]: #isheavier-3
+[106]: #parameters-41
 
-[107]: #parameters-42
+[107]: #parsesingleunit-1
 
-[108]: #islighter-3
+[108]: #parameters-42
 
-[109]: #parameters-43
+[109]: #parsedualunit-1
 
-[110]: #isempty-3
+[110]: #parameters-43
 
-[111]: #pounds
+[111]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[112]: #getvalue-2
+[112]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[113]: #parameters-44
+[113]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[114]: #toounces
+[114]: #ounces
 
-[115]: #tostring-2
+[115]: #pounds
 
-[116]: #parameters-45
-
-[117]: #parse-2
-
-[118]: #parameters-46
-
-[119]: #parsesingleunit-2
-
-[120]: #parameters-47
-
-[121]: #parsedualunit-2
-
-[122]: #parameters-48
-
-[123]: #ounces
-
-[124]: #pounds
-
-[125]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
-[126]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
-[127]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
-[128]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[116]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

@@ -13,7 +13,7 @@
     "speed": "npm run performance",
     "performance": "node ./scripts/performance.js",
     "docs": "npm run documentation",
-    "documentation": "npx documentation build src/weight.js --format md --output docs/functions.md",
+    "documentation": "npx documentation build src/ounces.js --format md --output docs/functions.md",
     "example": "node ./scripts/example.js"
   },
   "keywords": [
