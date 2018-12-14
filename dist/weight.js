@@ -113,17 +113,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.2
+ * @version 1.4.3
  */
 
-/** Class representing a mass unit. */
+/**
+ * Class representing a mass unit.
+ * @param {(Ounces|Pounds|number|string)} [weight = 0]
+ */
 var MassUnit =
 /*#__PURE__*/
 function () {
-  /**
-   * Create a mass unit object.
-   * @param {(Ounces|Pounds|number|string)} [weight = 0]
-   */
   function MassUnit() {
     var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
@@ -142,7 +141,7 @@ function () {
 
     /**
      * Round weight down.
-     * @returns {object}
+     * @returns {Object}
      */
     value: function floor() {
       this.weight = Math.floor(this.weight);
@@ -150,7 +149,7 @@ function () {
     }
     /**
      * Round weight up.
-     * @returns {object}
+     * @returns {Object}
      */
 
   }, {
@@ -162,7 +161,7 @@ function () {
     /**
      * Round weight.
      * @param {number} [digits = 0]
-     * @returns {object}
+     * @returns {Object}
      */
 
   }, {
@@ -187,7 +186,7 @@ function () {
     /**
      * Add weight to current object.
      * @param {(Ounces|Pounds|number|string)} weight - Weight to add.
-     * @returns {object} Returns current object.
+     * @returns {Object} Returns current object.
      */
 
   }, {
@@ -199,7 +198,7 @@ function () {
     /**
      * Subtract weight to current object.
      * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.
-     * @returns {object} Returns current object.
+     * @returns {Object} Returns current object.
      */
 
   }, {
@@ -316,7 +315,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.2
+ * @version 1.4.3
  */
 
 
@@ -523,7 +522,7 @@ function ounces_setPrototypeOf(o, p) { ounces_setPrototypeOf = Object.setPrototy
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.2
+ * @version 1.4.3
  */
 
 
@@ -799,7 +798,7 @@ function (_MassUnit) {
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.2
+ * @version 1.4.3
  */
 
 

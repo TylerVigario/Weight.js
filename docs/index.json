@@ -1,0 +1,1706 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/mass_unit.js",
+    "content": "/** \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.3\r\n */\r\n\r\n/**\r\n * Class representing a mass unit.\r\n * @param {(Ounces|Pounds|number|string)} [weight = 0]\r\n */\r\nexport default class MassUnit {\r\n    constructor(weight = 0) {\r\n        this.value = this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Return weight value.\r\n     * @type {number}\r\n     */\r\n    get value() {\r\n        return this.weight;\r\n    }\r\n\r\n    set value(weight) {\r\n        // Validate weight\r\n        if (isNaN(weight)) {\r\n            throw 'Weight must be a number.';\r\n        }\r\n\r\n        // Weight does not measure in negative\r\n        if (weight < 0) {\r\n            weight = 0;\r\n        }\r\n\r\n        this.weight = weight;\r\n    }\r\n\r\n    /**\r\n     * Round weight down.\r\n     * @returns {Object}\r\n     */\r\n    floor() {\r\n        this.weight = Math.floor(this.weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight up.\r\n     * @returns {Object}\r\n     */\r\n    ceil() {\r\n        this.weight = Math.ceil(this.weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight.\r\n     * @param {number} [digits = 0]\r\n     * @returns {Object}\r\n     */\r\n    round(digits = 0) {\r\n        this.weight = this.toFixed(digits);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * The toFixed() method formats a number using fixed-point notation.\r\n     * @param {number} [digits = 0] - Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.\r\n     * @returns {string} A string representing the given number using fixed-point notation.\r\n     */\r\n    toFixed(digits = 0) {\r\n        return this.weight.toFixed(digits);\r\n    }\r\n\r\n    /**\r\n     * Add weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to add.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    add(weight) {\r\n        this.weight += this.getValue(weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Subtract weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    subtract(weight) {\r\n        weight = this.getValue(weight);\r\n\r\n        // Make sure we do not subtract more than the current weight\r\n        if (weight > this.weight) {\r\n            weight = this.weight;\r\n        }\r\n\r\n        this.weight -= weight;\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if same or false is not.\r\n     */\r\n    isSame(weight) {\r\n        return this.weight === this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is not same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} False if same or true if not.\r\n     */\r\n    isNotSame(weight) {\r\n        return this.weight !== this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is heavier than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is heavier or false if not.\r\n     */\r\n    isHeavier(weight) {\r\n        return this.weight > this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is lighter than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is lighter or false if not.\r\n     */\r\n    isLighter(weight) {\r\n        return this.weight < this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object is empty.\r\n     * @returns {boolean} True if current object is empty or false if not.\r\n     */\r\n    isEmpty() {\r\n        return (this.weight === 0);\r\n    }\r\n}\r\n",
+    "static": true,
+    "longname": "C:/inetpub/wwwroot/weight.js/src/mass_unit.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "MassUnit",
+    "memberof": "src/mass_unit.js",
+    "static": true,
+    "longname": "src/mass_unit.js~MassUnit",
+    "access": "public",
+    "export": true,
+    "importPath": "weight.js/src/mass_unit.js",
+    "importStyle": "MassUnit",
+    "description": "Class representing a mass unit.",
+    "lineNumber": 13,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": " 0",
+        "defaultRaw": 0,
+        "name": "weight",
+        "description": ""
+      }
+    ],
+    "interface": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "get",
+    "name": "value",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#value",
+    "access": "public",
+    "description": "Return weight value.",
+    "lineNumber": 22,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "set",
+    "name": "value",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#value",
+    "access": "public",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "member",
+    "name": "weight",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#weight",
+    "access": "public",
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "name": "floor",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#floor",
+    "access": "public",
+    "description": "Round weight down.",
+    "lineNumber": 44,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 57,
+    "kind": "method",
+    "name": "ceil",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#ceil",
+    "access": "public",
+    "description": "Round weight up.",
+    "lineNumber": 54,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 59,
+    "kind": "method",
+    "name": "round",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#round",
+    "access": "public",
+    "description": "Round weight.",
+    "lineNumber": 65,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": " 0",
+        "defaultRaw": 0,
+        "name": "digits",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "toFixed",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#toFixed",
+    "access": "public",
+    "description": "The toFixed() method formats a number using fixed-point notation.",
+    "lineNumber": 76,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string} A string representing the given number using fixed-point notation."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": " 0",
+        "defaultRaw": 0,
+        "name": "digits",
+        "description": "Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "A string representing the given number using fixed-point notation."
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "add",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#add",
+    "access": "public",
+    "description": "Add weight to current object.",
+    "lineNumber": 85,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object} Returns current object."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": "Weight to add."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "Returns current object."
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "subtract",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#subtract",
+    "access": "public",
+    "description": "Subtract weight to current object.",
+    "lineNumber": 96,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object} Returns current object."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": "Weight to subtract."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "Returns current object."
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "name": "isSame",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#isSame",
+    "access": "public",
+    "description": "Check if current object value is same as given weight.",
+    "lineNumber": 114,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} True if same or false is not."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": "Weight to compare."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "True if same or false is not."
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "isNotSame",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#isNotSame",
+    "access": "public",
+    "description": "Check if current object value is not same as given weight.",
+    "lineNumber": 123,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} False if same or true if not."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": "Weight to compare."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "False if same or true if not."
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "method",
+    "name": "isHeavier",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#isHeavier",
+    "access": "public",
+    "description": "Check if current mass is heavier than a given weight.",
+    "lineNumber": 132,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} True if current object is heavier or false if not."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": "Weight to compare."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "True if current object is heavier or false if not."
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "method",
+    "name": "isLighter",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#isLighter",
+    "access": "public",
+    "description": "Check if current mass is lighter than a given weight.",
+    "lineNumber": 141,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} True if current object is lighter or false if not."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": "Weight to compare."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "True if current object is lighter or false if not."
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "isEmpty",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#isEmpty",
+    "access": "public",
+    "description": "Check if current object is empty.",
+    "lineNumber": 149,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} True if current object is empty or false if not."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "True if current object is empty or false if not."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 71,
+    "kind": "file",
+    "name": "src/ounces.js",
+    "content": "/** \r\n * Ounce mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.3\r\n */\r\n\r\nimport MassUnit from './mass_unit';\r\nimport Pounds from './pounds';\r\n\r\n/**\r\n * Class representing ounce mass units.\r\n * @extends MassUnit\r\n */\r\nexport default class Ounces extends MassUnit {\r\n    /**\r\n     * Get value from variable.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.\r\n     * @returns {number}\r\n     */\r\n    getValue(weight) {\r\n        if (weight instanceof Ounces) {\r\n            return weight.value;\r\n        } else if (weight instanceof Pounds) {\r\n            return weight.toOunces().value;\r\n        } else if (typeof weight === 'number') {\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        } else {\r\n            weight = parseFloat(weight);\r\n\r\n            if (isNaN(weight)) {\r\n                throw 'Invalid parameter passed to function.';\r\n            }\r\n\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @returns {Ounces} Ounces object.\r\n     */\r\n    static parse(text) {\r\n        // Can't glean much info from a number\r\n        if (typeof text === 'number') {\r\n            return new Ounces(text);\r\n        }\r\n        // Support for objects that have \"toString\" method\r\n        else if (typeof text === 'object') {\r\n            if (typeof text.toString !== 'function') {\r\n                return false;\r\n            }\r\n\r\n            text = text.toString();\r\n        }\r\n        // We expect to parse a string\r\n        else if (typeof text !== 'string') {\r\n            return false;\r\n        }\r\n\r\n        // Remove spaces\r\n        text = text.replace(/\\s/g, '');\r\n\r\n        // Is string empty?\r\n        if (text.length === 0) {\r\n            return new Ounces(0);\r\n        }\r\n\r\n        // Remove case sensitivity\r\n        text = text.toLowerCase();\r\n\r\n        let separator = -1;\r\n        let ozID = text.indexOf('oz');\r\n        let lbID = text.indexOf('lb');\r\n\r\n        // Does it include signifiers?\r\n        if (ozID !== -1 && lbID !== -1) {\r\n            // Pounds precedes ounces (normal)\r\n            if (lbID < ozID) {\r\n                lbID += 2;\r\n\r\n                // Did they use \"lbs\"?\r\n                if (text.indexOf('lbs') !== -1) {\r\n                    lbID += 1;\r\n                }\r\n\r\n                return Ounces.parseDualUnit(text, lbID);\r\n            } else {\r\n                // Ounces precedes pounds (out-of-order)\r\n                ozID += 2;\r\n\r\n                return Ounces.parseDualUnit(text, ozID, true);\r\n            }\r\n        } else if (ozID !== -1) {\r\n            // Let's keep \"oz\" for parseSingleUnit\r\n            separator = ozID + 2;\r\n\r\n            // Is Single unit?\r\n            if (separator === text.length) {\r\n                return Ounces.parseSingleUnit(text);\r\n            }\r\n\r\n            return Ounces.parseDualUnit(text, separator, true);\r\n        } else if (lbID !== -1) {\r\n            separator = lbID + 2;\r\n\r\n            // Did they use \"lbs\"?\r\n            if (text.indexOf('lbs') !== -1) {\r\n                separator++;\r\n            }\r\n\r\n            // Is Single unit?\r\n            if (separator === text.length) {\r\n                return Ounces.parseSingleUnit(text, Pounds);\r\n            }\r\n\r\n            return Ounces.parseDualUnit(text, separator);\r\n        } else if ((separator = text.indexOf(',')) !== -1) {\r\n            // Dual units split by a comma (i.e. 3lb, 4oz)\r\n            return Ounces.parseDualUnit(text, separator + 1);\r\n        } else {\r\n            // Single unit\r\n            return Ounces.parseSingleUnit(text);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for single unit weight.\r\n     * @param {(string|number)} text - Text to parse for single unit weight.\r\n     * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.\r\n     * @returns {Ounces} Ounces object.\r\n     */\r\n    static parseSingleUnit(text, unitType = Ounces) {\r\n        text = text.trim();\r\n\r\n        // Last validation before initializing.\r\n        if (isNaN(parseFloat(text))) {\r\n            return false;\r\n        }\r\n\r\n        // Single unit (3lb or 4oz)\r\n        if (text.indexOf('lb') !== -1) {\r\n            // Pounds (must include: lb or lbs)\r\n            return (new Pounds(text)).toOunces();\r\n        } else if (text.indexOf('oz') !== -1) {\r\n            // Ounces\r\n            return new Ounces(text);\r\n        } else {\r\n            // Undefined (use default unitType)\r\n            switch (unitType) {\r\n                case 'Ounces':\r\n                case 'ounces':\r\n                case 'oz':\r\n                case Ounces:\r\n                    return new Ounces(text);\r\n                case 'Pound':\r\n                case 'pound':\r\n                case 'Pounds':\r\n                case 'pounds':\r\n                case 'lb':\r\n                case 'lbs':\r\n                case Pounds:\r\n                    return (new Pounds(text)).toOunces();\r\n                default:\r\n                    throw 'Invalid unit type.';\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @param {number} splitAt Index to split string.\r\n     * @returns {Ounces} Ounces object.\r\n     */\r\n    static parseDualUnit(text, splitAt, outOfOrder = false) {\r\n        // \"splitAt\" must be defined and must be a number\r\n        if (typeof splitAt !== 'number') {\r\n            return false;\r\n        }\r\n\r\n        // Remove commas (shown to be problematic with our current flow)\r\n        text = text.replace(',', '');\r\n\r\n        // Dual units split at index\r\n        if (outOfOrder === true) {\r\n            text = [\r\n                text.substring(0, splitAt),\r\n                text.substring(splitAt)\r\n            ];\r\n        } else {\r\n            text = [\r\n                text.substring(splitAt),\r\n                text.substring(0, splitAt)\r\n            ];\r\n        }\r\n\r\n        // Parse\r\n        let ounces = Ounces.parseSingleUnit(text[0]);\r\n        let pounds = Pounds.parseSingleUnit(text[1]);\r\n\r\n        // Did we have any trouble parsing single units?\r\n        if (ounces === false || pounds === false) {\r\n            return false;\r\n        }\r\n\r\n        // Return adding pounds to ounces (to maintain a Ounces object)\r\n        return ounces.add(pounds);\r\n    }\r\n\r\n    /**\r\n     * Convert ounces to pounds.\r\n     * @returns {Pounds} Pounds object.\r\n     */\r\n    toPounds() {\r\n        return new Pounds(this.weight / 16);\r\n    }\r\n\r\n    /**\r\n     * Convert weight to text.\r\n     * @returns {string} Formatted weight.\r\n     */\r\n    toString(spaces = true, roundTo = 0) {\r\n        let formattedWeight = '';\r\n\r\n        let ounces = this;\r\n\r\n        // Excess ounces = pounds\r\n        if (ounces.isHeavier(15)) {\r\n            // Extract whole pounds from ounces\r\n            let pounds = ounces.toPounds().floor();\r\n\r\n            // Reduce ounces by whole pounds\r\n            ounces.subtract(pounds);\r\n\r\n            // Format pounds for human consumption\r\n            formattedWeight = pounds.toFixed(0) + (spaces ? ' ' : '') + (pounds.isSame(1) ? 'lb' : 'lbs');\r\n\r\n            // Any ounces remaining?\r\n            if (ounces.isEmpty()) {\r\n                // Return if no ounces are remaining\r\n                return formattedWeight;\r\n            }\r\n\r\n            // Prep for ounces formatting\r\n            formattedWeight = formattedWeight + ' ';\r\n        }\r\n\r\n        // Format ounces for human consumption\r\n        return formattedWeight + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n    }\r\n}\r\n",
+    "static": true,
+    "longname": "C:/inetpub/wwwroot/weight.js/src/ounces.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 72,
+    "kind": "class",
+    "name": "Ounces",
+    "memberof": "src/ounces.js",
+    "static": true,
+    "longname": "src/ounces.js~Ounces",
+    "access": "public",
+    "export": true,
+    "importPath": "weight.js/src/ounces.js",
+    "importStyle": "Ounces",
+    "description": "Class representing ounce mass units.",
+    "lineNumber": 16,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "getValue",
+    "memberof": "src/ounces.js~Ounces",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ounces.js~Ounces#getValue",
+    "access": "public",
+    "description": "Get value from variable.",
+    "lineNumber": 22,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": "Variable to extract weight from."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "parse",
+    "memberof": "src/ounces.js~Ounces",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/ounces.js~Ounces.parse",
+    "access": "public",
+    "description": "Parse text for weight.",
+    "lineNumber": 53,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Ounces} Ounces object."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Text to parse for weight."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Ounces"
+      ],
+      "spread": false,
+      "description": "Ounces object."
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "method",
+    "name": "parseSingleUnit",
+    "memberof": "src/ounces.js~Ounces",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/ounces.js~Ounces.parseSingleUnit",
+    "access": "public",
+    "description": "Parse text for single unit weight.",
+    "lineNumber": 143,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Ounces} Ounces object."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Text to parse for single unit weight."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "unitType",
+        "description": "Default unit type if no signifier is found."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Ounces"
+      ],
+      "spread": false,
+      "description": "Ounces object."
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "parseDualUnit",
+    "memberof": "src/ounces.js~Ounces",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/ounces.js~Ounces.parseDualUnit",
+    "access": "public",
+    "description": "Parse text for weight.",
+    "lineNumber": 186,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Ounces} Ounces object."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Text to parse for weight."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "splitAt",
+        "description": "Index to split string."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Ounces"
+      ],
+      "spread": false,
+      "description": "Ounces object."
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "toPounds",
+    "memberof": "src/ounces.js~Ounces",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ounces.js~Ounces#toPounds",
+    "access": "public",
+    "description": "Convert ounces to pounds.",
+    "lineNumber": 225,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Pounds} Pounds object."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Pounds"
+      ],
+      "spread": false,
+      "description": "Pounds object."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/ounces.js~Ounces",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ounces.js~Ounces#toString",
+    "access": "public",
+    "description": "Convert weight to text.",
+    "lineNumber": 233,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string} Formatted weight."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "Formatted weight."
+    },
+    "params": [
+      {
+        "name": "spaces",
+        "optional": true,
+        "types": [
+          "boolean"
+        ],
+        "defaultRaw": true,
+        "defaultValue": "true"
+      },
+      {
+        "name": "roundTo",
+        "optional": true,
+        "types": [
+          "number"
+        ],
+        "defaultRaw": 0,
+        "defaultValue": "0"
+      }
+    ]
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
+    "name": "src/pounds.js",
+    "content": "/** \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.3\r\n */\r\n\r\nimport MassUnit from './mass_unit';\r\nimport Ounces from './ounces';\r\n\r\n/**\r\n * Class representing pound mass units.\r\n * @extends MassUnit\r\n */\r\nexport default class Pounds extends MassUnit {\r\n    /**\r\n     * Get value from variable.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.\r\n     * @returns {number}\r\n     */\r\n    getValue(weight) {\r\n        if (weight instanceof Ounces) {\r\n            return weight.toPounds().value;\r\n        } else if (weight instanceof Pounds) {\r\n            return weight.value;\r\n        } else if (typeof weight === 'number') {\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        } else {\r\n            weight = parseFloat(weight);\r\n\r\n            if (isNaN(weight)) {\r\n                throw 'Invalid parameter passed to function.';\r\n            }\r\n\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @returns {Pounds} Pounds object.\r\n     */\r\n    static parse(text) {\r\n        let ounces = Ounces.parse(text);\r\n\r\n        if (ounces === false) {\r\n            return false;\r\n        }\r\n\r\n        return ounces.toPounds();\r\n    }\r\n\r\n    /**\r\n     * Parse text for single unit weight.\r\n     * @param {(string|number)} text - Text to parse for single unit weight.\r\n     * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.\r\n     * @returns {Ounces} Ounces object.\r\n     */\r\n    static parseSingleUnit(text, unitType = Pounds) {\r\n        text = text.trim();\r\n\r\n        // Last validation before initializing.\r\n        if (isNaN(parseFloat(text))) {\r\n            return false;\r\n        }\r\n\r\n        // Single unit (3lb or 4oz)\r\n        if (text.indexOf('oz') !== -1) {\r\n            // Ounces (must include: oz)\r\n            return (new Ounces(text)).toPounds();\r\n        } else if (text.indexOf('lb') !== -1) {\r\n            // Pounds (default)\r\n            return new Pounds(text);\r\n        } else {\r\n            // Undefined (use default unitType)\r\n            switch (unitType) {\r\n                case 'Ounces':\r\n                case 'ounces':\r\n                case 'oz':\r\n                case Ounces:\r\n                    return new Ounces(text).toPounds();\r\n                case 'Pound':\r\n                case 'pound':\r\n                case 'Pounds':\r\n                case 'pounds':\r\n                case 'lb':\r\n                case 'lbs':\r\n                case Pounds:\r\n                    return (new Pounds(text));\r\n                default:\r\n                    throw 'Invalid unit type.';\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @param {string} splitAt\r\n     * @param {boolean} outOfOrder - Ounces before pounds.\r\n     * @returns {Pounds} Pounds object.\r\n     */\r\n    static parseDualUnit(text, splitAt, outOfOrder = false) {\r\n        // \"splitAt\" must be defined and must be a number\r\n        if (typeof splitAt !== 'number') {\r\n            return false;\r\n        }\r\n\r\n        // Remove commas (shown to be problematic with our current flow)\r\n        text = text.replace(',', '');\r\n\r\n        // Dual units split at index\r\n        if (outOfOrder === true) {\r\n            text = [\r\n                text.substring(0, splitAt),\r\n                text.substring(splitAt)\r\n            ];\r\n        } else {\r\n            text = [\r\n                text.substring(splitAt),\r\n                text.substring(0, splitAt)\r\n            ];\r\n        }\r\n\r\n        // Parse\r\n        let ounces = Ounces.parseSingleUnit(text[0]);\r\n        let pounds = Pounds.parseSingleUnit(text[1]);\r\n\r\n        // Did we have any trouble parsing single units?\r\n        if (ounces === false || pounds === false) {\r\n            return false;\r\n        }\r\n\r\n        // Return adding ounces to pounds\r\n        return pounds.add(ounces);\r\n    }\r\n\r\n    /**\r\n     * Convert pounds to ounces.\r\n     * @returns {Ounces} Ounces object.\r\n     */\r\n    toOunces() {\r\n        return new Ounces(this.weight * 16);\r\n    }\r\n\r\n    /**\r\n     * Convert weight to text.\r\n     * @returns {string} Formatted weight.\r\n     */\r\n    toString(spaces = true, roundTo = 0) {\r\n        return this.toOunces().toString(spaces, roundTo);\r\n    }\r\n}\r\n",
+    "static": true,
+    "longname": "C:/inetpub/wwwroot/weight.js/src/pounds.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 80,
+    "kind": "class",
+    "name": "Pounds",
+    "memberof": "src/pounds.js",
+    "static": true,
+    "longname": "src/pounds.js~Pounds",
+    "access": "public",
+    "export": true,
+    "importPath": "weight.js/src/pounds.js",
+    "importStyle": "Pounds",
+    "description": "Class representing pound mass units.",
+    "lineNumber": 16,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 81,
+    "kind": "method",
+    "name": "getValue",
+    "memberof": "src/pounds.js~Pounds",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/pounds.js~Pounds#getValue",
+    "access": "public",
+    "description": "Get value from variable.",
+    "lineNumber": 22,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": "Variable to extract weight from."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "parse",
+    "memberof": "src/pounds.js~Pounds",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pounds.js~Pounds.parse",
+    "access": "public",
+    "description": "Parse text for weight.",
+    "lineNumber": 53,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Pounds} Pounds object."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Text to parse for weight."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Pounds"
+      ],
+      "spread": false,
+      "description": "Pounds object."
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "method",
+    "name": "parseSingleUnit",
+    "memberof": "src/pounds.js~Pounds",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pounds.js~Pounds.parseSingleUnit",
+    "access": "public",
+    "description": "Parse text for single unit weight.",
+    "lineNumber": 69,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Ounces} Ounces object."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Text to parse for single unit weight."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Ounces",
+          "Pounds",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "unitType",
+        "description": "Default unit type if no signifier is found."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Ounces"
+      ],
+      "spread": false,
+      "description": "Ounces object."
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "parseDualUnit",
+    "memberof": "src/pounds.js~Pounds",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pounds.js~Pounds.parseDualUnit",
+    "access": "public",
+    "description": "Parse text for weight.",
+    "lineNumber": 113,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Pounds} Pounds object."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Text to parse for weight."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "splitAt",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "outOfOrder",
+        "description": "Ounces before pounds."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Pounds"
+      ],
+      "spread": false,
+      "description": "Pounds object."
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "toOunces",
+    "memberof": "src/pounds.js~Pounds",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/pounds.js~Pounds#toOunces",
+    "access": "public",
+    "description": "Convert pounds to ounces.",
+    "lineNumber": 152,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Ounces} Ounces object."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Ounces"
+      ],
+      "spread": false,
+      "description": "Ounces object."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/pounds.js~Pounds",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/pounds.js~Pounds#toString",
+    "access": "public",
+    "description": "Convert weight to text.",
+    "lineNumber": 160,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string} Formatted weight."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "Formatted weight."
+    },
+    "params": [
+      {
+        "name": "spaces",
+        "optional": true,
+        "types": [
+          "boolean"
+        ],
+        "defaultRaw": true,
+        "defaultValue": "true"
+      },
+      {
+        "name": "roundTo",
+        "optional": true,
+        "types": [
+          "number"
+        ],
+        "defaultRaw": 0,
+        "defaultValue": "0"
+      }
+    ]
+  },
+  {
+    "__docId__": 87,
+    "kind": "file",
+    "name": "src/weight.js",
+    "content": "/** \r\n * Weight.js\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.3\r\n */\r\n\r\nimport Ounces from './ounces';\r\nimport Pounds from './pounds';\r\n\r\nexport {\r\n    Ounces,\r\n    Pounds\r\n};\r\n",
+    "static": true,
+    "longname": "C:/inetpub/wwwroot/weight.js/src/weight.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "kind": "index",
+    "content": "[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e1f9c8a954f4c21b850f7b1ab4f4575)](https://www.codacy.com/app/MeekLogic/Weight.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeekLogic/Weight.js&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.com/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.com/MeekLogic/Weight.js) [![Coverage Status](https://coveralls.io/repos/github/MeekLogic/Weight.js/badge.svg?branch=develop)](https://coveralls.io/github/MeekLogic/Weight.js?branch=develop) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)\r\n\r\nWeight.js\r\n=========\r\nJavaScript classes to convert imperial mass units as well as output and parse as text.\r\n\r\nInstall\r\n-------\r\n```javascript\r\nnpm install weight.js\r\n```\r\n\r\nUsage\r\n-----\r\n**ES6**\r\n```javascript\r\nimport {Ounces, Pounds} from 'weight.js/src/weight';\r\n//or\r\nimport Ounces from 'weight.js/src/ounces';\r\n//or\r\nimport Pounds from 'weight.js/src/pounds';\r\n```\r\n\r\n**CommonJS**\r\n```javascript\r\nvar Weight = require('../dist/weight.js');\r\nvar Ounces = Weight.Ounces;\r\nvar Pounds = Weight.Pounds;\r\n//or\r\nvar Ounces = require('../dist/weight.js').Ounces;\r\n//or\r\nvar Pounds = require('../dist/weight.js').Pounds;\r\n```\r\n\r\nExample\r\n-------\r\n```javascript\r\nlet ounces = Ounces.parse('5lbs  4 oz');\r\n\r\nconsole.log(ounces.value); // 84\r\n\r\nounces.add(new Ounces(6));\r\n\r\nconsole.log(ounces.value); // 90\r\n\r\nif (ounces.isSame(new Ounces(90))) {\r\n    console.log(ounces.toString()); // \"5 lbs 10 oz\"\r\n}\r\n```\r\n",
+    "longname": "C:\\inetpub\\wwwroot\\weight.js\\README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\r\n  \"name\": \"weight.js\",\r\n  \"version\": \"1.4.3\",\r\n  \"description\": \"JavaScript classes to convert imperial mass units as well as output and parse as text.\",\r\n  \"scripts\": {\r\n    \"build\": \"npx webpack --config webpack.config.js\",\r\n    \"lint\": \"./node_modules/.bin/eslint --config ./.eslintrc.js ./src\",\r\n    \"test\": \"npm run tests\",\r\n    \"tests\": \"node ./scripts/tests.js | tap-spec\",\r\n    \"test:coverage\": \"npm run tests:coverage\",\r\n    \"tests:coverage\": \"npx nyc npm run tests\",\r\n    \"speed\": \"npm run performance\",\r\n    \"performance\": \"node ./scripts/performance.js\",\r\n    \"docs\": \"npm run documentation\",\r\n    \"documentation\": \"npx esdoc\",\r\n    \"example\": \"node ./scripts/example.js\"\r\n  },\r\n  \"keywords\": [\r\n    \"weight\",\r\n    \"conversion\",\r\n    \"imperial\",\r\n    \"pound\",\r\n    \"ounce\"\r\n  ],\r\n  \"repository\": {\r\n    \"type\": \"git\",\r\n    \"url\": \"git+https://github.com/MeekLogic/Weight.js\"\r\n  },\r\n  \"bugs\": {\r\n    \"url\": \"https://github.com/MeekLogic/Weight.js/issues\"\r\n  },\r\n  \"author\": \"MeekLogic (Tyler Vigario)\",\r\n  \"license\": \"GPL-3.0-only\",\r\n  \"devDependencies\": {\r\n    \"@babel/core\": \"^7.2.0\",\r\n    \"@babel/preset-env\": \"^7.2.0\",\r\n    \"babel-loader\": \"^8.0.4\",\r\n    \"esdoc\": \"^1.1.0\",\r\n    \"esdoc-publish-markdown-plugin\": \"^1.1.0\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\",\r\n    \"eslint\": \"^5.10.0\",\r\n    \"microtime\": \"^2.1.8\",\r\n    \"nyc\": \"^13.1.0\",\r\n    \"tap-spec\": \"^5.0.0\",\r\n    \"tape\": \"^4.9.1\",\r\n    \"uglifyjs-webpack-plugin\": \"^2.0.1\",\r\n    \"webpack\": \"^4.27.1\",\r\n    \"webpack-cli\": \"^3.1.2\"\r\n  },\r\n  \"dependencies\": {},\r\n  \"nyc\": {\r\n    \"include\": [\r\n      \"**/dist/weight.js\"\r\n    ]\r\n  }\r\n}\r\n",
+    "longname": "C:\\inetpub\\wwwroot\\weight.js\\package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

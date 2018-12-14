@@ -1,4 +1,43 @@
-/** 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/ounces.js | weight.js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="JavaScript classes to convert imperial mass units as well as output and parse as text."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="weight.js"><meta property="twitter:description" content="JavaScript classes to convert imperial mass units as well as output and parse as text."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/MeekLogic/Weight.js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mass_unit.js~MassUnit.html">MassUnit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/ounces.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** 
  * Ounce mass unit.
  *
  * @author Tyler Vigario (MeekLogic)
@@ -6,8 +45,8 @@
  * @version 1.4.3
  */
 
-import MassUnit from './mass_unit';
-import Pounds from './pounds';
+import MassUnit from &apos;./mass_unit&apos;;
+import Pounds from &apos;./pounds&apos;;
 
 /**
  * Class representing ounce mass units.
@@ -24,8 +63,8 @@ export default class Ounces extends MassUnit {
             return weight.value;
         } else if (weight instanceof Pounds) {
             return weight.toOunces().value;
-        } else if (typeof weight === 'number') {
-            if (weight < 0) {
+        } else if (typeof weight === &apos;number&apos;) {
+            if (weight &lt; 0) {
                 return 0;
             }
 
@@ -34,10 +73,10 @@ export default class Ounces extends MassUnit {
             weight = parseFloat(weight);
 
             if (isNaN(weight)) {
-                throw 'Invalid parameter passed to function.';
+                throw &apos;Invalid parameter passed to function.&apos;;
             }
 
-            if (weight < 0) {
+            if (weight &lt; 0) {
                 return 0;
             }
 
@@ -51,25 +90,25 @@ export default class Ounces extends MassUnit {
      * @returns {Ounces} Ounces object.
      */
     static parse(text) {
-        // Can't glean much info from a number
-        if (typeof text === 'number') {
+        // Can&apos;t glean much info from a number
+        if (typeof text === &apos;number&apos;) {
             return new Ounces(text);
         }
-        // Support for objects that have "toString" method
-        else if (typeof text === 'object') {
-            if (typeof text.toString !== 'function') {
+        // Support for objects that have &quot;toString&quot; method
+        else if (typeof text === &apos;object&apos;) {
+            if (typeof text.toString !== &apos;function&apos;) {
                 return false;
             }
 
             text = text.toString();
         }
         // We expect to parse a string
-        else if (typeof text !== 'string') {
+        else if (typeof text !== &apos;string&apos;) {
             return false;
         }
 
         // Remove spaces
-        text = text.replace(/\s/g, '');
+        text = text.replace(/\s/g, &apos;&apos;);
 
         // Is string empty?
         if (text.length === 0) {
@@ -80,17 +119,17 @@ export default class Ounces extends MassUnit {
         text = text.toLowerCase();
 
         let separator = -1;
-        let ozID = text.indexOf('oz');
-        let lbID = text.indexOf('lb');
+        let ozID = text.indexOf(&apos;oz&apos;);
+        let lbID = text.indexOf(&apos;lb&apos;);
 
         // Does it include signifiers?
-        if (ozID !== -1 && lbID !== -1) {
+        if (ozID !== -1 &amp;&amp; lbID !== -1) {
             // Pounds precedes ounces (normal)
-            if (lbID < ozID) {
+            if (lbID &lt; ozID) {
                 lbID += 2;
 
-                // Did they use "lbs"?
-                if (text.indexOf('lbs') !== -1) {
+                // Did they use &quot;lbs&quot;?
+                if (text.indexOf(&apos;lbs&apos;) !== -1) {
                     lbID += 1;
                 }
 
@@ -102,7 +141,7 @@ export default class Ounces extends MassUnit {
                 return Ounces.parseDualUnit(text, ozID, true);
             }
         } else if (ozID !== -1) {
-            // Let's keep "oz" for parseSingleUnit
+            // Let&apos;s keep &quot;oz&quot; for parseSingleUnit
             separator = ozID + 2;
 
             // Is Single unit?
@@ -114,8 +153,8 @@ export default class Ounces extends MassUnit {
         } else if (lbID !== -1) {
             separator = lbID + 2;
 
-            // Did they use "lbs"?
-            if (text.indexOf('lbs') !== -1) {
+            // Did they use &quot;lbs&quot;?
+            if (text.indexOf(&apos;lbs&apos;) !== -1) {
                 separator++;
             }
 
@@ -125,7 +164,7 @@ export default class Ounces extends MassUnit {
             }
 
             return Ounces.parseDualUnit(text, separator);
-        } else if ((separator = text.indexOf(',')) !== -1) {
+        } else if ((separator = text.indexOf(&apos;,&apos;)) !== -1) {
             // Dual units split by a comma (i.e. 3lb, 4oz)
             return Ounces.parseDualUnit(text, separator + 1);
         } else {
@@ -149,30 +188,30 @@ export default class Ounces extends MassUnit {
         }
 
         // Single unit (3lb or 4oz)
-        if (text.indexOf('lb') !== -1) {
+        if (text.indexOf(&apos;lb&apos;) !== -1) {
             // Pounds (must include: lb or lbs)
             return (new Pounds(text)).toOunces();
-        } else if (text.indexOf('oz') !== -1) {
+        } else if (text.indexOf(&apos;oz&apos;) !== -1) {
             // Ounces
             return new Ounces(text);
         } else {
             // Undefined (use default unitType)
             switch (unitType) {
-                case 'Ounces':
-                case 'ounces':
-                case 'oz':
+                case &apos;Ounces&apos;:
+                case &apos;ounces&apos;:
+                case &apos;oz&apos;:
                 case Ounces:
                     return new Ounces(text);
-                case 'Pound':
-                case 'pound':
-                case 'Pounds':
-                case 'pounds':
-                case 'lb':
-                case 'lbs':
+                case &apos;Pound&apos;:
+                case &apos;pound&apos;:
+                case &apos;Pounds&apos;:
+                case &apos;pounds&apos;:
+                case &apos;lb&apos;:
+                case &apos;lbs&apos;:
                 case Pounds:
                     return (new Pounds(text)).toOunces();
                 default:
-                    throw 'Invalid unit type.';
+                    throw &apos;Invalid unit type.&apos;;
             }
         }
     }
@@ -184,13 +223,13 @@ export default class Ounces extends MassUnit {
      * @returns {Ounces} Ounces object.
      */
     static parseDualUnit(text, splitAt, outOfOrder = false) {
-        // "splitAt" must be defined and must be a number
-        if (typeof splitAt !== 'number') {
+        // &quot;splitAt&quot; must be defined and must be a number
+        if (typeof splitAt !== &apos;number&apos;) {
             return false;
         }
 
         // Remove commas (shown to be problematic with our current flow)
-        text = text.replace(',', '');
+        text = text.replace(&apos;,&apos;, &apos;&apos;);
 
         // Dual units split at index
         if (outOfOrder === true) {
@@ -231,7 +270,7 @@ export default class Ounces extends MassUnit {
      * @returns {string} Formatted weight.
      */
     toString(spaces = true, roundTo = 0) {
-        let formattedWeight = '';
+        let formattedWeight = &apos;&apos;;
 
         let ounces = this;
 
@@ -244,7 +283,7 @@ export default class Ounces extends MassUnit {
             ounces.subtract(pounds);
 
             // Format pounds for human consumption
-            formattedWeight = pounds.toFixed(0) + (spaces ? ' ' : '') + (pounds.isSame(1) ? 'lb' : 'lbs');
+            formattedWeight = pounds.toFixed(0) + (spaces ? &apos; &apos; : &apos;&apos;) + (pounds.isSame(1) ? &apos;lb&apos; : &apos;lbs&apos;);
 
             // Any ounces remaining?
             if (ounces.isEmpty()) {
@@ -253,10 +292,27 @@ export default class Ounces extends MassUnit {
             }
 
             // Prep for ounces formatting
-            formattedWeight = formattedWeight + ' ';
+            formattedWeight = formattedWeight + &apos; &apos;;
         }
 
         // Format ounces for human consumption
-        return formattedWeight + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
+        return formattedWeight + ounces.toFixed(roundTo) + (spaces ? &apos; &apos; : &apos;&apos;) + &apos;oz&apos;;
     }
 }
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
