@@ -5,7 +5,6 @@
   "scripts": {
     "build": "npx webpack --config webpack.config.js",
     "lint": "./node_modules/.bin/eslint --config ./.eslintrc.js ./src",
-    "lint:docs": "npx documentation lint ./src",
     "test": "npm run tests",
     "tests": "node ./scripts/tests.js | tap-spec",
     "test:coverage": "npm run tests:coverage",
@@ -13,7 +12,7 @@
     "speed": "npm run performance",
     "performance": "node ./scripts/performance.js",
     "docs": "npm run documentation",
-    "documentation": "npx documentation build src/** --shallow --format md --output docs/functions.md",
+    "documentation": "npx esdoc",
     "example": "node ./scripts/example.js"
   },
   "keywords": [
@@ -36,7 +35,9 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "babel-loader": "^8.0.4",
-    "documentation": "^9.0.0",
+    "esdoc": "^1.1.0",
+    "esdoc-publish-markdown-plugin": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^5.10.0",
     "microtime": "^2.1.8",
     "nyc": "^13.1.0",
