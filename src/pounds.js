@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.3
+ * @version 1.4.4
  */
 
 import MassUnit from './mass_unit';
@@ -106,7 +106,7 @@ export default class Pounds extends MassUnit {
     /**
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
-     * @param {string} splitAt
+     * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
      * @returns {Pounds} Pounds object.
      */

@@ -3,11 +3,5 @@
     "destination": "./docs",
     "plugins": [{
         "name": "esdoc-standard-plugin"
-    },
-    {
-        "name": "esdoc-publish-markdown-plugin",
-        "option": {
-            "filename":"FUNCTIONS.md"
-        }
     }]
 }
