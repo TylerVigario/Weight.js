@@ -17,6 +17,7 @@ export default class Pounds extends MassUnit {
     /**
      * Get value from variable.
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
+     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
      */
     getValue(weight) {
@@ -48,7 +49,8 @@ export default class Pounds extends MassUnit {
     /**
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
-     * @returns {Pounds} Pounds object.
+     * @returns {(Pounds|false)} Returns a Pounds object or false on error.
+     * @see Ounces.parse
      */
     static parse(text) {
         let ounces = Ounces.parse(text);
@@ -64,7 +66,7 @@ export default class Pounds extends MassUnit {
      * Parse text for single unit weight.
      * @param {(string|number)} text - Text to parse for single unit weight.
      * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.
-     * @returns {Ounces} Ounces object.
+     * @returns {(Pounds|false)} Returns a Pounds object or false on error.
      */
     static parseSingleUnit(text, unitType = Pounds) {
         text = text.trim();
@@ -108,7 +110,8 @@ export default class Pounds extends MassUnit {
      * @param {(string|number)} text - Text to parse for weight.
      * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
-     * @returns {Pounds} Pounds object.
+     * @returns {(Pounds|false)} Returns a Pounds object or false on error.
+     * @see parseSingleUnit
      */
     static parseDualUnit(text, splitAt, outOfOrder = false) {
         // "splitAt" must be defined and must be a number
@@ -155,7 +158,10 @@ export default class Pounds extends MassUnit {
 
     /**
      * Convert weight to text.
+     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
+     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.
      * @returns {string} Formatted weight.
+     * @see Ounces.toString
      */
     toString(spaces = true, roundTo = 0) {
         return this.toOunces().toString(spaces, roundTo);
