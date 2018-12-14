@@ -142,7 +142,7 @@ function () {
 
     /**
      * Round weight down.
-     * @returns {object}
+     * @returns {Object}
      */
     value: function floor() {
       this.weight = Math.floor(this.weight);
@@ -150,7 +150,7 @@ function () {
     }
     /**
      * Round weight up.
-     * @returns {object}
+     * @returns {Object}
      */
 
   }, {
@@ -162,7 +162,7 @@ function () {
     /**
      * Round weight.
      * @param {number} [digits = 0]
-     * @returns {object}
+     * @returns {Object}
      */
 
   }, {
@@ -187,7 +187,7 @@ function () {
     /**
      * Add weight to current object.
      * @param {(Ounces|Pounds|number|string)} weight - Weight to add.
-     * @returns {object} Returns current object.
+     * @returns {Object} Returns current object.
      */
 
   }, {
@@ -199,7 +199,7 @@ function () {
     /**
      * Subtract weight to current object.
      * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.
-     * @returns {object} Returns current object.
+     * @returns {Object} Returns current object.
      */
 
   }, {

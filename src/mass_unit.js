@@ -3,15 +3,14 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.2
+ * @version 1.4.3
  */
 
-/** Class representing a mass unit. */
+/**
+ * Class representing a mass unit.
+ * @param {(Ounces|Pounds|number|string)} [weight = 0]
+ */
 export default class MassUnit {
-    /**
-     * Create a mass unit object.
-     * @param {(Ounces|Pounds|number|string)} [weight = 0]
-     */
     constructor(weight = 0) {
         this.value = this.getValue(weight);
     }
@@ -40,7 +39,7 @@ export default class MassUnit {
 
     /**
      * Round weight down.
-     * @returns {object}
+     * @returns {Object}
      */
     floor() {
         this.weight = Math.floor(this.weight);
@@ -50,7 +49,7 @@ export default class MassUnit {
 
     /**
      * Round weight up.
-     * @returns {object}
+     * @returns {Object}
      */
     ceil() {
         this.weight = Math.ceil(this.weight);
@@ -61,7 +60,7 @@ export default class MassUnit {
     /**
      * Round weight.
      * @param {number} [digits = 0]
-     * @returns {object}
+     * @returns {Object}
      */
     round(digits = 0) {
         this.weight = this.toFixed(digits);
@@ -81,7 +80,7 @@ export default class MassUnit {
     /**
      * Add weight to current object.
      * @param {(Ounces|Pounds|number|string)} weight - Weight to add.
-     * @returns {object} Returns current object.
+     * @returns {Object} Returns current object.
      */
     add(weight) {
         this.weight += this.getValue(weight);
@@ -92,7 +91,7 @@ export default class MassUnit {
     /**
      * Subtract weight to current object.
      * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.
-     * @returns {object} Returns current object.
+     * @returns {Object} Returns current object.
      */
     subtract(weight) {
         weight = this.getValue(weight);
