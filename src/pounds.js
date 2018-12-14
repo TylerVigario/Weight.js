@@ -107,7 +107,7 @@ export default class Pounds extends MassUnit {
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
      * @param {string} splitAt
-     * @param {boolean} outOfOrder - Ounces before pounds.
+     * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
      * @returns {Pounds} Pounds object.
      */
     static parseDualUnit(text, splitAt, outOfOrder = false) {

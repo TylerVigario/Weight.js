@@ -458,7 +458,7 @@ function (_MassUnit) {
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
      * @param {string} splitAt
-     * @param {boolean} outOfOrder - Ounces before pounds.
+     * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
      * @returns {Pounds} Pounds object.
      */
 
@@ -750,7 +750,8 @@ function (_MassUnit) {
     /**
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
-     * @param {number} splitAt Index to split string.
+     * @param {number} splitAt - Index to split string.
+     * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
      * @returns {Ounces} Ounces object.
      */
 

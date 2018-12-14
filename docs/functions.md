@@ -122,7 +122,7 @@ Parse text for single unit weight.
 | text | string|number |  | Text to parse for single unit weight. |
 | unitType | Ounces|Pounds|string |  | Default unit type if no signifier is found. |
 
-### `parseDualUnit(text: string|number, splitAt: number): Ounces`
+### `parseDualUnit(text: string|number, splitAt: number, outOfOrder: boolean): Ounces`
 
 Parse text for weight.
 
@@ -130,6 +130,7 @@ Parse text for weight.
 | --- | --- | --- | --- |
 | text | string|number |  | Text to parse for weight. |
 | splitAt | number |  | Index to split string. |
+| outOfOrder | boolean | optional: true, default: false | False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds. |
 
 ### `toPounds(): Pounds`
 
@@ -184,7 +185,7 @@ Parse text for weight.
 | --- | --- | --- | --- |
 | text | string|number |  | Text to parse for weight. |
 | splitAt | string |  |
-| outOfOrder | boolean |  | Ounces before pounds. |
+| outOfOrder | boolean | optional: true, default: false | False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds. |
 
 ### `toOunces(): Ounces`
 
