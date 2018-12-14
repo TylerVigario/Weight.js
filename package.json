@@ -1,15 +1,19 @@
 {
   "name": "weight.js",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "JavaScript classes to convert imperial mass units as well as output and parse as text.",
   "scripts": {
     "build": "npx webpack --config webpack.config.js",
     "lint": "./node_modules/.bin/eslint --config ./.eslintrc.js ./src",
-    "test": "node ./tests/weight.js | tap-spec",
-    "tests": "npm run lint | npm run test",
+    "test": "npm run tests",
+    "tests": "node ./scripts/tests.js | tap-spec",
+    "test:coverage": "npm run tests:coverage",
+    "tests:coverage": "npx nyc npm run tests",
     "speed": "npm run performance",
-    "performance": "node ./tests/performance.js",
-    "example": "node ./tests/example.js"
+    "performance": "node ./scripts/performance.js",
+    "docs": "npm run documentation",
+    "documentation": "npx esdoc",
+    "example": "node ./scripts/example.js"
   },
   "keywords": [
     "weight",
@@ -31,12 +35,22 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "babel-loader": "^8.0.4",
+    "esdoc": "^1.1.0",
+    "esdoc-publish-markdown-plugin": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^5.10.0",
     "microtime": "^2.1.8",
+    "nyc": "^13.1.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "nyc": {
+    "include": [
+      "**/dist/weight.js"
+    ]
+  }
 }

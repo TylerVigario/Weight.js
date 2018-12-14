@@ -1,8 +1,14 @@
 {
     "cSpell.words": [
+        "esdoc",
+        "lcov",
         "linebreak",
         "microtime",
-        "signifiers"
+        "plugin",
+        "reporter",
+        "signifiers",
+        "standard",
+        "text"
     ],
 	"editor.detectIndentation": false
 }

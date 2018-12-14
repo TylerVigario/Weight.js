@@ -1,4 +1,4 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e1f9c8a954f4c21b850f7b1ab4f4575)](https://www.codacy.com/app/MeekLogic/Weight.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeekLogic/Weight.js&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.com/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.com/MeekLogic/Weight.js) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e1f9c8a954f4c21b850f7b1ab4f4575)](https://www.codacy.com/app/MeekLogic/Weight.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeekLogic/Weight.js&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.com/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.com/MeekLogic/Weight.js) [![Coverage Status](https://coveralls.io/repos/github/MeekLogic/Weight.js/badge.svg?branch=develop)](https://coveralls.io/github/MeekLogic/Weight.js?branch=develop) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)
 
 Weight.js
 =========
@@ -47,24 +47,3 @@ if (ounces.isSame(new Ounces(90))) {
     console.log(ounces.toString()); // "5 lbs 10 oz"
 }
 ```
-
-Functions
----------
-### Static
-- **parse**
-
-### Object
-- **floor**
-- **ceil**
-- **round**
-- **toFixed**
-- **add**
-- **subtract**
-- **isSame**
-- **isNotSame**
-- **isHeavier**
-- **isLighter**
-- **isEmpty**
-- **toString**
-- **toOunces** (only for Pounds)
-- **toPounds** (only for Ounces)
