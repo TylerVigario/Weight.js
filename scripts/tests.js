@@ -1,3 +1,5 @@
+/* eslint no-console: 0 */
+
 var test = require('tape');
 var Weight = require('../dist/weight.js');
 var Pounds = Weight.Pounds;
