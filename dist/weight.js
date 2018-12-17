@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["Weight.js"] = factory();
+		exports["weight.js"] = factory();
 	else
-		root["Weight.js"] = factory();
+		root["weight.js"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -356,6 +356,7 @@ function (_MassUnit) {
 
     /**
      * Get value from variable.
+     * @ignore
      * @protected
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
@@ -570,6 +571,7 @@ function (_MassUnit) {
 
     /**
      * Get value from variable.
+     * @ignore
      * @protected
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.

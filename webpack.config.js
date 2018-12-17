@@ -8,7 +8,7 @@ module.exports = {
         'weight.min': './src/weight.js',
     },
     output: {
-        library: 'Weight.js',
+        library: 'weight.js',
         libraryTarget: 'umd',
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
