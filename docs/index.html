@@ -49,13 +49,13 @@ import Ounces from &apos;weight.js/src/ounces&apos;;
 import Pounds from &apos;weight.js/src/pounds&apos;;</code>
 </code></pre>
 <p><strong>CommonJS</strong></p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">var Weight = require(&apos;../dist/weight.js&apos;);
+<pre><code class="lang-javascript"><code class="source-code prettyprint">var Weight = require(&apos;weight.js&apos;);
 var Ounces = Weight.Ounces;
 var Pounds = Weight.Pounds;
 //or
-var Ounces = require(&apos;../dist/weight.js&apos;).Ounces;
+var Ounces = require(&apos;weight.js&apos;).Ounces;
 //or
-var Pounds = require(&apos;../dist/weight.js&apos;).Pounds;</code>
+var Pounds = require(&apos;weight.js&apos;).Pounds;</code>
 </code></pre>
 <h2 id="example">Example</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">let ounces = Ounces.parse(&apos;5lbs  4 oz&apos;);
 
