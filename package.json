@@ -12,6 +12,7 @@
     "tests:coverage": "npx nyc npm run tests",
     "speed": "npm run performance",
     "performance": "node ./scripts/performance.js",
+    "doc": "npm run documentation",
     "docs": "npm run documentation",
     "documentation": "npx esdoc",
     "example": "node ./scripts/example.js"

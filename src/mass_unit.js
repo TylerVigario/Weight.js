@@ -13,9 +13,11 @@ export default class MassUnit {
     /**
      * Class constructor.
      * @param {(Ounces|Pounds|number|string)} [weight = 0]
+     * @see {@link Ounces._getValue}
+     * @see {@link Pounds._getValue}
      */
     constructor(weight = 0) {
-        this.value = this.getValue(weight);
+        this.value = this._getValue(weight);
     }
 
     /**
@@ -29,11 +31,12 @@ export default class MassUnit {
     /**
      * Set weight value.
      * @param {number} weight
+     * @throws {TypeError} Throws an error if weight is not a valid number.
      */
     set value(weight) {
         // Validate weight
-        if (isNaN(weight)) {
-            throw 'Weight must be a number.';
+        if (typeof weight !== 'number') {
+            throw new TypeError('Weight must be of type number.');
         }
 
         // Weight does not measure in negative
@@ -94,7 +97,7 @@ export default class MassUnit {
      * @returns {Object} Returns current object.
      */
     add(weight) {
-        this._weight += this.getValue(weight);
+        this._weight += this._getValue(weight);
 
         return this;
     }
@@ -105,7 +108,7 @@ export default class MassUnit {
      * @returns {Object} Returns current object.
      */
     subtract(weight) {
-        weight = this.getValue(weight);
+        weight = this._getValue(weight);
 
         // Make sure we do not subtract more than the current weight
         if (weight > this._weight) {
@@ -123,7 +126,7 @@ export default class MassUnit {
      * @returns {boolean} True if same or false is not.
      */
     isSame(weight) {
-        return this._weight === this.getValue(weight);
+        return this._weight === this._getValue(weight);
     }
 
     /**
@@ -132,7 +135,7 @@ export default class MassUnit {
      * @returns {boolean} False if same or true if not.
      */
     isNotSame(weight) {
-        return this._weight !== this.getValue(weight);
+        return this._weight !== this._getValue(weight);
     }
 
     /**
@@ -141,7 +144,7 @@ export default class MassUnit {
      * @returns {boolean} True if current object is heavier or false if not.
      */
     isHeavier(weight) {
-        return this._weight > this.getValue(weight);
+        return this._weight > this._getValue(weight);
     }
 
     /**
@@ -150,7 +153,7 @@ export default class MassUnit {
      * @returns {boolean} True if current object is lighter or false if not.
      */
     isLighter(weight) {
-        return this._weight < this.getValue(weight);
+        return this._weight < this._getValue(weight);
     }
 
     /**

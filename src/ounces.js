@@ -21,7 +21,7 @@ export default class Ounces extends MassUnit {
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
      */
-    getValue(weight) {
+    _getValue(weight) {
         if (weight instanceof Ounces) {
             return weight.value;
         } else if (weight instanceof Pounds) {
@@ -146,6 +146,7 @@ export default class Ounces extends MassUnit {
      * @param {(string|number)} text - Text to parse for single unit weight.
      * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.
      * @returns {(Ounces|false)} Returns an Ounces object or false on error.
+     * @throws {TypeError}
      */
     static parseSingleUnit(text, unitType = Ounces) {
         text = text.trim();
@@ -179,7 +180,7 @@ export default class Ounces extends MassUnit {
                 case Pounds:
                     return (new Pounds(text)).toOunces();
                 default:
-                    throw 'Invalid unit type.';
+                    throw new TypeError('Invalid unit type.');
             }
         }
     }

@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/mass_unit.js",
-    "content": "/** \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.5\r\n */\r\n\r\n/**\r\n * Class representing a mass unit.\r\n */\r\nexport default class MassUnit {\r\n    /**\r\n     * Class constructor.\r\n     * @param {(Ounces|Pounds|number|string)} [weight = 0]\r\n     */\r\n    constructor(weight = 0) {\r\n        this.value = this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Return weight value.\r\n     * @type {number}\r\n     */\r\n    get value() {\r\n        return this._weight;\r\n    }\r\n\r\n    /**\r\n     * Set weight value.\r\n     * @param {number} weight\r\n     */\r\n    set value(weight) {\r\n        // Validate weight\r\n        if (isNaN(weight)) {\r\n            throw 'Weight must be a number.';\r\n        }\r\n\r\n        // Weight does not measure in negative\r\n        if (weight < 0) {\r\n            weight = 0;\r\n        }\r\n\r\n        /**\r\n         * @member {number} weight\r\n         * @private\r\n         */\r\n        this._weight = weight;\r\n    }\r\n\r\n    /**\r\n     * Round weight down.\r\n     * @returns {Object}\r\n     */\r\n    floor() {\r\n        this._weight = Math.floor(this._weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight up.\r\n     * @returns {Object}\r\n     */\r\n    ceil() {\r\n        this._weight = Math.ceil(this._weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight.\r\n     * @param {number} [digits = 0]\r\n     * @returns {Object}\r\n     */\r\n    round(digits = 0) {\r\n        this._weight = this._weight.toFixed(digits);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * The toFixed() method formats a number using fixed-point notation.\r\n     * @param {number} [digits = 0] - Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.\r\n     * @returns {string} A string representing the given number using fixed-point notation.\r\n     */\r\n    toFixed(digits = 0) {\r\n        return this._weight.toFixed(digits);\r\n    }\r\n\r\n    /**\r\n     * Add weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to add.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    add(weight) {\r\n        this._weight += this.getValue(weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Subtract weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    subtract(weight) {\r\n        weight = this.getValue(weight);\r\n\r\n        // Make sure we do not subtract more than the current weight\r\n        if (weight > this._weight) {\r\n            weight = this._weight;\r\n        }\r\n\r\n        this._weight -= weight;\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if same or false is not.\r\n     */\r\n    isSame(weight) {\r\n        return this._weight === this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is not same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} False if same or true if not.\r\n     */\r\n    isNotSame(weight) {\r\n        return this._weight !== this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is heavier than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is heavier or false if not.\r\n     */\r\n    isHeavier(weight) {\r\n        return this._weight > this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is lighter than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is lighter or false if not.\r\n     */\r\n    isLighter(weight) {\r\n        return this._weight < this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object is empty.\r\n     * @returns {boolean} True if current object is empty or false if not.\r\n     */\r\n    isEmpty() {\r\n        return (this._weight === 0);\r\n    }\r\n}\r\n",
+    "content": "/** \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.5\r\n */\r\n\r\n/**\r\n * Class representing a mass unit.\r\n */\r\nexport default class MassUnit {\r\n    /**\r\n     * Class constructor.\r\n     * @param {(Ounces|Pounds|number|string)} [weight = 0]\r\n     * @see {@link Ounces._getValue}\r\n     * @see {@link Pounds._getValue}\r\n     */\r\n    constructor(weight = 0) {\r\n        this.value = this._getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Return weight value.\r\n     * @type {number}\r\n     */\r\n    get value() {\r\n        return this._weight;\r\n    }\r\n\r\n    /**\r\n     * Set weight value.\r\n     * @param {number} weight\r\n     * @throws {TypeError} Throws an error if weight is not a valid number.\r\n     */\r\n    set value(weight) {\r\n        // Validate weight\r\n        if (typeof weight !== 'number') {\r\n            throw new TypeError('Weight must be of type number.');\r\n        }\r\n\r\n        // Weight does not measure in negative\r\n        if (weight < 0) {\r\n            weight = 0;\r\n        }\r\n\r\n        /**\r\n         * @member {number} weight\r\n         * @private\r\n         */\r\n        this._weight = weight;\r\n    }\r\n\r\n    /**\r\n     * Round weight down.\r\n     * @returns {Object}\r\n     */\r\n    floor() {\r\n        this._weight = Math.floor(this._weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight up.\r\n     * @returns {Object}\r\n     */\r\n    ceil() {\r\n        this._weight = Math.ceil(this._weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight.\r\n     * @param {number} [digits = 0]\r\n     * @returns {Object}\r\n     */\r\n    round(digits = 0) {\r\n        this._weight = this._weight.toFixed(digits);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * The toFixed() method formats a number using fixed-point notation.\r\n     * @param {number} [digits = 0] - Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.\r\n     * @returns {string} A string representing the given number using fixed-point notation.\r\n     */\r\n    toFixed(digits = 0) {\r\n        return this._weight.toFixed(digits);\r\n    }\r\n\r\n    /**\r\n     * Add weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to add.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    add(weight) {\r\n        this._weight += this._getValue(weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Subtract weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    subtract(weight) {\r\n        weight = this._getValue(weight);\r\n\r\n        // Make sure we do not subtract more than the current weight\r\n        if (weight > this._weight) {\r\n            weight = this._weight;\r\n        }\r\n\r\n        this._weight -= weight;\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if same or false is not.\r\n     */\r\n    isSame(weight) {\r\n        return this._weight === this._getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is not same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} False if same or true if not.\r\n     */\r\n    isNotSame(weight) {\r\n        return this._weight !== this._getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is heavier than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is heavier or false if not.\r\n     */\r\n    isHeavier(weight) {\r\n        return this._weight > this._getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is lighter than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is lighter or false if not.\r\n     */\r\n    isLighter(weight) {\r\n        return this._weight < this._getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object is empty.\r\n     * @returns {boolean} True if current object is empty or false if not.\r\n     */\r\n    isEmpty() {\r\n        return (this._weight === 0);\r\n    }\r\n}\r\n",
     "static": true,
     "longname": "C:/inetpub/wwwroot/weight.js/src/mass_unit.js",
     "access": "public",
@@ -600,7 +600,11 @@
     "longname": "src/mass_unit.js~MassUnit#constructor",
     "access": "public",
     "description": "Class constructor.",
-    "lineNumber": 17,
+    "see": [
+      "{@link Ounces._getValue}",
+      "{@link Pounds._getValue}"
+    ],
+    "lineNumber": 19,
     "params": [
       {
         "nullable": null,
@@ -630,7 +634,7 @@
     "longname": "src/mass_unit.js~MassUnit#value",
     "access": "public",
     "description": "Return weight value.",
-    "lineNumber": 25,
+    "lineNumber": 27,
     "type": {
       "nullable": null,
       "types": [
@@ -651,7 +655,7 @@
     "longname": "src/mass_unit.js~MassUnit#value",
     "access": "public",
     "description": "Set weight value.",
-    "lineNumber": 33,
+    "lineNumber": 36,
     "params": [
       {
         "nullable": null,
@@ -662,6 +666,14 @@
         "optional": false,
         "name": "weight",
         "description": ""
+      }
+    ],
+    "throws": [
+      {
+        "types": [
+          "TypeError"
+        ],
+        "description": "Throws an error if weight is not a valid number."
       }
     ]
   },
@@ -674,7 +686,7 @@
     "longname": "src/mass_unit.js~MassUnit#_weight",
     "access": "private",
     "description": "",
-    "lineNumber": 48,
+    "lineNumber": 51,
     "type": {
       "types": [
         "*"
@@ -692,7 +704,7 @@
     "longname": "src/mass_unit.js~MassUnit#floor",
     "access": "public",
     "description": "Round weight down.",
-    "lineNumber": 55,
+    "lineNumber": 58,
     "unknown": [
       {
         "tagName": "@returns",
@@ -720,7 +732,7 @@
     "longname": "src/mass_unit.js~MassUnit#ceil",
     "access": "public",
     "description": "Round weight up.",
-    "lineNumber": 65,
+    "lineNumber": 68,
     "unknown": [
       {
         "tagName": "@returns",
@@ -748,7 +760,7 @@
     "longname": "src/mass_unit.js~MassUnit#round",
     "access": "public",
     "description": "Round weight.",
-    "lineNumber": 76,
+    "lineNumber": 79,
     "unknown": [
       {
         "tagName": "@returns",
@@ -789,7 +801,7 @@
     "longname": "src/mass_unit.js~MassUnit#toFixed",
     "access": "public",
     "description": "The toFixed() method formats a number using fixed-point notation.",
-    "lineNumber": 87,
+    "lineNumber": 90,
     "unknown": [
       {
         "tagName": "@returns",
@@ -830,7 +842,7 @@
     "longname": "src/mass_unit.js~MassUnit#add",
     "access": "public",
     "description": "Add weight to current object.",
-    "lineNumber": 96,
+    "lineNumber": 99,
     "unknown": [
       {
         "tagName": "@returns",
@@ -872,7 +884,7 @@
     "longname": "src/mass_unit.js~MassUnit#subtract",
     "access": "public",
     "description": "Subtract weight to current object.",
-    "lineNumber": 107,
+    "lineNumber": 110,
     "unknown": [
       {
         "tagName": "@returns",
@@ -914,7 +926,7 @@
     "longname": "src/mass_unit.js~MassUnit#isSame",
     "access": "public",
     "description": "Check if current object value is same as given weight.",
-    "lineNumber": 125,
+    "lineNumber": 128,
     "unknown": [
       {
         "tagName": "@returns",
@@ -956,7 +968,7 @@
     "longname": "src/mass_unit.js~MassUnit#isNotSame",
     "access": "public",
     "description": "Check if current object value is not same as given weight.",
-    "lineNumber": 134,
+    "lineNumber": 137,
     "unknown": [
       {
         "tagName": "@returns",
@@ -998,7 +1010,7 @@
     "longname": "src/mass_unit.js~MassUnit#isHeavier",
     "access": "public",
     "description": "Check if current mass is heavier than a given weight.",
-    "lineNumber": 143,
+    "lineNumber": 146,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1040,7 +1052,7 @@
     "longname": "src/mass_unit.js~MassUnit#isLighter",
     "access": "public",
     "description": "Check if current mass is lighter than a given weight.",
-    "lineNumber": 152,
+    "lineNumber": 155,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1082,7 +1094,7 @@
     "longname": "src/mass_unit.js~MassUnit#isEmpty",
     "access": "public",
     "description": "Check if current object is empty.",
-    "lineNumber": 160,
+    "lineNumber": 163,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1103,7 +1115,7 @@
     "__docId__": 71,
     "kind": "file",
     "name": "src/ounces.js",
-    "content": "/** \r\n * Ounce mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.5\r\n */\r\n\r\nimport MassUnit from './mass_unit';\r\nimport Pounds from './pounds';\r\n\r\n/**\r\n * Class representing ounce mass units.\r\n * @extends {MassUnit}\r\n */\r\nexport default class Ounces extends MassUnit {\r\n    /**\r\n     * Get value from variable.\r\n     * @private\r\n     * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.\r\n     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.\r\n     * @returns {number}\r\n     */\r\n    getValue(weight) {\r\n        if (weight instanceof Ounces) {\r\n            return weight.value;\r\n        } else if (weight instanceof Pounds) {\r\n            return weight.toOunces().value;\r\n        } else if (typeof weight === 'number') {\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        } else {\r\n            weight = parseFloat(weight);\r\n\r\n            if (isNaN(weight)) {\r\n                throw new TypeError('Invalid parameter passed to function.');\r\n            }\r\n\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @returns {(Ounces|false)} Returns an Ounces object or false on error.\r\n     * @see {@link parseSingleUnit}\r\n     * @see {@link parseDualUnit}\r\n     */\r\n    static parse(text) {\r\n        // Can't glean much info from a number\r\n        if (typeof text === 'number') {\r\n            return new Ounces(text);\r\n        }\r\n        // Support for objects that have \"toString\" method\r\n        else if (typeof text === 'object') {\r\n            if (typeof text.toString !== 'function') {\r\n                return false;\r\n            }\r\n\r\n            text = text.toString();\r\n        }\r\n        // We expect to parse a string\r\n        else if (typeof text !== 'string') {\r\n            return false;\r\n        }\r\n\r\n        // Remove spaces\r\n        text = text.replace(/\\s/g, '');\r\n\r\n        // Is string empty?\r\n        if (text.length === 0) {\r\n            return new Ounces(0);\r\n        }\r\n\r\n        // Remove case sensitivity\r\n        text = text.toLowerCase();\r\n\r\n        let ozID = text.indexOf('oz');\r\n        let lbID = text.indexOf('lb');\r\n\r\n        // Does it include signifiers?\r\n        if (ozID !== -1 && lbID !== -1) {\r\n            // Pounds precedes ounces (normal)\r\n            if (lbID < ozID) {\r\n                lbID += 2;\r\n\r\n                // Did they use \"lbs\"?\r\n                if (text.indexOf('lbs') !== -1) {\r\n                    lbID += 1;\r\n                }\r\n\r\n                return Ounces.parseDualUnit(text, lbID);\r\n            } else {\r\n                // Ounces precedes pounds (out-of-order)\r\n                ozID += 2;\r\n\r\n                return Ounces.parseDualUnit(text, ozID, true);\r\n            }\r\n        } else if (ozID !== -1) {\r\n            // Let's keep \"oz\" for parseSingleUnit\r\n            let separator = ozID + 2;\r\n\r\n            // Is Single unit?\r\n            if (separator === text.length) {\r\n                return Ounces.parseSingleUnit(text);\r\n            }\r\n\r\n            return Ounces.parseDualUnit(text, separator, true);\r\n        } else if (lbID !== -1) {\r\n            let separator = lbID + 2;\r\n\r\n            // Did they use \"lbs\"?\r\n            if (text.indexOf('lbs') !== -1) {\r\n                separator++;\r\n            }\r\n\r\n            // Is Single unit?\r\n            if (separator === text.length) {\r\n                return Ounces.parseSingleUnit(text, Pounds);\r\n            }\r\n\r\n            return Ounces.parseDualUnit(text, separator);\r\n        } else {\r\n            let separator = text.indexOf(',');\r\n\r\n            if (separator !== -1) {\r\n                // Dual units split by a comma (i.e. 3lb, 4oz)\r\n                return Ounces.parseDualUnit(text, separator + 1);\r\n            }\r\n\r\n            // Single unit\r\n            return Ounces.parseSingleUnit(text);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for single unit weight.\r\n     * @param {(string|number)} text - Text to parse for single unit weight.\r\n     * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.\r\n     * @returns {(Ounces|false)} Returns an Ounces object or false on error.\r\n     */\r\n    static parseSingleUnit(text, unitType = Ounces) {\r\n        text = text.trim();\r\n\r\n        // Last validation before initializing.\r\n        if (isNaN(parseFloat(text))) {\r\n            return false;\r\n        }\r\n\r\n        // Single unit (3lb or 4oz)\r\n        if (text.indexOf('lb') !== -1) {\r\n            // Pounds (must include: lb or lbs)\r\n            return (new Pounds(text)).toOunces();\r\n        } else if (text.indexOf('oz') !== -1) {\r\n            // Ounces\r\n            return new Ounces(text);\r\n        } else {\r\n            // Undefined (use default unitType)\r\n            switch (unitType) {\r\n                case 'Ounces':\r\n                case 'ounces':\r\n                case 'oz':\r\n                case Ounces:\r\n                    return new Ounces(text);\r\n                case 'Pound':\r\n                case 'pound':\r\n                case 'Pounds':\r\n                case 'pounds':\r\n                case 'lb':\r\n                case 'lbs':\r\n                case Pounds:\r\n                    return (new Pounds(text)).toOunces();\r\n                default:\r\n                    throw 'Invalid unit type.';\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @param {number} splitAt - Index to split string.\r\n     * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.\r\n     * @returns {(Ounces|false)} Returns an Ounces object or false on error.\r\n     * @see {@link parseSingleUnit}\r\n     */\r\n    static parseDualUnit(text, splitAt, outOfOrder = false) {\r\n        // \"splitAt\" must be defined and must be a number\r\n        if (typeof splitAt !== 'number') {\r\n            return false;\r\n        }\r\n\r\n        // Remove commas (shown to be problematic with our current flow)\r\n        text = text.replace(',', '');\r\n\r\n        // Dual units split at index\r\n        if (outOfOrder === true) {\r\n            text = [\r\n                text.substring(0, splitAt),\r\n                text.substring(splitAt)\r\n            ];\r\n        } else {\r\n            text = [\r\n                text.substring(splitAt),\r\n                text.substring(0, splitAt)\r\n            ];\r\n        }\r\n\r\n        // Parse\r\n        let ounces = Ounces.parseSingleUnit(text[0]);\r\n        let pounds = Pounds.parseSingleUnit(text[1]);\r\n\r\n        // Did we have any trouble parsing single units?\r\n        if (ounces === false || pounds === false) {\r\n            return false;\r\n        }\r\n\r\n        // Return adding pounds to ounces (to maintain an Ounces object)\r\n        return ounces.add(pounds);\r\n    }\r\n\r\n    /**\r\n     * Convert ounces to pounds.\r\n     * @returns {Pounds} Pounds object.\r\n     */\r\n    toPounds() {\r\n        return new Pounds(this._weight / 16);\r\n    }\r\n\r\n    /**\r\n     * Convert weight to text.\r\n     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.\r\n     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.\r\n     * @returns {string} Formatted weight.\r\n     */\r\n    toString(spaces = true, roundTo = 0) {\r\n        let formattedWeight = '';\r\n\r\n        let ounces = this;\r\n\r\n        // Excess ounces = pounds\r\n        if (ounces.isHeavier(15)) {\r\n            // Extract whole pounds from ounces\r\n            let pounds = ounces.toPounds().floor();\r\n\r\n            // Reduce ounces by whole pounds\r\n            ounces.subtract(pounds);\r\n\r\n            // Format pounds for human consumption\r\n            formattedWeight = pounds.toFixed(0) + (spaces ? ' ' : '') + (pounds.isSame(1) ? 'lb' : 'lbs');\r\n\r\n            // Any ounces remaining?\r\n            if (ounces.isEmpty()) {\r\n                // Return if no ounces are remaining\r\n                return formattedWeight;\r\n            }\r\n\r\n            // Prep for ounces formatting\r\n            formattedWeight = formattedWeight + ' ';\r\n        }\r\n\r\n        // Format ounces for human consumption\r\n        return formattedWeight + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n    }\r\n}\r\n",
+    "content": "/** \r\n * Ounce mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.5\r\n */\r\n\r\nimport MassUnit from './mass_unit';\r\nimport Pounds from './pounds';\r\n\r\n/**\r\n * Class representing ounce mass units.\r\n * @extends {MassUnit}\r\n */\r\nexport default class Ounces extends MassUnit {\r\n    /**\r\n     * Get value from variable.\r\n     * @private\r\n     * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.\r\n     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.\r\n     * @returns {number}\r\n     */\r\n    _getValue(weight) {\r\n        if (weight instanceof Ounces) {\r\n            return weight.value;\r\n        } else if (weight instanceof Pounds) {\r\n            return weight.toOunces().value;\r\n        } else if (typeof weight === 'number') {\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        } else {\r\n            weight = parseFloat(weight);\r\n\r\n            if (isNaN(weight)) {\r\n                throw new TypeError('Invalid parameter passed to function.');\r\n            }\r\n\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @returns {(Ounces|false)} Returns an Ounces object or false on error.\r\n     * @see {@link parseSingleUnit}\r\n     * @see {@link parseDualUnit}\r\n     */\r\n    static parse(text) {\r\n        // Can't glean much info from a number\r\n        if (typeof text === 'number') {\r\n            return new Ounces(text);\r\n        }\r\n        // Support for objects that have \"toString\" method\r\n        else if (typeof text === 'object') {\r\n            if (typeof text.toString !== 'function') {\r\n                return false;\r\n            }\r\n\r\n            text = text.toString();\r\n        }\r\n        // We expect to parse a string\r\n        else if (typeof text !== 'string') {\r\n            return false;\r\n        }\r\n\r\n        // Remove spaces\r\n        text = text.replace(/\\s/g, '');\r\n\r\n        // Is string empty?\r\n        if (text.length === 0) {\r\n            return new Ounces(0);\r\n        }\r\n\r\n        // Remove case sensitivity\r\n        text = text.toLowerCase();\r\n\r\n        let ozID = text.indexOf('oz');\r\n        let lbID = text.indexOf('lb');\r\n\r\n        // Does it include signifiers?\r\n        if (ozID !== -1 && lbID !== -1) {\r\n            // Pounds precedes ounces (normal)\r\n            if (lbID < ozID) {\r\n                lbID += 2;\r\n\r\n                // Did they use \"lbs\"?\r\n                if (text.indexOf('lbs') !== -1) {\r\n                    lbID += 1;\r\n                }\r\n\r\n                return Ounces.parseDualUnit(text, lbID);\r\n            } else {\r\n                // Ounces precedes pounds (out-of-order)\r\n                ozID += 2;\r\n\r\n                return Ounces.parseDualUnit(text, ozID, true);\r\n            }\r\n        } else if (ozID !== -1) {\r\n            // Let's keep \"oz\" for parseSingleUnit\r\n            let separator = ozID + 2;\r\n\r\n            // Is Single unit?\r\n            if (separator === text.length) {\r\n                return Ounces.parseSingleUnit(text);\r\n            }\r\n\r\n            return Ounces.parseDualUnit(text, separator, true);\r\n        } else if (lbID !== -1) {\r\n            let separator = lbID + 2;\r\n\r\n            // Did they use \"lbs\"?\r\n            if (text.indexOf('lbs') !== -1) {\r\n                separator++;\r\n            }\r\n\r\n            // Is Single unit?\r\n            if (separator === text.length) {\r\n                return Ounces.parseSingleUnit(text, Pounds);\r\n            }\r\n\r\n            return Ounces.parseDualUnit(text, separator);\r\n        } else {\r\n            let separator = text.indexOf(',');\r\n\r\n            if (separator !== -1) {\r\n                // Dual units split by a comma (i.e. 3lb, 4oz)\r\n                return Ounces.parseDualUnit(text, separator + 1);\r\n            }\r\n\r\n            // Single unit\r\n            return Ounces.parseSingleUnit(text);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for single unit weight.\r\n     * @param {(string|number)} text - Text to parse for single unit weight.\r\n     * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.\r\n     * @returns {(Ounces|false)} Returns an Ounces object or false on error.\r\n     * @throws {TypeError}\r\n     */\r\n    static parseSingleUnit(text, unitType = Ounces) {\r\n        text = text.trim();\r\n\r\n        // Last validation before initializing.\r\n        if (isNaN(parseFloat(text))) {\r\n            return false;\r\n        }\r\n\r\n        // Single unit (3lb or 4oz)\r\n        if (text.indexOf('lb') !== -1) {\r\n            // Pounds (must include: lb or lbs)\r\n            return (new Pounds(text)).toOunces();\r\n        } else if (text.indexOf('oz') !== -1) {\r\n            // Ounces\r\n            return new Ounces(text);\r\n        } else {\r\n            // Undefined (use default unitType)\r\n            switch (unitType) {\r\n                case 'Ounces':\r\n                case 'ounces':\r\n                case 'oz':\r\n                case Ounces:\r\n                    return new Ounces(text);\r\n                case 'Pound':\r\n                case 'pound':\r\n                case 'Pounds':\r\n                case 'pounds':\r\n                case 'lb':\r\n                case 'lbs':\r\n                case Pounds:\r\n                    return (new Pounds(text)).toOunces();\r\n                default:\r\n                    throw new TypeError('Invalid unit type.');\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @param {number} splitAt - Index to split string.\r\n     * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.\r\n     * @returns {(Ounces|false)} Returns an Ounces object or false on error.\r\n     * @see {@link parseSingleUnit}\r\n     */\r\n    static parseDualUnit(text, splitAt, outOfOrder = false) {\r\n        // \"splitAt\" must be defined and must be a number\r\n        if (typeof splitAt !== 'number') {\r\n            return false;\r\n        }\r\n\r\n        // Remove commas (shown to be problematic with our current flow)\r\n        text = text.replace(',', '');\r\n\r\n        // Dual units split at index\r\n        if (outOfOrder === true) {\r\n            text = [\r\n                text.substring(0, splitAt),\r\n                text.substring(splitAt)\r\n            ];\r\n        } else {\r\n            text = [\r\n                text.substring(splitAt),\r\n                text.substring(0, splitAt)\r\n            ];\r\n        }\r\n\r\n        // Parse\r\n        let ounces = Ounces.parseSingleUnit(text[0]);\r\n        let pounds = Pounds.parseSingleUnit(text[1]);\r\n\r\n        // Did we have any trouble parsing single units?\r\n        if (ounces === false || pounds === false) {\r\n            return false;\r\n        }\r\n\r\n        // Return adding pounds to ounces (to maintain an Ounces object)\r\n        return ounces.add(pounds);\r\n    }\r\n\r\n    /**\r\n     * Convert ounces to pounds.\r\n     * @returns {Pounds} Pounds object.\r\n     */\r\n    toPounds() {\r\n        return new Pounds(this._weight / 16);\r\n    }\r\n\r\n    /**\r\n     * Convert weight to text.\r\n     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.\r\n     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.\r\n     * @returns {string} Formatted weight.\r\n     */\r\n    toString(spaces = true, roundTo = 0) {\r\n        let formattedWeight = '';\r\n\r\n        let ounces = this;\r\n\r\n        // Excess ounces = pounds\r\n        if (ounces.isHeavier(15)) {\r\n            // Extract whole pounds from ounces\r\n            let pounds = ounces.toPounds().floor();\r\n\r\n            // Reduce ounces by whole pounds\r\n            ounces.subtract(pounds);\r\n\r\n            // Format pounds for human consumption\r\n            formattedWeight = pounds.toFixed(0) + (spaces ? ' ' : '') + (pounds.isSame(1) ? 'lb' : 'lbs');\r\n\r\n            // Any ounces remaining?\r\n            if (ounces.isEmpty()) {\r\n                // Return if no ounces are remaining\r\n                return formattedWeight;\r\n            }\r\n\r\n            // Prep for ounces formatting\r\n            formattedWeight = formattedWeight + ' ';\r\n        }\r\n\r\n        // Format ounces for human consumption\r\n        return formattedWeight + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n    }\r\n}\r\n",
     "static": true,
     "longname": "C:/inetpub/wwwroot/weight.js/src/ounces.js",
     "access": "public",
@@ -1131,12 +1143,12 @@
   {
     "__docId__": 73,
     "kind": "method",
-    "name": "getValue",
+    "name": "_getValue",
     "memberof": "src/ounces.js~Ounces",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "src/ounces.js~Ounces#getValue",
+    "longname": "src/ounces.js~Ounces#_getValue",
     "access": "private",
     "description": "Get value from variable.",
     "lineNumber": 24,
@@ -1234,7 +1246,7 @@
     "longname": "src/ounces.js~Ounces.parseSingleUnit",
     "access": "public",
     "description": "Parse text for single unit weight.",
-    "lineNumber": 150,
+    "lineNumber": 151,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1274,7 +1286,15 @@
       ],
       "spread": false,
       "description": "Returns an Ounces object or false on error."
-    }
+    },
+    "throws": [
+      {
+        "types": [
+          "TypeError"
+        ],
+        "description": ""
+      }
+    ]
   },
   {
     "__docId__": 76,
@@ -1290,7 +1310,7 @@
     "see": [
       "{@link parseSingleUnit}"
     ],
-    "lineNumber": 195,
+    "lineNumber": 196,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1353,7 +1373,7 @@
     "longname": "src/ounces.js~Ounces#toPounds",
     "access": "public",
     "description": "Convert ounces to pounds.",
-    "lineNumber": 234,
+    "lineNumber": 235,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1381,7 +1401,7 @@
     "longname": "src/ounces.js~Ounces#toString",
     "access": "public",
     "description": "Convert weight to text.",
-    "lineNumber": 244,
+    "lineNumber": 245,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1427,7 +1447,7 @@
     "__docId__": 79,
     "kind": "file",
     "name": "src/pounds.js",
-    "content": "/** \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.5\r\n */\r\n\r\nimport MassUnit from './mass_unit';\r\nimport Ounces from './ounces';\r\n\r\n/**\r\n * Class representing pound mass units.\r\n * @extends {MassUnit}\r\n */\r\nexport default class Pounds extends MassUnit {\r\n    /**\r\n     * Get value from variable.\r\n     * @private\r\n     * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.\r\n     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.\r\n     * @returns {number}\r\n     */\r\n    getValue(weight) {\r\n        if (weight instanceof Ounces) {\r\n            return weight.toPounds().value;\r\n        } else if (weight instanceof Pounds) {\r\n            return weight.value;\r\n        } else if (typeof weight === 'number') {\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        } else {\r\n            weight = parseFloat(weight);\r\n\r\n            if (isNaN(weight)) {\r\n                throw 'Invalid parameter passed to function.';\r\n            }\r\n\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @returns {(Pounds|false)} Returns a Pounds object or false on error.\r\n     * @see {@link Ounces.parse}\r\n     */\r\n    static parse(text) {\r\n        let ounces = Ounces.parse(text);\r\n\r\n        if (ounces === false) {\r\n            return false;\r\n        }\r\n\r\n        return ounces.toPounds();\r\n    }\r\n\r\n    /**\r\n     * Parse text for single unit weight.\r\n     * @param {(string|number)} text - Text to parse for single unit weight.\r\n     * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.\r\n     * @returns {(Pounds|false)} Returns a Pounds object or false on error.\r\n     */\r\n    static parseSingleUnit(text, unitType = Pounds) {\r\n        text = text.trim();\r\n\r\n        // Last validation before initializing.\r\n        if (isNaN(parseFloat(text))) {\r\n            return false;\r\n        }\r\n\r\n        // Single unit (3lb or 4oz)\r\n        if (text.indexOf('oz') !== -1) {\r\n            // Ounces (must include: oz)\r\n            return (new Ounces(text)).toPounds();\r\n        } else if (text.indexOf('lb') !== -1) {\r\n            // Pounds (default)\r\n            return new Pounds(text);\r\n        } else {\r\n            // Undefined (use default unitType)\r\n            switch (unitType) {\r\n                case 'Ounces':\r\n                case 'ounces':\r\n                case 'oz':\r\n                case Ounces:\r\n                    return new Ounces(text).toPounds();\r\n                case 'Pound':\r\n                case 'pound':\r\n                case 'Pounds':\r\n                case 'pounds':\r\n                case 'lb':\r\n                case 'lbs':\r\n                case Pounds:\r\n                    return (new Pounds(text));\r\n                default:\r\n                    throw 'Invalid unit type.';\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @param {number} splitAt - Index to split string.\r\n     * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.\r\n     * @returns {(Pounds|false)} Returns a Pounds object or false on error.\r\n     * @see {@link parseSingleUnit}\r\n     */\r\n    static parseDualUnit(text, splitAt, outOfOrder = false) {\r\n        // \"splitAt\" must be defined and must be a number\r\n        if (typeof splitAt !== 'number') {\r\n            return false;\r\n        }\r\n\r\n        // Remove commas (shown to be problematic with our current flow)\r\n        text = text.replace(',', '');\r\n\r\n        // Dual units split at index\r\n        if (outOfOrder === true) {\r\n            text = [\r\n                text.substring(0, splitAt),\r\n                text.substring(splitAt)\r\n            ];\r\n        } else {\r\n            text = [\r\n                text.substring(splitAt),\r\n                text.substring(0, splitAt)\r\n            ];\r\n        }\r\n\r\n        // Parse\r\n        let ounces = Ounces.parseSingleUnit(text[0]);\r\n        let pounds = Pounds.parseSingleUnit(text[1]);\r\n\r\n        // Did we have any trouble parsing single units?\r\n        if (ounces === false || pounds === false) {\r\n            return false;\r\n        }\r\n\r\n        // Return adding ounces to pounds\r\n        return pounds.add(ounces);\r\n    }\r\n\r\n    /**\r\n     * Convert pounds to ounces.\r\n     * @returns {Ounces} Ounces object.\r\n     */\r\n    toOunces() {\r\n        return new Ounces(this._weight * 16);\r\n    }\r\n\r\n    /**\r\n     * Convert weight to text.\r\n     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.\r\n     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.\r\n     * @returns {string} Formatted weight.\r\n     * @see {@link Ounces.toString}\r\n     */\r\n    toString(spaces = true, roundTo = 0) {\r\n        return this.toOunces().toString(spaces, roundTo);\r\n    }\r\n}\r\n",
+    "content": "/** \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.5\r\n */\r\n\r\nimport MassUnit from './mass_unit';\r\nimport Ounces from './ounces';\r\n\r\n/**\r\n * Class representing pound mass units.\r\n * @extends {MassUnit}\r\n */\r\nexport default class Pounds extends MassUnit {\r\n    /**\r\n     * Get value from variable.\r\n     * @private\r\n     * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.\r\n     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.\r\n     * @returns {number}\r\n     */\r\n    _getValue(weight) {\r\n        if (weight instanceof Ounces) {\r\n            return weight.toPounds().value;\r\n        } else if (weight instanceof Pounds) {\r\n            return weight.value;\r\n        } else if (typeof weight === 'number') {\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        } else {\r\n            weight = parseFloat(weight);\r\n\r\n            if (isNaN(weight)) {\r\n                throw new TypeError('Invalid parameter passed to function.');\r\n            }\r\n\r\n            if (weight < 0) {\r\n                return 0;\r\n            }\r\n\r\n            return weight;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @returns {(Pounds|false)} Returns a Pounds object or false on error.\r\n     * @see {@link Ounces.parse}\r\n     */\r\n    static parse(text) {\r\n        let ounces = Ounces.parse(text);\r\n\r\n        if (ounces === false) {\r\n            return false;\r\n        }\r\n\r\n        return ounces.toPounds();\r\n    }\r\n\r\n    /**\r\n     * Parse text for single unit weight.\r\n     * @param {(string|number)} text - Text to parse for single unit weight.\r\n     * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.\r\n     * @returns {(Pounds|false)} Returns a Pounds object or false on error.\r\n     */\r\n    static parseSingleUnit(text, unitType = Pounds) {\r\n        text = text.trim();\r\n\r\n        // Last validation before initializing.\r\n        if (isNaN(parseFloat(text))) {\r\n            return false;\r\n        }\r\n\r\n        // Single unit (3lb or 4oz)\r\n        if (text.indexOf('oz') !== -1) {\r\n            // Ounces (must include: oz)\r\n            return (new Ounces(text)).toPounds();\r\n        } else if (text.indexOf('lb') !== -1) {\r\n            // Pounds (default)\r\n            return new Pounds(text);\r\n        } else {\r\n            // Undefined (use default unitType)\r\n            switch (unitType) {\r\n                case 'Ounces':\r\n                case 'ounces':\r\n                case 'oz':\r\n                case Ounces:\r\n                    return new Ounces(text).toPounds();\r\n                case 'Pound':\r\n                case 'pound':\r\n                case 'Pounds':\r\n                case 'pounds':\r\n                case 'lb':\r\n                case 'lbs':\r\n                case Pounds:\r\n                    return (new Pounds(text));\r\n                default:\r\n                    throw new TypeError('Invalid unit type.');\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Parse text for weight.\r\n     * @param {(string|number)} text - Text to parse for weight.\r\n     * @param {number} splitAt - Index to split string.\r\n     * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.\r\n     * @returns {(Pounds|false)} Returns a Pounds object or false on error.\r\n     * @see {@link parseSingleUnit}\r\n     */\r\n    static parseDualUnit(text, splitAt, outOfOrder = false) {\r\n        // \"splitAt\" must be defined and must be a number\r\n        if (typeof splitAt !== 'number') {\r\n            return false;\r\n        }\r\n\r\n        // Remove commas (shown to be problematic with our current flow)\r\n        text = text.replace(',', '');\r\n\r\n        // Dual units split at index\r\n        if (outOfOrder === true) {\r\n            text = [\r\n                text.substring(0, splitAt),\r\n                text.substring(splitAt)\r\n            ];\r\n        } else {\r\n            text = [\r\n                text.substring(splitAt),\r\n                text.substring(0, splitAt)\r\n            ];\r\n        }\r\n\r\n        // Parse\r\n        let ounces = Ounces.parseSingleUnit(text[0]);\r\n        let pounds = Pounds.parseSingleUnit(text[1]);\r\n\r\n        // Did we have any trouble parsing single units?\r\n        if (ounces === false || pounds === false) {\r\n            return false;\r\n        }\r\n\r\n        // Return adding ounces to pounds\r\n        return pounds.add(ounces);\r\n    }\r\n\r\n    /**\r\n     * Convert pounds to ounces.\r\n     * @returns {Ounces} Ounces object.\r\n     */\r\n    toOunces() {\r\n        return new Ounces(this._weight * 16);\r\n    }\r\n\r\n    /**\r\n     * Convert weight to text.\r\n     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.\r\n     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.\r\n     * @returns {string} Formatted weight.\r\n     * @see {@link Ounces.toString}\r\n     */\r\n    toString(spaces = true, roundTo = 0) {\r\n        return this.toOunces().toString(spaces, roundTo);\r\n    }\r\n}\r\n",
     "static": true,
     "longname": "C:/inetpub/wwwroot/weight.js/src/pounds.js",
     "access": "public",
@@ -1455,12 +1475,12 @@
   {
     "__docId__": 81,
     "kind": "method",
-    "name": "getValue",
+    "name": "_getValue",
     "memberof": "src/pounds.js~Pounds",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "src/pounds.js~Pounds#getValue",
+    "longname": "src/pounds.js~Pounds#_getValue",
     "access": "private",
     "description": "Get value from variable.",
     "lineNumber": 24,
@@ -1770,7 +1790,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\r\n  \"name\": \"weight.js\",\r\n  \"version\": \"1.4.5\",\r\n  \"description\": \"JavaScript classes to convert imperial mass units as well as output and parse as text.\",\r\n  \"homepage\": \"https://meeklogic.github.io/Weight.js/\",\r\n  \"scripts\": {\r\n    \"build\": \"npx webpack --config webpack.config.js\",\r\n    \"lint\": \"./node_modules/.bin/eslint --config ./.eslintrc.js ./src\",\r\n    \"test\": \"npm run tests\",\r\n    \"tests\": \"node ./scripts/tests.js | tap-spec\",\r\n    \"test:coverage\": \"npm run tests:coverage\",\r\n    \"tests:coverage\": \"npx nyc npm run tests\",\r\n    \"speed\": \"npm run performance\",\r\n    \"performance\": \"node ./scripts/performance.js\",\r\n    \"docs\": \"npm run documentation\",\r\n    \"documentation\": \"npx esdoc\",\r\n    \"example\": \"node ./scripts/example.js\"\r\n  },\r\n  \"keywords\": [\r\n    \"weight\",\r\n    \"conversion\",\r\n    \"imperial\",\r\n    \"pound\",\r\n    \"ounce\"\r\n  ],\r\n  \"repository\": {\r\n    \"type\": \"git\",\r\n    \"url\": \"git+https://github.com/MeekLogic/Weight.js\"\r\n  },\r\n  \"bugs\": {\r\n    \"url\": \"https://github.com/MeekLogic/Weight.js/issues\"\r\n  },\r\n  \"author\": \"MeekLogic (Tyler Vigario)\",\r\n  \"license\": \"GPL-3.0-only\",\r\n  \"devDependencies\": {\r\n    \"@babel/core\": \"^7.2.2\",\r\n    \"@babel/preset-env\": \"^7.2.0\",\r\n    \"babel-loader\": \"^8.0.4\",\r\n    \"esdoc\": \"^1.1.0\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\",\r\n    \"eslint\": \"^5.10.0\",\r\n    \"microtime\": \"^2.1.8\",\r\n    \"nyc\": \"^13.1.0\",\r\n    \"tap-spec\": \"^5.0.0\",\r\n    \"tape\": \"^4.9.1\",\r\n    \"uglifyjs-webpack-plugin\": \"^2.0.1\",\r\n    \"webpack\": \"^4.27.1\",\r\n    \"webpack-cli\": \"^3.1.2\"\r\n  },\r\n  \"dependencies\": {},\r\n  \"nyc\": {\r\n    \"include\": [\r\n      \"**/dist/weight.js\"\r\n    ]\r\n  }\r\n}\r\n",
+    "content": "{\r\n  \"name\": \"weight.js\",\r\n  \"version\": \"1.4.5\",\r\n  \"description\": \"JavaScript classes to convert imperial mass units as well as output and parse as text.\",\r\n  \"homepage\": \"https://meeklogic.github.io/Weight.js/\",\r\n  \"scripts\": {\r\n    \"build\": \"npx webpack --config webpack.config.js\",\r\n    \"lint\": \"./node_modules/.bin/eslint --config ./.eslintrc.js ./src\",\r\n    \"test\": \"npm run tests\",\r\n    \"tests\": \"node ./scripts/tests.js | tap-spec\",\r\n    \"test:coverage\": \"npm run tests:coverage\",\r\n    \"tests:coverage\": \"npx nyc npm run tests\",\r\n    \"speed\": \"npm run performance\",\r\n    \"performance\": \"node ./scripts/performance.js\",\r\n    \"doc\": \"npm run documentation\",\r\n    \"docs\": \"npm run documentation\",\r\n    \"documentation\": \"npx esdoc\",\r\n    \"example\": \"node ./scripts/example.js\"\r\n  },\r\n  \"keywords\": [\r\n    \"weight\",\r\n    \"conversion\",\r\n    \"imperial\",\r\n    \"pound\",\r\n    \"ounce\"\r\n  ],\r\n  \"repository\": {\r\n    \"type\": \"git\",\r\n    \"url\": \"git+https://github.com/MeekLogic/Weight.js\"\r\n  },\r\n  \"bugs\": {\r\n    \"url\": \"https://github.com/MeekLogic/Weight.js/issues\"\r\n  },\r\n  \"author\": \"MeekLogic (Tyler Vigario)\",\r\n  \"license\": \"GPL-3.0-only\",\r\n  \"devDependencies\": {\r\n    \"@babel/core\": \"^7.2.2\",\r\n    \"@babel/preset-env\": \"^7.2.0\",\r\n    \"babel-loader\": \"^8.0.4\",\r\n    \"esdoc\": \"^1.1.0\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\",\r\n    \"eslint\": \"^5.10.0\",\r\n    \"microtime\": \"^2.1.8\",\r\n    \"nyc\": \"^13.1.0\",\r\n    \"tap-spec\": \"^5.0.0\",\r\n    \"tape\": \"^4.9.1\",\r\n    \"uglifyjs-webpack-plugin\": \"^2.0.1\",\r\n    \"webpack\": \"^4.27.1\",\r\n    \"webpack-cli\": \"^3.1.2\"\r\n  },\r\n  \"dependencies\": {},\r\n  \"nyc\": {\r\n    \"include\": [\r\n      \"**/dist/weight.js\"\r\n    ]\r\n  }\r\n}\r\n",
     "longname": "C:\\inetpub\\wwwroot\\weight.js\\package.json",
     "name": "package.json",
     "static": true,
