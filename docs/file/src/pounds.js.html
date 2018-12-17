@@ -60,7 +60,7 @@ export default class Pounds extends MassUnit {
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
      */
-    getValue(weight) {
+    _getValue(weight) {
         if (weight instanceof Ounces) {
             return weight.toPounds().value;
         } else if (weight instanceof Pounds) {
@@ -75,7 +75,7 @@ export default class Pounds extends MassUnit {
             weight = parseFloat(weight);
 
             if (isNaN(weight)) {
-                throw &apos;Invalid parameter passed to function.&apos;;
+                throw new TypeError(&apos;Invalid parameter passed to function.&apos;);
             }
 
             if (weight &lt; 0) {
@@ -140,7 +140,7 @@ export default class Pounds extends MassUnit {
                 case Pounds:
                     return (new Pounds(text));
                 default:
-                    throw &apos;Invalid unit type.&apos;;
+                    throw new TypeError(&apos;Invalid unit type.&apos;);
             }
         }
     }

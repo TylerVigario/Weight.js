@@ -125,13 +125,15 @@ function () {
   /**
    * Class constructor.
    * @param {(Ounces|Pounds|number|string)} [weight = 0]
+   * @see {@link Ounces._getValue}
+   * @see {@link Pounds._getValue}
    */
   function MassUnit() {
     var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
     _classCallCheck(this, MassUnit);
 
-    this.value = this.getValue(weight);
+    this.value = this._getValue(weight);
   }
   /**
    * Return weight value.
@@ -195,7 +197,7 @@ function () {
   }, {
     key: "add",
     value: function add(weight) {
-      this._weight += this.getValue(weight);
+      this._weight += this._getValue(weight);
       return this;
     }
     /**
@@ -207,7 +209,7 @@ function () {
   }, {
     key: "subtract",
     value: function subtract(weight) {
-      weight = this.getValue(weight); // Make sure we do not subtract more than the current weight
+      weight = this._getValue(weight); // Make sure we do not subtract more than the current weight
 
       if (weight > this._weight) {
         weight = this._weight;
@@ -225,7 +227,7 @@ function () {
   }, {
     key: "isSame",
     value: function isSame(weight) {
-      return this._weight === this.getValue(weight);
+      return this._weight === this._getValue(weight);
     }
     /**
      * Check if current object value is not same as given weight.
@@ -236,7 +238,7 @@ function () {
   }, {
     key: "isNotSame",
     value: function isNotSame(weight) {
-      return this._weight !== this.getValue(weight);
+      return this._weight !== this._getValue(weight);
     }
     /**
      * Check if current mass is heavier than a given weight.
@@ -247,7 +249,7 @@ function () {
   }, {
     key: "isHeavier",
     value: function isHeavier(weight) {
-      return this._weight > this.getValue(weight);
+      return this._weight > this._getValue(weight);
     }
     /**
      * Check if current mass is lighter than a given weight.
@@ -258,7 +260,7 @@ function () {
   }, {
     key: "isLighter",
     value: function isLighter(weight) {
-      return this._weight < this.getValue(weight);
+      return this._weight < this._getValue(weight);
     }
     /**
      * Check if current object is empty.
@@ -278,12 +280,13 @@ function () {
     /**
      * Set weight value.
      * @param {number} weight
+     * @throws {TypeError} Throws an error if weight is not a valid number.
      */
     ,
     set: function set(weight) {
       // Validate weight
-      if (isNaN(weight)) {
-        throw 'Weight must be a number.';
+      if (typeof weight !== 'number') {
+        throw new TypeError('Weight must be of type number.');
       } // Weight does not measure in negative
 
 
@@ -349,7 +352,7 @@ function (_MassUnit) {
   }
 
   pounds_createClass(Pounds, [{
-    key: "getValue",
+    key: "_getValue",
 
     /**
      * Get value from variable.
@@ -358,7 +361,7 @@ function (_MassUnit) {
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
      */
-    value: function getValue(weight) {
+    value: function _getValue(weight) {
       if (weight instanceof ounces_Ounces) {
         return weight.toPounds().value;
       } else if (weight instanceof Pounds) {
@@ -373,7 +376,7 @@ function (_MassUnit) {
         weight = parseFloat(weight);
 
         if (isNaN(weight)) {
-          throw 'Invalid parameter passed to function.';
+          throw new TypeError('Invalid parameter passed to function.');
         }
 
         if (weight < 0) {
@@ -469,7 +472,7 @@ function (_MassUnit) {
             return new Pounds(text);
 
           default:
-            throw 'Invalid unit type.';
+            throw new TypeError('Invalid unit type.');
         }
       }
     }
@@ -563,7 +566,7 @@ function (_MassUnit) {
   }
 
   ounces_createClass(Ounces, [{
-    key: "getValue",
+    key: "_getValue",
 
     /**
      * Get value from variable.
@@ -572,7 +575,7 @@ function (_MassUnit) {
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
      */
-    value: function getValue(weight) {
+    value: function _getValue(weight) {
       if (weight instanceof Ounces) {
         return weight.value;
       } else if (weight instanceof pounds_Pounds) {
@@ -735,6 +738,7 @@ function (_MassUnit) {
      * @param {(string|number)} text - Text to parse for single unit weight.
      * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.
      * @returns {(Ounces|false)} Returns an Ounces object or false on error.
+     * @throws {TypeError}
      */
 
   }, {
@@ -773,7 +777,7 @@ function (_MassUnit) {
             return new pounds_Pounds(text).toOunces();
 
           default:
-            throw 'Invalid unit type.';
+            throw new TypeError('Invalid unit type.');
         }
       }
     }
