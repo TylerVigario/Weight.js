@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.4
+ * @version 1.4.5
  */
 
 import MassUnit from './mass_unit';
@@ -11,11 +11,12 @@ import Ounces from './ounces';
 
 /**
  * Class representing pound mass units.
- * @extends MassUnit
+ * @extends {MassUnit}
  */
 export default class Pounds extends MassUnit {
     /**
      * Get value from variable.
+     * @private
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
@@ -50,7 +51,7 @@ export default class Pounds extends MassUnit {
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
      * @returns {(Pounds|false)} Returns a Pounds object or false on error.
-     * @see Ounces.parse
+     * @see {@link Ounces.parse}
      */
     static parse(text) {
         let ounces = Ounces.parse(text);
@@ -111,7 +112,7 @@ export default class Pounds extends MassUnit {
      * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
      * @returns {(Pounds|false)} Returns a Pounds object or false on error.
-     * @see parseSingleUnit
+     * @see {@link parseSingleUnit}
      */
     static parseDualUnit(text, splitAt, outOfOrder = false) {
         // "splitAt" must be defined and must be a number
@@ -153,7 +154,7 @@ export default class Pounds extends MassUnit {
      * @returns {Ounces} Ounces object.
      */
     toOunces() {
-        return new Ounces(this.weight * 16);
+        return new Ounces(this._weight * 16);
     }
 
     /**
@@ -161,7 +162,7 @@ export default class Pounds extends MassUnit {
      * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
      * @param {number} [roundTo = 0] - The rounding to perform on the ounces.
      * @returns {string} Formatted weight.
-     * @see Ounces.toString
+     * @see {@link Ounces.toString}
      */
     toString(spaces = true, roundTo = 0) {
         return this.toOunces().toString(spaces, roundTo);
