@@ -402,12 +402,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/ounces.js~ounces#_getvalue",
-    "class/src/ounces.js~Ounces.html#instance-method-_getValue",
-    "src/ounces.js~Ounces#_getValue",
-    "method"
-  ],
-  [
     "src/ounces.js~ounces#topounds",
     "class/src/ounces.js~Ounces.html#instance-method-toPounds",
     "src/ounces.js~Ounces#toPounds",
@@ -442,12 +436,6 @@ window.esdocSearchIndex = [
     "file/src/pounds.js.html",
     "src/pounds.js",
     "file"
-  ],
-  [
-    "src/pounds.js~pounds#_getvalue",
-    "class/src/pounds.js~Pounds.html#instance-method-_getValue",
-    "src/pounds.js~Pounds#_getValue",
-    "method"
   ],
   [
     "src/pounds.js~pounds#toounces",

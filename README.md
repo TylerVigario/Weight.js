@@ -25,13 +25,13 @@ import Pounds from 'weight.js/src/pounds';
 
 **CommonJS**
 ```javascript
-var Weight = require('../dist/weight.js');
+var Weight = require('weight.js');
 var Ounces = Weight.Ounces;
 var Pounds = Weight.Pounds;
 //or
-var Ounces = require('../dist/weight.js').Ounces;
+var Ounces = require('weight.js').Ounces;
 //or
-var Pounds = require('../dist/weight.js').Pounds;
+var Pounds = require('weight.js').Pounds;
 ```
 
 Example
