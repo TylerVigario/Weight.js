@@ -113,7 +113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.5
+ * @version 1.4.6
  */
 
 /**
@@ -294,8 +294,8 @@ function () {
         weight = 0;
       }
       /**
+       * @protected
        * @member {number} weight
-       * @private
        */
 
 
@@ -331,7 +331,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.5
+ * @version 1.4.6
  */
 
 
@@ -356,7 +356,7 @@ function (_MassUnit) {
 
     /**
      * Get value from variable.
-     * @private
+     * @protected
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
@@ -545,7 +545,7 @@ function ounces_setPrototypeOf(o, p) { ounces_setPrototypeOf = Object.setPrototy
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.5
+ * @version 1.4.6
  */
 
 
@@ -570,7 +570,7 @@ function (_MassUnit) {
 
     /**
      * Get value from variable.
-     * @private
+     * @protected
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
@@ -834,7 +834,7 @@ function (_MassUnit) {
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.5
+ * @version 1.4.6
  */
 
 
