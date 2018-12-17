@@ -4513,7 +4513,7 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "* \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.3\r\n ",
+              "value": "* \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.4\r\n ",
               "start": 0,
               "end": 120,
               "loc": {
@@ -4549,7 +4549,7 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "* \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.3\r\n ",
+            "value": "* \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.4\r\n ",
             "start": 0,
             "end": 120,
             "loc": {
@@ -4587,7 +4587,7 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "* \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.3\r\n ",
+      "value": "* \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.4\r\n ",
       "start": 0,
       "end": 120,
       "loc": {
@@ -4861,7 +4861,7 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": "* \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.3\r\n ",
+      "value": "* \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.4\r\n ",
       "start": 0,
       "end": 120,
       "loc": {

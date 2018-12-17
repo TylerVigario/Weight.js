@@ -95,7 +95,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/pounds.js~Pounds.html#static-method-parse">parse</a></span></span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/pounds.js~Pounds.html#static-method-parse">parse</a></span></span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></span>
         </p>
       </div>
       <div>
@@ -124,7 +124,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/pounds.js~Pounds.html#static-method-parseDualUnit">parseDualUnit</a></span></span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, splitAt: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, outOfOrder: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/pounds.js~Pounds.html#static-method-parseDualUnit">parseDualUnit</a></span></span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, splitAt: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, outOfOrder: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></span>
         </p>
       </div>
       <div>
@@ -153,7 +153,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/pounds.js~Pounds.html#static-method-parseSingleUnit">parseSingleUnit</a></span></span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, unitType: <span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span> | <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/pounds.js~Pounds.html#static-method-parseSingleUnit">parseSingleUnit</a></span></span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, unitType: <span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span> | <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></span>
         </p>
       </div>
       <div>
@@ -281,11 +281,11 @@
     
     
     
-    <span class="code" data-ice="name">parse</span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span></span>
+    <span class="code" data-ice="name">parse</span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber53">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber55">source</a></span></span>
     </span>
   </h3>
 
@@ -322,8 +322,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>Pounds object.</p>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Returns a Pounds object or false on error.</p>
 </td>
         </tr>
       </tbody>
@@ -344,7 +344,7 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="Ounces.parse">Ounces.parse</a></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -355,11 +355,11 @@
     
     
     
-    <span class="code" data-ice="name">parseDualUnit</span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, splitAt: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, outOfOrder: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span></span>
+    <span class="code" data-ice="name">parseDualUnit</span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, splitAt: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, outOfOrder: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber113">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber116">source</a></span></span>
     </span>
   </h3>
 
@@ -388,9 +388,10 @@
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">splitAt</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Index to split string.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">outOfOrder</td>
@@ -410,8 +411,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>Pounds object.</p>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Returns a Pounds object or false on error.</p>
 </td>
         </tr>
       </tbody>
@@ -432,7 +433,7 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="parseSingleUnit">parseSingleUnit</a></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -443,11 +444,11 @@
     
     
     
-    <span class="code" data-ice="name">parseSingleUnit</span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, unitType: <span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span> | <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span></span>
+    <span class="code" data-ice="name">parseSingleUnit</span><span class="code" data-ice="signature">(text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, unitType: <span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span> | <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber69">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber71">source</a></span></span>
     </span>
   </h3>
 
@@ -491,8 +492,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/src/ounces.js~Ounces.html">Ounces</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>Ounces object.</p>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/pounds.js~Pounds.html">Pounds</a></span> | <span>false</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Returns a Pounds object or false on error.</p>
 </td>
         </tr>
       </tbody>
@@ -533,7 +534,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber22">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber23">source</a></span></span>
     </span>
   </h3>
 
@@ -583,7 +584,19 @@
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError">TypeError</a></span></p></td>
+        <td data-ice="throwDesc"><p>Throws an error if number cannot be parsed to a valid number.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -606,7 +619,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber152">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber155">source</a></span></span>
     </span>
   </h3>
 
@@ -663,7 +676,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber160">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/pounds.js.html#lineNumber166">source</a></span></span>
     </span>
   </h3>
 
@@ -687,15 +700,17 @@
       <td data-ice="name" class="code" data-depth="0">spaces</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: true</li></ul></td>
-      <td data-ice="description"></td>
+<li>default:  true</li></ul></td>
+      <td data-ice="description"><p>Whether to add spaces between weight and signifier.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">roundTo</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 0</li></ul></td>
-      <td data-ice="description"></td>
+<li>default:  0</li></ul></td>
+      <td data-ice="description"><p>The rounding to perform on the ounces.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -729,7 +744,7 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="Ounces.toString">Ounces.toString</a></span></li></ul></div>
   
 </div>
 </div>

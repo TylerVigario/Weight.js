@@ -1,87 +1,90 @@
+/* eslint no-console: 0 */
+
 var test = require('tape');
 var Weight = require('../dist/weight.js');
 var Pounds = Weight.Pounds;
 var Ounces = Weight.Ounces;
 
 var problems = [{
-        question: '8lb 36oz',
-        answer: '10 lbs 4 oz',
-        ounces: 164,
-        pounds: 10.25
-    },
-    {
-        question: '164.85oz',
-        answer: '10 lbs 5 oz',
-        ounces: 164.85,
-        pounds: 10.303125
-    },
-    {
-        question: '10lbs',
-        answer: '10 lbs',
-        ounces: 160,
-        pounds: 10
-    },
-    {
-        question: '2lbs ,  17oz',
-        answer: '3 lbs 1 oz',
-        ounces: 49,
-        pounds: 3.0625
-    },
-    {
-        question: 48,
-        answer: '3 lbs',
-        ounces: 48,
-        pounds: 3
-    },
-    {
-        question: '17 lb 14 oz',
-        answer: '17 lbs 14 oz',
-        ounces: 286,
-        pounds: 17.875
-    },
-    {
-        question: '3lbs4oz',
-        answer: '3 lbs 4 oz',
-        ounces: 52,
-        pounds: 3.25
-    },
-    {
-        question: '3lbs 4',
-        answer: '3 lbs 4 oz',
-        ounces: 52,
-        pounds: 3.25
-    },
-    {
-        question: '4 oz',
-        answer: '4 oz',
-        ounces: 4,
-        pounds: 0.25
-    },
-    {
-        question: '16oz4lb',
-        answer: '5 lbs',
-        ounces: 80,
-        pounds: 5
-    },
-    {
-        question: -45,
-        answer: '0 oz',
-        ounces: 0,
-        pounds: 0
-    },
-    {
-        question: '  ',
-        answer: '0 oz',
-        ounces: 0,
-        pounds: 0
-    },
-    {
-        question: '20  lb, 20 o z ',
-        answer: '21 lbs 4 oz',
-        ounces: 340,
-        pounds: 21.25
-    }
+    question: '8lb 36oz',
+    answer: '10 lbs 4 oz',
+    ounces: 164,
+    pounds: 10.25
+},
+{
+    question: '164.85oz',
+    answer: '10 lbs 5 oz',
+    ounces: 164.85,
+    pounds: 10.303125
+},
+{
+    question: '10lbs',
+    answer: '10 lbs',
+    ounces: 160,
+    pounds: 10
+},
+{
+    question: '2lbs ,  17oz',
+    answer: '3 lbs 1 oz',
+    ounces: 49,
+    pounds: 3.0625
+},
+{
+    question: 48,
+    answer: '3 lbs',
+    ounces: 48,
+    pounds: 3
+},
+{
+    question: '17 lb 14 oz',
+    answer: '17 lbs 14 oz',
+    ounces: 286,
+    pounds: 17.875
+},
+{
+    question: '3lbs4oz',
+    answer: '3 lbs 4 oz',
+    ounces: 52,
+    pounds: 3.25
+},
+{
+    question: '3lbs 4',
+    answer: '3 lbs 4 oz',
+    ounces: 52,
+    pounds: 3.25
+},
+{
+    question: '4 oz',
+    answer: '4 oz',
+    ounces: 4,
+    pounds: 0.25
+},
+{
+    question: '16oz4lb',
+    answer: '5 lbs',
+    ounces: 80,
+    pounds: 5
+},
+{
+    question: -45,
+    answer: '0 oz',
+    ounces: 0,
+    pounds: 0
+},
+{
+    question: '  ',
+    answer: '0 oz',
+    ounces: 0,
+    pounds: 0
+},
+{
+    question: '20  lb, 20 o z ',
+    answer: '21 lbs 4 oz',
+    ounces: 340,
+    pounds: 21.25
+}
 ];
+
 var invalidWeights = [
     'weight.js',
     'not,a,weight'
@@ -94,7 +97,7 @@ test('Ounces parse tests', function (t) {
     problems.forEach((problem) => {
         let ounces = Ounces.parse(problem.question);
 
-        if (!ounces instanceof Ounces) {
+        if (!(ounces instanceof Ounces)) {
             t.error('Error during parse.');
         }
 
@@ -144,6 +147,17 @@ test('Invalid parse tests', function (t) {
 
         t.equal(ounces, false, weight);
     });
+});
+
+test('Comparison tests', function (t) {
+    t.plan(3);
+
+    let smallWeight = new Pounds(1);
+    let largeWeight = new Pounds(80);
+
+    t.true(largeWeight.isHeavier(smallWeight), 'isHeavier');
+    t.true(smallWeight.isLighter(largeWeight), 'isLighter');
+    t.true(smallWeight.isNotSame(largeWeight), 'isNotSame');
 });
 
 test('Additional tests', function (t) {

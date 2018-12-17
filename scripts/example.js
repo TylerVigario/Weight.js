@@ -1,3 +1,5 @@
+/* eslint no-console: 0 */
+
 var Ounces = require('../dist/weight').Ounces;
 
 // Example

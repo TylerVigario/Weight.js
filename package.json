@@ -1,6 +1,6 @@
 {
   "name": "weight.js",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "JavaScript classes to convert imperial mass units as well as output and parse as text.",
   "homepage": "https://meeklogic.github.io/Weight.js/",
   "scripts": {
@@ -37,7 +37,6 @@
     "@babel/preset-env": "^7.2.0",
     "babel-loader": "^8.0.4",
     "esdoc": "^1.1.0",
-    "esdoc-publish-markdown-plugin": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^5.10.0",
     "microtime": "^2.1.8",

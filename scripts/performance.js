@@ -1,4 +1,6 @@
-var microtime = require('microtime')
+/* eslint no-console: 0 */
+
+var microtime = require('microtime');
 var Weight = require('../dist/weight');
 var Ounces = Weight.Ounces;
 var Pounds = Weight.Pounds;

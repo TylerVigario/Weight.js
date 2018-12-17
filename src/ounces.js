@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.3
+ * @version 1.4.4
  */
 
 import MassUnit from './mass_unit';
@@ -17,6 +17,7 @@ export default class Ounces extends MassUnit {
     /**
      * Get value from variable.
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
+     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
      */
     getValue(weight) {
@@ -34,7 +35,7 @@ export default class Ounces extends MassUnit {
             weight = parseFloat(weight);
 
             if (isNaN(weight)) {
-                throw 'Invalid parameter passed to function.';
+                throw new TypeError('Invalid parameter passed to function.');
             }
 
             if (weight < 0) {
@@ -48,7 +49,9 @@ export default class Ounces extends MassUnit {
     /**
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
-     * @returns {Ounces} Ounces object.
+     * @returns {(Ounces|false)} Returns an Ounces object or false on error.
+     * @see parseSingleUnit
+     * @see parseDualUnit
      */
     static parse(text) {
         // Can't glean much info from a number
@@ -138,7 +141,7 @@ export default class Ounces extends MassUnit {
      * Parse text for single unit weight.
      * @param {(string|number)} text - Text to parse for single unit weight.
      * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.
-     * @returns {Ounces} Ounces object.
+     * @returns {(Ounces|false)} Returns an Ounces object or false on error.
      */
     static parseSingleUnit(text, unitType = Ounces) {
         text = text.trim();
@@ -182,7 +185,8 @@ export default class Ounces extends MassUnit {
      * @param {(string|number)} text - Text to parse for weight.
      * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
-     * @returns {Ounces} Ounces object.
+     * @returns {(Ounces|false)} Returns an Ounces object or false on error.
+     * @see parseSingleUnit
      */
     static parseDualUnit(text, splitAt, outOfOrder = false) {
         // "splitAt" must be defined and must be a number
@@ -229,6 +233,8 @@ export default class Ounces extends MassUnit {
 
     /**
      * Convert weight to text.
+     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
+     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.
      * @returns {string} Formatted weight.
      */
     toString(spaces = true, roundTo = 0) {
