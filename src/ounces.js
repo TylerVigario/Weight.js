@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.5
+ * @version 1.4.6
  */
 
 import MassUnit from './mass_unit';
@@ -16,7 +16,7 @@ import Pounds from './pounds';
 export default class Ounces extends MassUnit {
     /**
      * Get value from variable.
-     * @private
+     * @protected
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
