@@ -118,11 +118,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * Class representing a mass unit.
- * @param {(Ounces|Pounds|number|string)} [weight = 0]
  */
 var MassUnit =
 /*#__PURE__*/
 function () {
+  /**
+   * Class constructor.
+   * @param {(Ounces|Pounds|number|string)} [weight = 0]
+   */
   function MassUnit() {
     var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
@@ -132,7 +135,7 @@ function () {
   }
   /**
    * Return weight value.
-   * @type {number}
+   * @returns {number}
    */
 
 
@@ -271,7 +274,12 @@ function () {
     key: "value",
     get: function get() {
       return this.weight;
-    },
+    }
+    /**
+     * Set weight value.
+     * @param {number} weight
+     */
+    ,
     set: function set(weight) {
       // Validate weight
       if (isNaN(weight)) {

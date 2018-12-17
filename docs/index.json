@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/mass_unit.js",
-    "content": "/** \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.4\r\n */\r\n\r\n/**\r\n * Class representing a mass unit.\r\n * @param {(Ounces|Pounds|number|string)} [weight = 0]\r\n */\r\nexport default class MassUnit {\r\n    constructor(weight = 0) {\r\n        this.value = this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Return weight value.\r\n     * @type {number}\r\n     */\r\n    get value() {\r\n        return this.weight;\r\n    }\r\n\r\n    set value(weight) {\r\n        // Validate weight\r\n        if (isNaN(weight)) {\r\n            throw 'Weight must be a number.';\r\n        }\r\n\r\n        // Weight does not measure in negative\r\n        if (weight < 0) {\r\n            weight = 0;\r\n        }\r\n\r\n        this.weight = weight;\r\n    }\r\n\r\n    /**\r\n     * Round weight down.\r\n     * @returns {Object}\r\n     */\r\n    floor() {\r\n        this.weight = Math.floor(this.weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight up.\r\n     * @returns {Object}\r\n     */\r\n    ceil() {\r\n        this.weight = Math.ceil(this.weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight.\r\n     * @param {number} [digits = 0]\r\n     * @returns {Object}\r\n     */\r\n    round(digits = 0) {\r\n        this.weight = this.toFixed(digits);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * The toFixed() method formats a number using fixed-point notation.\r\n     * @param {number} [digits = 0] - Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.\r\n     * @returns {string} A string representing the given number using fixed-point notation.\r\n     */\r\n    toFixed(digits = 0) {\r\n        return this.weight.toFixed(digits);\r\n    }\r\n\r\n    /**\r\n     * Add weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to add.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    add(weight) {\r\n        this.weight += this.getValue(weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Subtract weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    subtract(weight) {\r\n        weight = this.getValue(weight);\r\n\r\n        // Make sure we do not subtract more than the current weight\r\n        if (weight > this.weight) {\r\n            weight = this.weight;\r\n        }\r\n\r\n        this.weight -= weight;\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if same or false is not.\r\n     */\r\n    isSame(weight) {\r\n        return this.weight === this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is not same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} False if same or true if not.\r\n     */\r\n    isNotSame(weight) {\r\n        return this.weight !== this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is heavier than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is heavier or false if not.\r\n     */\r\n    isHeavier(weight) {\r\n        return this.weight > this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is lighter than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is lighter or false if not.\r\n     */\r\n    isLighter(weight) {\r\n        return this.weight < this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object is empty.\r\n     * @returns {boolean} True if current object is empty or false if not.\r\n     */\r\n    isEmpty() {\r\n        return (this.weight === 0);\r\n    }\r\n}\r\n",
+    "content": "/** \r\n * Imperial mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.4\r\n */\r\n\r\n/**\r\n * Class representing a mass unit.\r\n */\r\nexport default class MassUnit {\r\n    /**\r\n     * Class constructor.\r\n     * @param {(Ounces|Pounds|number|string)} [weight = 0]\r\n     */\r\n    constructor(weight = 0) {\r\n        this.value = this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Return weight value.\r\n     * @returns {number}\r\n     */\r\n    get value() {\r\n        return this.weight;\r\n    }\r\n\r\n    /**\r\n     * Set weight value.\r\n     * @param {number} weight\r\n     */\r\n    set value(weight) {\r\n        // Validate weight\r\n        if (isNaN(weight)) {\r\n            throw 'Weight must be a number.';\r\n        }\r\n\r\n        // Weight does not measure in negative\r\n        if (weight < 0) {\r\n            weight = 0;\r\n        }\r\n\r\n        this.weight = weight;\r\n    }\r\n\r\n    /**\r\n     * Round weight down.\r\n     * @returns {Object}\r\n     */\r\n    floor() {\r\n        this.weight = Math.floor(this.weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight up.\r\n     * @returns {Object}\r\n     */\r\n    ceil() {\r\n        this.weight = Math.ceil(this.weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Round weight.\r\n     * @param {number} [digits = 0]\r\n     * @returns {Object}\r\n     */\r\n    round(digits = 0) {\r\n        this.weight = this.toFixed(digits);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * The toFixed() method formats a number using fixed-point notation.\r\n     * @param {number} [digits = 0] - Optional. The number of digits to appear after the decimal point; this may be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.\r\n     * @returns {string} A string representing the given number using fixed-point notation.\r\n     */\r\n    toFixed(digits = 0) {\r\n        return this.weight.toFixed(digits);\r\n    }\r\n\r\n    /**\r\n     * Add weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to add.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    add(weight) {\r\n        this.weight += this.getValue(weight);\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Subtract weight to current object.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to subtract.\r\n     * @returns {Object} Returns current object.\r\n     */\r\n    subtract(weight) {\r\n        weight = this.getValue(weight);\r\n\r\n        // Make sure we do not subtract more than the current weight\r\n        if (weight > this.weight) {\r\n            weight = this.weight;\r\n        }\r\n\r\n        this.weight -= weight;\r\n\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if same or false is not.\r\n     */\r\n    isSame(weight) {\r\n        return this.weight === this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object value is not same as given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} False if same or true if not.\r\n     */\r\n    isNotSame(weight) {\r\n        return this.weight !== this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is heavier than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is heavier or false if not.\r\n     */\r\n    isHeavier(weight) {\r\n        return this.weight > this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current mass is lighter than a given weight.\r\n     * @param {(Ounces|Pounds|number|string)} weight - Weight to compare.\r\n     * @returns {boolean} True if current object is lighter or false if not.\r\n     */\r\n    isLighter(weight) {\r\n        return this.weight < this.getValue(weight);\r\n    }\r\n\r\n    /**\r\n     * Check if current object is empty.\r\n     * @returns {boolean} True if current object is empty or false if not.\r\n     */\r\n    isEmpty() {\r\n        return (this.weight === 0);\r\n    }\r\n}\r\n",
     "static": true,
     "longname": "C:/inetpub/wwwroot/weight.js/src/mass_unit.js",
     "access": "public",
@@ -586,7 +586,21 @@
     "importPath": "weight.js/src/mass_unit.js",
     "importStyle": "MassUnit",
     "description": "Class representing a mass unit.",
-    "lineNumber": 13,
+    "lineNumber": 12,
+    "interface": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/mass_unit.js~MassUnit",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass_unit.js~MassUnit#constructor",
+    "access": "public",
+    "description": "Class constructor.",
+    "lineNumber": 17,
     "params": [
       {
         "nullable": null,
@@ -603,22 +617,7 @@
         "name": "weight",
         "description": ""
       }
-    ],
-    "interface": false
-  },
-  {
-    "__docId__": 50,
-    "kind": "constructor",
-    "name": "constructor",
-    "memberof": "src/mass_unit.js~MassUnit",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/mass_unit.js~MassUnit#constructor",
-    "access": "public",
-    "description": null,
-    "lineNumber": 14,
-    "undocument": true
+    ]
   },
   {
     "__docId__": 52,
@@ -631,14 +630,25 @@
     "longname": "src/mass_unit.js~MassUnit#value",
     "access": "public",
     "description": "Return weight value.",
-    "lineNumber": 22,
-    "type": {
+    "lineNumber": 25,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number}"
+      }
+    ],
+    "return": {
       "nullable": null,
       "types": [
         "number"
       ],
       "spread": false,
-      "description": null
+      "description": ""
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
     }
   },
   {
@@ -651,9 +661,20 @@
     "static": false,
     "longname": "src/mass_unit.js~MassUnit#value",
     "access": "public",
-    "description": null,
-    "lineNumber": 26,
-    "undocument": true
+    "description": "Set weight value.",
+    "lineNumber": 33,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "weight",
+        "description": ""
+      }
+    ]
   },
   {
     "__docId__": 54,
@@ -664,7 +685,7 @@
     "longname": "src/mass_unit.js~MassUnit#weight",
     "access": "public",
     "description": null,
-    "lineNumber": 37,
+    "lineNumber": 44,
     "undocument": true,
     "type": {
       "types": [
@@ -683,7 +704,7 @@
     "longname": "src/mass_unit.js~MassUnit#floor",
     "access": "public",
     "description": "Round weight down.",
-    "lineNumber": 44,
+    "lineNumber": 51,
     "unknown": [
       {
         "tagName": "@returns",
@@ -711,7 +732,7 @@
     "longname": "src/mass_unit.js~MassUnit#ceil",
     "access": "public",
     "description": "Round weight up.",
-    "lineNumber": 54,
+    "lineNumber": 61,
     "unknown": [
       {
         "tagName": "@returns",
@@ -739,7 +760,7 @@
     "longname": "src/mass_unit.js~MassUnit#round",
     "access": "public",
     "description": "Round weight.",
-    "lineNumber": 65,
+    "lineNumber": 72,
     "unknown": [
       {
         "tagName": "@returns",
@@ -780,7 +801,7 @@
     "longname": "src/mass_unit.js~MassUnit#toFixed",
     "access": "public",
     "description": "The toFixed() method formats a number using fixed-point notation.",
-    "lineNumber": 76,
+    "lineNumber": 83,
     "unknown": [
       {
         "tagName": "@returns",
@@ -821,7 +842,7 @@
     "longname": "src/mass_unit.js~MassUnit#add",
     "access": "public",
     "description": "Add weight to current object.",
-    "lineNumber": 85,
+    "lineNumber": 92,
     "unknown": [
       {
         "tagName": "@returns",
@@ -863,7 +884,7 @@
     "longname": "src/mass_unit.js~MassUnit#subtract",
     "access": "public",
     "description": "Subtract weight to current object.",
-    "lineNumber": 96,
+    "lineNumber": 103,
     "unknown": [
       {
         "tagName": "@returns",
@@ -905,7 +926,7 @@
     "longname": "src/mass_unit.js~MassUnit#isSame",
     "access": "public",
     "description": "Check if current object value is same as given weight.",
-    "lineNumber": 114,
+    "lineNumber": 121,
     "unknown": [
       {
         "tagName": "@returns",
@@ -947,7 +968,7 @@
     "longname": "src/mass_unit.js~MassUnit#isNotSame",
     "access": "public",
     "description": "Check if current object value is not same as given weight.",
-    "lineNumber": 123,
+    "lineNumber": 130,
     "unknown": [
       {
         "tagName": "@returns",
@@ -989,7 +1010,7 @@
     "longname": "src/mass_unit.js~MassUnit#isHeavier",
     "access": "public",
     "description": "Check if current mass is heavier than a given weight.",
-    "lineNumber": 132,
+    "lineNumber": 139,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1031,7 +1052,7 @@
     "longname": "src/mass_unit.js~MassUnit#isLighter",
     "access": "public",
     "description": "Check if current mass is lighter than a given weight.",
-    "lineNumber": 141,
+    "lineNumber": 148,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1073,7 +1094,7 @@
     "longname": "src/mass_unit.js~MassUnit#isEmpty",
     "access": "public",
     "description": "Check if current object is empty.",
-    "lineNumber": 149,
+    "lineNumber": 156,
     "unknown": [
       {
         "tagName": "@returns",

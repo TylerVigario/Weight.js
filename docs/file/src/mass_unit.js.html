@@ -47,21 +47,28 @@
 
 /**
  * Class representing a mass unit.
- * @param {(Ounces|Pounds|number|string)} [weight = 0]
  */
 export default class MassUnit {
+    /**
+     * Class constructor.
+     * @param {(Ounces|Pounds|number|string)} [weight = 0]
+     */
     constructor(weight = 0) {
         this.value = this.getValue(weight);
     }
 
     /**
      * Return weight value.
-     * @type {number}
+     * @returns {number}
      */
     get value() {
         return this.weight;
     }
 
+    /**
+     * Set weight value.
+     * @param {number} weight
+     */
     set value(weight) {
         // Validate weight
         if (isNaN(weight)) {
