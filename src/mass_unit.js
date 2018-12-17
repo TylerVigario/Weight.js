@@ -3,14 +3,17 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.4
+ * @version 1.4.5
  */
 
 /**
  * Class representing a mass unit.
- * @param {(Ounces|Pounds|number|string)} [weight = 0]
  */
 export default class MassUnit {
+    /**
+     * Class constructor.
+     * @param {(Ounces|Pounds|number|string)} [weight = 0]
+     */
     constructor(weight = 0) {
         this.value = this.getValue(weight);
     }
@@ -20,9 +23,13 @@ export default class MassUnit {
      * @type {number}
      */
     get value() {
-        return this.weight;
+        return this._weight;
     }
 
+    /**
+     * Set weight value.
+     * @param {number} weight
+     */
     set value(weight) {
         // Validate weight
         if (isNaN(weight)) {
@@ -34,7 +41,11 @@ export default class MassUnit {
             weight = 0;
         }
 
-        this.weight = weight;
+        /**
+         * @member {number} weight
+         * @private
+         */
+        this._weight = weight;
     }
 
     /**
@@ -42,7 +53,7 @@ export default class MassUnit {
      * @returns {Object}
      */
     floor() {
-        this.weight = Math.floor(this.weight);
+        this._weight = Math.floor(this._weight);
 
         return this;
     }
@@ -52,7 +63,7 @@ export default class MassUnit {
      * @returns {Object}
      */
     ceil() {
-        this.weight = Math.ceil(this.weight);
+        this._weight = Math.ceil(this._weight);
 
         return this;
     }
@@ -63,7 +74,7 @@ export default class MassUnit {
      * @returns {Object}
      */
     round(digits = 0) {
-        this.weight = this.toFixed(digits);
+        this._weight = this._weight.toFixed(digits);
 
         return this;
     }
@@ -74,7 +85,7 @@ export default class MassUnit {
      * @returns {string} A string representing the given number using fixed-point notation.
      */
     toFixed(digits = 0) {
-        return this.weight.toFixed(digits);
+        return this._weight.toFixed(digits);
     }
 
     /**
@@ -83,7 +94,7 @@ export default class MassUnit {
      * @returns {Object} Returns current object.
      */
     add(weight) {
-        this.weight += this.getValue(weight);
+        this._weight += this.getValue(weight);
 
         return this;
     }
@@ -97,11 +108,11 @@ export default class MassUnit {
         weight = this.getValue(weight);
 
         // Make sure we do not subtract more than the current weight
-        if (weight > this.weight) {
-            weight = this.weight;
+        if (weight > this._weight) {
+            weight = this._weight;
         }
 
-        this.weight -= weight;
+        this._weight -= weight;
 
         return this;
     }
@@ -112,7 +123,7 @@ export default class MassUnit {
      * @returns {boolean} True if same or false is not.
      */
     isSame(weight) {
-        return this.weight === this.getValue(weight);
+        return this._weight === this.getValue(weight);
     }
 
     /**
@@ -121,7 +132,7 @@ export default class MassUnit {
      * @returns {boolean} False if same or true if not.
      */
     isNotSame(weight) {
-        return this.weight !== this.getValue(weight);
+        return this._weight !== this.getValue(weight);
     }
 
     /**
@@ -130,7 +141,7 @@ export default class MassUnit {
      * @returns {boolean} True if current object is heavier or false if not.
      */
     isHeavier(weight) {
-        return this.weight > this.getValue(weight);
+        return this._weight > this.getValue(weight);
     }
 
     /**
@@ -139,7 +150,7 @@ export default class MassUnit {
      * @returns {boolean} True if current object is lighter or false if not.
      */
     isLighter(weight) {
-        return this.weight < this.getValue(weight);
+        return this._weight < this.getValue(weight);
     }
 
     /**
@@ -147,6 +158,6 @@ export default class MassUnit {
      * @returns {boolean} True if current object is empty or false if not.
      */
     isEmpty() {
-        return (this.weight === 0);
+        return (this._weight === 0);
     }
 }

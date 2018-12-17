@@ -113,16 +113,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.4
+ * @version 1.4.5
  */
 
 /**
  * Class representing a mass unit.
- * @param {(Ounces|Pounds|number|string)} [weight = 0]
  */
 var MassUnit =
 /*#__PURE__*/
 function () {
+  /**
+   * Class constructor.
+   * @param {(Ounces|Pounds|number|string)} [weight = 0]
+   */
   function MassUnit() {
     var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
@@ -144,7 +147,7 @@ function () {
      * @returns {Object}
      */
     value: function floor() {
-      this.weight = Math.floor(this.weight);
+      this._weight = Math.floor(this._weight);
       return this;
     }
     /**
@@ -155,7 +158,7 @@ function () {
   }, {
     key: "ceil",
     value: function ceil() {
-      this.weight = Math.ceil(this.weight);
+      this._weight = Math.ceil(this._weight);
       return this;
     }
     /**
@@ -168,7 +171,7 @@ function () {
     key: "round",
     value: function round() {
       var digits = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-      this.weight = this.toFixed(digits);
+      this._weight = this._weight.toFixed(digits);
       return this;
     }
     /**
@@ -181,7 +184,7 @@ function () {
     key: "toFixed",
     value: function toFixed() {
       var digits = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-      return this.weight.toFixed(digits);
+      return this._weight.toFixed(digits);
     }
     /**
      * Add weight to current object.
@@ -192,7 +195,7 @@ function () {
   }, {
     key: "add",
     value: function add(weight) {
-      this.weight += this.getValue(weight);
+      this._weight += this.getValue(weight);
       return this;
     }
     /**
@@ -206,11 +209,11 @@ function () {
     value: function subtract(weight) {
       weight = this.getValue(weight); // Make sure we do not subtract more than the current weight
 
-      if (weight > this.weight) {
-        weight = this.weight;
+      if (weight > this._weight) {
+        weight = this._weight;
       }
 
-      this.weight -= weight;
+      this._weight -= weight;
       return this;
     }
     /**
@@ -222,7 +225,7 @@ function () {
   }, {
     key: "isSame",
     value: function isSame(weight) {
-      return this.weight === this.getValue(weight);
+      return this._weight === this.getValue(weight);
     }
     /**
      * Check if current object value is not same as given weight.
@@ -233,7 +236,7 @@ function () {
   }, {
     key: "isNotSame",
     value: function isNotSame(weight) {
-      return this.weight !== this.getValue(weight);
+      return this._weight !== this.getValue(weight);
     }
     /**
      * Check if current mass is heavier than a given weight.
@@ -244,7 +247,7 @@ function () {
   }, {
     key: "isHeavier",
     value: function isHeavier(weight) {
-      return this.weight > this.getValue(weight);
+      return this._weight > this.getValue(weight);
     }
     /**
      * Check if current mass is lighter than a given weight.
@@ -255,7 +258,7 @@ function () {
   }, {
     key: "isLighter",
     value: function isLighter(weight) {
-      return this.weight < this.getValue(weight);
+      return this._weight < this.getValue(weight);
     }
     /**
      * Check if current object is empty.
@@ -265,13 +268,18 @@ function () {
   }, {
     key: "isEmpty",
     value: function isEmpty() {
-      return this.weight === 0;
+      return this._weight === 0;
     }
   }, {
     key: "value",
     get: function get() {
-      return this.weight;
-    },
+      return this._weight;
+    }
+    /**
+     * Set weight value.
+     * @param {number} weight
+     */
+    ,
     set: function set(weight) {
       // Validate weight
       if (isNaN(weight)) {
@@ -282,8 +290,13 @@ function () {
       if (weight < 0) {
         weight = 0;
       }
+      /**
+       * @member {number} weight
+       * @private
+       */
 
-      this.weight = weight;
+
+      this._weight = weight;
     }
   }]);
 
@@ -315,13 +328,13 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.4
+ * @version 1.4.5
  */
 
 
 /**
  * Class representing pound mass units.
- * @extends MassUnit
+ * @extends {MassUnit}
  */
 
 var pounds_Pounds =
@@ -340,6 +353,7 @@ function (_MassUnit) {
 
     /**
      * Get value from variable.
+     * @private
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
@@ -373,7 +387,7 @@ function (_MassUnit) {
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
      * @returns {(Pounds|false)} Returns a Pounds object or false on error.
-     * @see Ounces.parse
+     * @see {@link Ounces.parse}
      */
 
   }, {
@@ -384,14 +398,14 @@ function (_MassUnit) {
      * @returns {Ounces} Ounces object.
      */
     value: function toOunces() {
-      return new ounces_Ounces(this.weight * 16);
+      return new ounces_Ounces(this._weight * 16);
     }
     /**
      * Convert weight to text.
      * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
      * @param {number} [roundTo = 0] - The rounding to perform on the ounces.
      * @returns {string} Formatted weight.
-     * @see Ounces.toString
+     * @see {@link Ounces.toString}
      */
 
   }, {
@@ -465,7 +479,7 @@ function (_MassUnit) {
      * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
      * @returns {(Pounds|false)} Returns a Pounds object or false on error.
-     * @see parseSingleUnit
+     * @see {@link parseSingleUnit}
      */
 
   }, {
@@ -528,13 +542,13 @@ function ounces_setPrototypeOf(o, p) { ounces_setPrototypeOf = Object.setPrototy
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.4
+ * @version 1.4.5
  */
 
 
 /**
  * Class representing ounce mass units.
- * @extends MassUnit
+ * @extends {MassUnit}
  */
 
 var ounces_Ounces =
@@ -553,6 +567,7 @@ function (_MassUnit) {
 
     /**
      * Get value from variable.
+     * @private
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
      * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
@@ -586,8 +601,8 @@ function (_MassUnit) {
      * Parse text for weight.
      * @param {(string|number)} text - Text to parse for weight.
      * @returns {(Ounces|false)} Returns an Ounces object or false on error.
-     * @see parseSingleUnit
-     * @see parseDualUnit
+     * @see {@link parseSingleUnit}
+     * @see {@link parseDualUnit}
      */
 
   }, {
@@ -598,7 +613,7 @@ function (_MassUnit) {
      * @returns {Pounds} Pounds object.
      */
     value: function toPounds() {
-      return new pounds_Pounds(this.weight / 16);
+      return new pounds_Pounds(this._weight / 16);
     }
     /**
      * Convert weight to text.
@@ -662,7 +677,6 @@ function (_MassUnit) {
 
 
       text = text.toLowerCase();
-      var separator = -1;
       var ozID = text.indexOf('oz');
       var lbID = text.indexOf('lb'); // Does it include signifiers?
 
@@ -683,7 +697,7 @@ function (_MassUnit) {
         }
       } else if (ozID !== -1) {
         // Let's keep "oz" for parseSingleUnit
-        separator = ozID + 2; // Is Single unit?
+        var separator = ozID + 2; // Is Single unit?
 
         if (separator === text.length) {
           return Ounces.parseSingleUnit(text);
@@ -691,23 +705,28 @@ function (_MassUnit) {
 
         return Ounces.parseDualUnit(text, separator, true);
       } else if (lbID !== -1) {
-        separator = lbID + 2; // Did they use "lbs"?
+        var _separator = lbID + 2; // Did they use "lbs"?
+
 
         if (text.indexOf('lbs') !== -1) {
-          separator++;
+          _separator++;
         } // Is Single unit?
 
 
-        if (separator === text.length) {
+        if (_separator === text.length) {
           return Ounces.parseSingleUnit(text, pounds_Pounds);
         }
 
-        return Ounces.parseDualUnit(text, separator);
-      } else if ((separator = text.indexOf(',')) !== -1) {
-        // Dual units split by a comma (i.e. 3lb, 4oz)
-        return Ounces.parseDualUnit(text, separator + 1);
+        return Ounces.parseDualUnit(text, _separator);
       } else {
-        // Single unit
+        var _separator2 = text.indexOf(',');
+
+        if (_separator2 !== -1) {
+          // Dual units split by a comma (i.e. 3lb, 4oz)
+          return Ounces.parseDualUnit(text, _separator2 + 1);
+        } // Single unit
+
+
         return Ounces.parseSingleUnit(text);
       }
     }
@@ -764,7 +783,7 @@ function (_MassUnit) {
      * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
      * @returns {(Ounces|false)} Returns an Ounces object or false on error.
-     * @see parseSingleUnit
+     * @see {@link parseSingleUnit}
      */
 
   }, {
@@ -792,7 +811,7 @@ function (_MassUnit) {
 
       if (ounces === false || pounds === false) {
         return false;
-      } // Return adding pounds to ounces (to maintain a Ounces object)
+      } // Return adding pounds to ounces (to maintain an Ounces object)
 
 
       return ounces.add(pounds);
@@ -811,7 +830,7 @@ function (_MassUnit) {
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.4
+ * @version 1.4.5
  */
 
 

@@ -306,6 +306,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/mass_unit.js~massunit#_weight",
+    "class/src/mass_unit.js~MassUnit.html#instance-member-_weight",
+    "src/mass_unit.js~MassUnit#_weight",
+    "member"
+  ],
+  [
     "src/mass_unit.js~massunit#add",
     "class/src/mass_unit.js~MassUnit.html#instance-method-add",
     "src/mass_unit.js~MassUnit#add",
@@ -387,12 +393,6 @@ window.esdocSearchIndex = [
     "src/mass_unit.js~massunit#value",
     "class/src/mass_unit.js~MassUnit.html#instance-set-value",
     "src/mass_unit.js~MassUnit#value",
-    "member"
-  ],
-  [
-    "src/mass_unit.js~massunit#weight",
-    "class/src/mass_unit.js~MassUnit.html#instance-member-weight",
-    "src/mass_unit.js~MassUnit#weight",
     "member"
   ],
   [

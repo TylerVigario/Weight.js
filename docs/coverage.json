@@ -1,16 +1,12 @@
 {
-  "coverage": "90%",
+  "coverage": "100%",
   "expectCount": 30,
-  "actualCount": 27,
+  "actualCount": 30,
   "files": {
     "src/mass_unit.js": {
       "expectCount": 16,
-      "actualCount": 13,
-      "undocumentLines": [
-        14,
-        26,
-        37
-      ]
+      "actualCount": 16,
+      "undocumentLines": []
     },
     "src/ounces.js": {
       "expectCount": 7,

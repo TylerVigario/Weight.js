@@ -95,6 +95,8 @@ test('Ounces parse tests', function (t) {
 
     // Validate Ounces.parse()
     problems.forEach((problem) => {
+        console.info('1: ' + problem.question);
+
         let ounces = Ounces.parse(problem.question);
 
         if (!(ounces instanceof Ounces)) {
