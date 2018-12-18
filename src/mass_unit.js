@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.7
+ * @version 1.4.8
  */
 
 /**
@@ -18,6 +18,33 @@ export default class MassUnit {
      */
     constructor(weight = 0) {
         this.value = this._getValue(weight);
+    }
+
+    /**
+     * Get value from variable.
+     * @ignore
+     * @protected
+     * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
+     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
+     * @returns {number}
+     */
+    _getValue(weight) {
+        // String?
+        if (typeof weight === 'string') {
+            weight = this.parse(weight);
+        }
+
+        // Not a number?
+        if (typeof weight !== 'number') {
+            throw new TypeError('Invalid parameter passed to function.');
+        }
+
+        // Weight cannot be negative
+        if (weight < 0) {
+            return 0;
+        }
+
+        return weight;
     }
 
     /**

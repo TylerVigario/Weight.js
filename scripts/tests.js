@@ -95,12 +95,10 @@ test('Ounces parse tests', function (t) {
 
     // Validate Ounces.parse()
     problems.forEach((problem) => {
-        console.info('1: ' + problem.question);
-
         let ounces = Ounces.parse(problem.question);
 
         if (!(ounces instanceof Ounces)) {
-            t.error('Error during parse.');
+            t.error(ounces, 'Error during parse.');
         }
 
         t.equal(ounces.value, problem.ounces, problem.question);
@@ -124,6 +122,10 @@ test('Pounds parse tests', function (t) {
     // Validate Pounds.parse()
     problems.forEach((problem) => {
         let pounds = Pounds.parse(problem.question);
+
+        if (!(pounds instanceof Pounds)) {
+            t.error(pounds, 'Error during parse.');
+        }
 
         t.equal(pounds.value, problem.pounds, problem.question);
     });

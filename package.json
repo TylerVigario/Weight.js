@@ -1,6 +1,6 @@
 {
   "name": "weight.js",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "JavaScript classes to convert imperial mass units as well as output and parse as text.",
   "homepage": "https://meeklogic.github.io/Weight.js/",
   "main": "./dist/weight.min.js",
@@ -23,7 +23,8 @@
     "conversion",
     "imperial",
     "pound",
-    "ounce"
+    "ounce",
+    "mass"
   ],
   "repository": {
     "type": "git",

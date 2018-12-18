@@ -113,7 +113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.7
+ * @version 1.4.8
  */
 
 /**
@@ -136,12 +136,41 @@ function () {
     this.value = this._getValue(weight);
   }
   /**
-   * Return weight value.
-   * @type {number}
+   * Get value from variable.
+   * @ignore
+   * @protected
+   * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
+   * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
+   * @returns {number}
    */
 
 
   _createClass(MassUnit, [{
+    key: "_getValue",
+    value: function _getValue(weight) {
+      // String?
+      if (typeof weight === 'string') {
+        weight = this.parse(weight);
+      } // Not a number?
+
+
+      if (typeof weight !== 'number') {
+        throw new TypeError('Invalid parameter passed to function.');
+      } // Weight cannot be negative
+
+
+      if (weight < 0) {
+        return 0;
+      }
+
+      return weight;
+    }
+    /**
+     * Return weight value.
+     * @type {number}
+     */
+
+  }, {
     key: "floor",
 
     /**
@@ -320,6 +349,10 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -331,7 +364,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.7
+ * @version 1.4.8
  */
 
 
@@ -359,33 +392,17 @@ function (_MassUnit) {
      * @ignore
      * @protected
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
-     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
+     * @see {@link MassUnit._getValue}
      */
     value: function _getValue(weight) {
       if (weight instanceof ounces_Ounces) {
         return weight.toPounds().value;
       } else if (weight instanceof Pounds) {
         return weight.value;
-      } else if (typeof weight === 'number') {
-        if (weight < 0) {
-          return 0;
-        }
-
-        return weight;
-      } else {
-        weight = parseFloat(weight);
-
-        if (isNaN(weight)) {
-          throw new TypeError('Invalid parameter passed to function.');
-        }
-
-        if (weight < 0) {
-          return 0;
-        }
-
-        return weight;
       }
+
+      return _get(_getPrototypeOf(Pounds.prototype), "_getValue", this).call(this, weight);
     }
     /**
      * Parse text for weight.
@@ -434,26 +451,30 @@ function (_MassUnit) {
      * Parse text for single unit weight.
      * @param {(string|number)} text - Text to parse for single unit weight.
      * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.
+     * @protected
+     * @throws {TypeError} Thrown if no signifier is found and the unitType is invalid.
      * @returns {(Pounds|false)} Returns a Pounds object or false on error.
      */
 
   }, {
-    key: "parseSingleUnit",
-    value: function parseSingleUnit(text) {
+    key: "_parseSingleUnit",
+    value: function _parseSingleUnit(text) {
       var unitType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Pounds;
       text = text.trim(); // Last validation before initializing.
 
-      if (isNaN(parseFloat(text))) {
+      var weight = parseFloat(text);
+
+      if (isNaN(weight)) {
         return false;
       } // Single unit (3lb or 4oz)
 
 
       if (text.indexOf('oz') !== -1) {
         // Ounces (must include: oz)
-        return new ounces_Ounces(text).toPounds();
+        return new ounces_Ounces(weight).toPounds();
       } else if (text.indexOf('lb') !== -1) {
         // Pounds (default)
-        return new Pounds(text);
+        return new Pounds(weight);
       } else {
         // Undefined (use default unitType)
         switch (unitType) {
@@ -461,7 +482,7 @@ function (_MassUnit) {
           case 'ounces':
           case 'oz':
           case ounces_Ounces:
-            return new ounces_Ounces(text).toPounds();
+            return new ounces_Ounces(weight).toPounds();
 
           case 'Pound':
           case 'pound':
@@ -470,7 +491,7 @@ function (_MassUnit) {
           case 'lb':
           case 'lbs':
           case Pounds:
-            return new Pounds(text);
+            return new Pounds(weight);
 
           default:
             throw new TypeError('Invalid unit type.');
@@ -482,13 +503,14 @@ function (_MassUnit) {
      * @param {(string|number)} text - Text to parse for weight.
      * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
+     * @protected
      * @returns {(Pounds|false)} Returns a Pounds object or false on error.
      * @see {@link parseSingleUnit}
      */
 
   }, {
-    key: "parseDualUnit",
-    value: function parseDualUnit(text, splitAt) {
+    key: "_parseDualUnit",
+    value: function _parseDualUnit(text, splitAt) {
       var outOfOrder = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
       // "splitAt" must be defined and must be a number
@@ -506,8 +528,10 @@ function (_MassUnit) {
       } // Parse
 
 
-      var ounces = ounces_Ounces.parseSingleUnit(text[0]);
-      var pounds = Pounds.parseSingleUnit(text[1]); // Did we have any trouble parsing single units?
+      var ounces = ounces_Ounces._parseSingleUnit(text[0]);
+
+      var pounds = Pounds._parseSingleUnit(text[1]); // Did we have any trouble parsing single units?
+
 
       if (ounces === false || pounds === false) {
         return false;
@@ -535,6 +559,10 @@ function ounces_possibleConstructorReturn(self, call) { if (call && (ounces_type
 
 function ounces_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function ounces_get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { ounces_get = Reflect.get; } else { ounces_get = function _get(target, property, receiver) { var base = ounces_superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return ounces_get(target, property, receiver || target); }
+
+function ounces_superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = ounces_getPrototypeOf(object); if (object === null) break; } return object; }
+
 function ounces_getPrototypeOf(o) { ounces_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return ounces_getPrototypeOf(o); }
 
 function ounces_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) ounces_setPrototypeOf(subClass, superClass); }
@@ -546,7 +574,7 @@ function ounces_setPrototypeOf(o, p) { ounces_setPrototypeOf = Object.setPrototy
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.7
+ * @version 1.4.8
  */
 
 
@@ -574,33 +602,18 @@ function (_MassUnit) {
      * @ignore
      * @protected
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
-     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
+     * @see {@link MassUnit._getValue}
      */
     value: function _getValue(weight) {
+      // One of ours?
       if (weight instanceof Ounces) {
         return weight.value;
       } else if (weight instanceof pounds_Pounds) {
         return weight.toOunces().value;
-      } else if (typeof weight === 'number') {
-        if (weight < 0) {
-          return 0;
-        }
-
-        return weight;
-      } else {
-        weight = parseFloat(weight);
-
-        if (isNaN(weight)) {
-          throw new TypeError('Invalid parameter passed to function.');
-        }
-
-        if (weight < 0) {
-          return 0;
-        }
-
-        return weight;
       }
+
+      return ounces_get(ounces_getPrototypeOf(Ounces.prototype), "_getValue", this).call(this, weight);
     }
     /**
      * Parse text for weight.
@@ -671,7 +684,7 @@ function (_MassUnit) {
         } // We expect to parse a string
         else if (typeof text !== 'string') {
             return false;
-          } // Remove spaces
+          } // Remove all spaces
 
 
       text = text.replace(/\s/g, ''); // Is string empty?
@@ -681,7 +694,8 @@ function (_MassUnit) {
       } // Remove case sensitivity
 
 
-      text = text.toLowerCase();
+      text = text.toLowerCase(); // Look for signifiers
+
       var ozID = text.indexOf('oz');
       var lbID = text.indexOf('lb'); // Does it include signifiers?
 
@@ -690,76 +704,79 @@ function (_MassUnit) {
         if (lbID < ozID) {
           lbID += 2; // Did they use "lbs"?
 
-          if (text.indexOf('lbs') !== -1) {
+          if (text.charAt(lbID) === 's') {
             lbID += 1;
           }
 
-          return Ounces.parseDualUnit(text, lbID);
+          return Ounces._parseDualUnit(text, lbID);
         } else {
           // Ounces precedes pounds (out-of-order)
           ozID += 2;
-          return Ounces.parseDualUnit(text, ozID, true);
+          return Ounces._parseDualUnit(text, ozID, true);
         }
       } else if (ozID !== -1) {
         // Let's keep "oz" for parseSingleUnit
         var separator = ozID + 2; // Is Single unit?
 
         if (separator === text.length) {
-          return Ounces.parseSingleUnit(text);
+          return Ounces._parseSingleUnit(text);
         }
 
-        return Ounces.parseDualUnit(text, separator, true);
+        return Ounces._parseDualUnit(text, separator, true);
       } else if (lbID !== -1) {
         var _separator = lbID + 2; // Did they use "lbs"?
 
 
-        if (text.indexOf('lbs') !== -1) {
+        if (text.charAt(_separator) === 's') {
           _separator++;
         } // Is Single unit?
 
 
         if (_separator === text.length) {
-          return Ounces.parseSingleUnit(text, pounds_Pounds);
+          return Ounces._parseSingleUnit(text, pounds_Pounds);
         }
 
-        return Ounces.parseDualUnit(text, _separator);
+        return Ounces._parseDualUnit(text, _separator);
       } else {
         var _separator2 = text.indexOf(',');
 
         if (_separator2 !== -1) {
           // Dual units split by a comma (i.e. 3lb, 4oz)
-          return Ounces.parseDualUnit(text, _separator2 + 1);
+          return Ounces._parseDualUnit(text, _separator2 + 1);
         } // Single unit
 
 
-        return Ounces.parseSingleUnit(text);
+        return Ounces._parseSingleUnit(text);
       }
     }
     /**
      * Parse text for single unit weight.
      * @param {(string|number)} text - Text to parse for single unit weight.
      * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.
+     * @protected
+     * @throws {TypeError} Thrown if no signifier is found and the unitType is invalid.
      * @returns {(Ounces|false)} Returns an Ounces object or false on error.
-     * @throws {TypeError}
      */
 
   }, {
-    key: "parseSingleUnit",
-    value: function parseSingleUnit(text) {
+    key: "_parseSingleUnit",
+    value: function _parseSingleUnit(text) {
       var unitType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Ounces;
       text = text.trim(); // Last validation before initializing.
 
-      if (isNaN(parseFloat(text))) {
+      var weight = parseFloat(text);
+
+      if (isNaN(weight)) {
         return false;
       } // Single unit (3lb or 4oz)
 
 
       if (text.indexOf('lb') !== -1) {
         // Pounds (must include: lb or lbs)
-        return new pounds_Pounds(text).toOunces();
+        return new pounds_Pounds(weight).toOunces();
       } else if (text.indexOf('oz') !== -1) {
         // Ounces
-        return new Ounces(text);
+        return new Ounces(weight);
       } else {
         // Undefined (use default unitType)
         switch (unitType) {
@@ -767,7 +784,7 @@ function (_MassUnit) {
           case 'ounces':
           case 'oz':
           case Ounces:
-            return new Ounces(text);
+            return new Ounces(weight);
 
           case 'Pound':
           case 'pound':
@@ -776,7 +793,7 @@ function (_MassUnit) {
           case 'lb':
           case 'lbs':
           case pounds_Pounds:
-            return new pounds_Pounds(text).toOunces();
+            return new pounds_Pounds(weight).toOunces();
 
           default:
             throw new TypeError('Invalid unit type.');
@@ -788,13 +805,14 @@ function (_MassUnit) {
      * @param {(string|number)} text - Text to parse for weight.
      * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
+     * @protected
      * @returns {(Ounces|false)} Returns an Ounces object or false on error.
      * @see {@link parseSingleUnit}
      */
 
   }, {
-    key: "parseDualUnit",
-    value: function parseDualUnit(text, splitAt) {
+    key: "_parseDualUnit",
+    value: function _parseDualUnit(text, splitAt) {
       var outOfOrder = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
       // "splitAt" must be defined and must be a number
@@ -812,8 +830,10 @@ function (_MassUnit) {
       } // Parse
 
 
-      var ounces = Ounces.parseSingleUnit(text[0]);
-      var pounds = pounds_Pounds.parseSingleUnit(text[1]); // Did we have any trouble parsing single units?
+      var ounces = Ounces._parseSingleUnit(text[0]);
+
+      var pounds = pounds_Pounds._parseSingleUnit(text[1]); // Did we have any trouble parsing single units?
+
 
       if (ounces === false || pounds === false) {
         return false;
@@ -836,7 +856,7 @@ function (_MassUnit) {
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.7
+ * @version 1.4.8
  */
 
 

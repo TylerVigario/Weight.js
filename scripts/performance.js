@@ -28,7 +28,7 @@ console.log('parse: ' + Math.round(i / (time / 1000)).toLocaleString() + ' op/s'
 time = microtime.now();
 
 for (i = 0; i < 1000000; i++) {
-    Ounces.parseSingleUnit('25 oz  ');
+    Ounces._parseSingleUnit('25 oz  ');
 }
 
 time = microtime.now() - time;
@@ -39,7 +39,7 @@ console.log('parseSingleUnit: ' + Math.round(i / (time / 1000)).toLocaleString()
 time = microtime.now();
 
 for (i = 0; i < 1000000; i++) {
-    Ounces.parseDualUnit('25 lb  16oz', 6);
+    Ounces._parseDualUnit('25 lb  16oz', 6);
 }
 
 time = microtime.now() - time;
@@ -92,7 +92,7 @@ console.log('parse: ' + Math.round(i / (time / 1000)).toLocaleString() + ' op/s'
 time = microtime.now();
 
 for (i = 0; i < 1000000; i++) {
-    Pounds.parseSingleUnit('25 lb  ');
+    Pounds._parseSingleUnit('25 lb  ');
 }
 
 time = microtime.now() - time;
@@ -103,7 +103,7 @@ console.log('parseSingleUnit: ' + Math.round(i / (time / 1000)).toLocaleString()
 time = microtime.now();
 
 for (i = 0; i < 1000000; i++) {
-    Pounds.parseDualUnit('25 lb  16oz', 6);
+    Pounds._parseDualUnit('25 lb  16oz', 6);
 }
 
 time = microtime.now() - time;

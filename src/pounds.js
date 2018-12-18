@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.7
+ * @version 1.4.8
  */
 
 import MassUnit from './mass_unit';
@@ -19,33 +19,17 @@ export default class Pounds extends MassUnit {
      * @ignore
      * @protected
      * @param {(Ounces|Pounds|number|string)} weight - Variable to extract weight from.
-     * @throws {TypeError} Throws an error if number cannot be parsed to a valid number.
      * @returns {number}
+     * @see {@link MassUnit._getValue}
      */
     _getValue(weight) {
         if (weight instanceof Ounces) {
             return weight.toPounds().value;
         } else if (weight instanceof Pounds) {
             return weight.value;
-        } else if (typeof weight === 'number') {
-            if (weight < 0) {
-                return 0;
-            }
-
-            return weight;
-        } else {
-            weight = parseFloat(weight);
-
-            if (isNaN(weight)) {
-                throw new TypeError('Invalid parameter passed to function.');
-            }
-
-            if (weight < 0) {
-                return 0;
-            }
-
-            return weight;
         }
+
+        return super._getValue(weight);
     }
 
     /**
@@ -68,23 +52,27 @@ export default class Pounds extends MassUnit {
      * Parse text for single unit weight.
      * @param {(string|number)} text - Text to parse for single unit weight.
      * @param {(Ounces|Pounds|string)} unitType - Default unit type if no signifier is found.
+     * @protected
+     * @throws {TypeError} Thrown if no signifier is found and the unitType is invalid.
      * @returns {(Pounds|false)} Returns a Pounds object or false on error.
      */
-    static parseSingleUnit(text, unitType = Pounds) {
+    static _parseSingleUnit(text, unitType = Pounds) {
         text = text.trim();
 
         // Last validation before initializing.
-        if (isNaN(parseFloat(text))) {
+        let weight = parseFloat(text);
+
+        if (isNaN(weight)) {
             return false;
         }
 
         // Single unit (3lb or 4oz)
         if (text.indexOf('oz') !== -1) {
             // Ounces (must include: oz)
-            return (new Ounces(text)).toPounds();
+            return (new Ounces(weight)).toPounds();
         } else if (text.indexOf('lb') !== -1) {
             // Pounds (default)
-            return new Pounds(text);
+            return new Pounds(weight);
         } else {
             // Undefined (use default unitType)
             switch (unitType) {
@@ -92,7 +80,7 @@ export default class Pounds extends MassUnit {
                 case 'ounces':
                 case 'oz':
                 case Ounces:
-                    return new Ounces(text).toPounds();
+                    return new Ounces(weight).toPounds();
                 case 'Pound':
                 case 'pound':
                 case 'Pounds':
@@ -100,7 +88,7 @@ export default class Pounds extends MassUnit {
                 case 'lb':
                 case 'lbs':
                 case Pounds:
-                    return (new Pounds(text));
+                    return (new Pounds(weight));
                 default:
                     throw new TypeError('Invalid unit type.');
             }
@@ -112,10 +100,11 @@ export default class Pounds extends MassUnit {
      * @param {(string|number)} text - Text to parse for weight.
      * @param {number} splitAt - Index to split string.
      * @param {boolean} [outOfOrder = false] - False (default) signifies pounds precedes ounces, true signifies ounces preceding pounds.
+     * @protected
      * @returns {(Pounds|false)} Returns a Pounds object or false on error.
      * @see {@link parseSingleUnit}
      */
-    static parseDualUnit(text, splitAt, outOfOrder = false) {
+    static _parseDualUnit(text, splitAt, outOfOrder = false) {
         // "splitAt" must be defined and must be a number
         if (typeof splitAt !== 'number') {
             return false;
@@ -138,8 +127,8 @@ export default class Pounds extends MassUnit {
         }
 
         // Parse
-        let ounces = Ounces.parseSingleUnit(text[0]);
-        let pounds = Pounds.parseSingleUnit(text[1]);
+        let ounces = Ounces._parseSingleUnit(text[0]);
+        let pounds = Pounds._parseSingleUnit(text[1]);
 
         // Did we have any trouble parsing single units?
         if (ounces === false || pounds === false) {

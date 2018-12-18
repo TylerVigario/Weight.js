@@ -414,21 +414,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/ounces.js~ounces._parsedualunit",
+    "class/src/ounces.js~Ounces.html#static-method-_parseDualUnit",
+    "src/ounces.js~Ounces._parseDualUnit",
+    "method"
+  ],
+  [
+    "src/ounces.js~ounces._parsesingleunit",
+    "class/src/ounces.js~Ounces.html#static-method-_parseSingleUnit",
+    "src/ounces.js~Ounces._parseSingleUnit",
+    "method"
+  ],
+  [
     "src/ounces.js~ounces.parse",
     "class/src/ounces.js~Ounces.html#static-method-parse",
     "src/ounces.js~Ounces.parse",
-    "method"
-  ],
-  [
-    "src/ounces.js~ounces.parsedualunit",
-    "class/src/ounces.js~Ounces.html#static-method-parseDualUnit",
-    "src/ounces.js~Ounces.parseDualUnit",
-    "method"
-  ],
-  [
-    "src/ounces.js~ounces.parsesingleunit",
-    "class/src/ounces.js~Ounces.html#static-method-parseSingleUnit",
-    "src/ounces.js~Ounces.parseSingleUnit",
     "method"
   ],
   [
@@ -450,21 +450,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/pounds.js~pounds._parsedualunit",
+    "class/src/pounds.js~Pounds.html#static-method-_parseDualUnit",
+    "src/pounds.js~Pounds._parseDualUnit",
+    "method"
+  ],
+  [
+    "src/pounds.js~pounds._parsesingleunit",
+    "class/src/pounds.js~Pounds.html#static-method-_parseSingleUnit",
+    "src/pounds.js~Pounds._parseSingleUnit",
+    "method"
+  ],
+  [
     "src/pounds.js~pounds.parse",
     "class/src/pounds.js~Pounds.html#static-method-parse",
     "src/pounds.js~Pounds.parse",
-    "method"
-  ],
-  [
-    "src/pounds.js~pounds.parsedualunit",
-    "class/src/pounds.js~Pounds.html#static-method-parseDualUnit",
-    "src/pounds.js~Pounds.parseDualUnit",
-    "method"
-  ],
-  [
-    "src/pounds.js~pounds.parsesingleunit",
-    "class/src/pounds.js~Pounds.html#static-method-parseSingleUnit",
-    "src/pounds.js~Pounds.parseSingleUnit",
     "method"
   ],
   [
