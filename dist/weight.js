@@ -113,7 +113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.8
+ * @version 1.4.12
  */
 
 /**
@@ -148,12 +148,7 @@ function () {
   _createClass(MassUnit, [{
     key: "_getValue",
     value: function _getValue(weight) {
-      // String?
-      if (typeof weight === 'string') {
-        weight = this.parse(weight);
-      } // Not a number?
-
-
+      // Not a number?
       if (typeof weight !== 'number') {
         throw new TypeError('Invalid parameter passed to function.');
       } // Weight cannot be negative
@@ -364,7 +359,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.8
+ * @version 1.4.12
  */
 
 
@@ -400,6 +395,15 @@ function (_MassUnit) {
         return weight.toPounds().value;
       } else if (weight instanceof Pounds) {
         return weight.value;
+      } // String?
+
+
+      if (typeof weight === 'string') {
+        weight = Pounds.parse(weight);
+
+        if (weight instanceof Pounds) {
+          weight = weight.value;
+        }
       }
 
       return _get(_getPrototypeOf(Pounds.prototype), "_getValue", this).call(this, weight);
@@ -574,7 +578,7 @@ function ounces_setPrototypeOf(o, p) { ounces_setPrototypeOf = Object.setPrototy
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.8
+ * @version 1.4.12
  */
 
 
@@ -611,6 +615,15 @@ function (_MassUnit) {
         return weight.value;
       } else if (weight instanceof pounds_Pounds) {
         return weight.toOunces().value;
+      } // String?
+
+
+      if (typeof weight === 'string') {
+        weight = Ounces.parse(weight);
+
+        if (weight instanceof Ounces) {
+          weight = weight.value;
+        }
       }
 
       return ounces_get(ounces_getPrototypeOf(Ounces.prototype), "_getValue", this).call(this, weight);
@@ -856,7 +869,7 @@ function (_MassUnit) {
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.8
+ * @version 1.4.12
  */
 
 

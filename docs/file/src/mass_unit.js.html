@@ -42,7 +42,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.8
+ * @version 1.4.12
  */
 
 /**
@@ -68,11 +68,6 @@ export default class MassUnit {
      * @returns {number}
      */
     _getValue(weight) {
-        // String?
-        if (typeof weight === &apos;string&apos; &amp;&amp; isNaN(weight) === false) {
-            weight = parseFloat(weight);
-        }
-
         // Not a number?
         if (typeof weight !== &apos;number&apos;) {
             throw new TypeError(&apos;Invalid parameter passed to function.&apos;);

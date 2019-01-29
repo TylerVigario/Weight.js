@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.8
+ * @version 1.4.12
  */
 
 import MassUnit from './mass_unit';
@@ -28,6 +28,15 @@ export default class Ounces extends MassUnit {
             return weight.value;
         } else if (weight instanceof Pounds) {
             return weight.toOunces().value;
+        }
+
+        // String?
+        if (typeof weight === 'string') {
+            weight = Ounces.parse(weight);
+
+            if (weight instanceof Ounces) {
+                weight = weight.value;
+            }
         }
 
         return super._getValue(weight);

@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.8
+ * @version 1.4.12
  */
 
 /**
@@ -29,11 +29,6 @@ export default class MassUnit {
      * @returns {number}
      */
     _getValue(weight) {
-        // String?
-        if (typeof weight === 'string') {
-            weight = this.parse(weight);
-        }
-
         // Not a number?
         if (typeof weight !== 'number') {
             throw new TypeError('Invalid parameter passed to function.');

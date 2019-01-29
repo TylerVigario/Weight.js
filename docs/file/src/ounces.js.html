@@ -42,7 +42,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.8
+ * @version 1.4.12
  */
 
 import MassUnit from &apos;./mass_unit&apos;;
@@ -67,6 +67,15 @@ export default class Ounces extends MassUnit {
             return weight.value;
         } else if (weight instanceof Pounds) {
             return weight.toOunces().value;
+        }
+
+        // String?
+        if (typeof weight === &apos;string&apos;) {
+            weight = Ounces.parse(weight);
+
+            if (weight instanceof Ounces) {
+                weight = weight.value;
+            }
         }
 
         return super._getValue(weight);
@@ -179,17 +188,19 @@ export default class Ounces extends MassUnit {
         text = text.trim();
 
         // Last validation before initializing.
-        if (isNaN(parseFloat(text))) {
+        let weight = parseFloat(text);
+
+        if (isNaN(weight)) {
             return false;
         }
 
         // Single unit (3lb or 4oz)
         if (text.indexOf(&apos;lb&apos;) !== -1) {
             // Pounds (must include: lb or lbs)
-            return (new Pounds(parseFloat(text))).toOunces();
+            return (new Pounds(weight)).toOunces();
         } else if (text.indexOf(&apos;oz&apos;) !== -1) {
             // Ounces
-            return new Ounces(parseFloat(text));
+            return new Ounces(weight);
         } else {
             // Undefined (use default unitType)
             switch (unitType) {
@@ -197,7 +208,7 @@ export default class Ounces extends MassUnit {
                 case &apos;ounces&apos;:
                 case &apos;oz&apos;:
                 case Ounces:
-                    return new Ounces(parseFloat(text));
+                    return new Ounces(weight);
                 case &apos;Pound&apos;:
                 case &apos;pound&apos;:
                 case &apos;Pounds&apos;:
@@ -205,7 +216,7 @@ export default class Ounces extends MassUnit {
                 case &apos;lb&apos;:
                 case &apos;lbs&apos;:
                 case Pounds:
-                    return (new Pounds(parseFloat(text))).toOunces();
+                    return (new Pounds(weight)).toOunces();
                 default:
                     throw new TypeError(&apos;Invalid unit type.&apos;);
             }
