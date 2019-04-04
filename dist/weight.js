@@ -113,7 +113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.13
+ * @version 1.4.14
  */
 
 /**
@@ -359,7 +359,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.13
+ * @version 1.4.14
  */
 
 
@@ -578,7 +578,7 @@ function ounces_setPrototypeOf(o, p) { ounces_setPrototypeOf = Object.setPrototy
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.13
+ * @version 1.4.14
  */
 
 
@@ -869,7 +869,7 @@ function (_MassUnit) {
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.13
+ * @version 1.4.14
  */
 
 
