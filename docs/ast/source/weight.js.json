@@ -101,7 +101,7 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "* \r\n * Weight.js\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.14\r\n ",
+            "value": "* \r\n * Weight.js\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.15\r\n ",
             "start": 0,
             "end": 111,
             "loc": {
@@ -309,7 +309,7 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "* \r\n * Weight.js\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.14\r\n ",
+      "value": "* \r\n * Weight.js\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.15\r\n ",
       "start": 0,
       "end": 111,
       "loc": {
@@ -327,7 +327,7 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": "* \r\n * Weight.js\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.14\r\n ",
+      "value": "* \r\n * Weight.js\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.15\r\n ",
       "start": 0,
       "end": 111,
       "loc": {

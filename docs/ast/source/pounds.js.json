@@ -101,7 +101,7 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "* \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.14\r\n ",
+            "value": "* \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.15\r\n ",
             "start": 0,
             "end": 118,
             "loc": {
@@ -6155,7 +6155,7 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "* \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.14\r\n ",
+      "value": "* \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.15\r\n ",
       "start": 0,
       "end": 118,
       "loc": {
@@ -6477,7 +6477,7 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": "* \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.14\r\n ",
+      "value": "* \r\n * Pound mass unit.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 1.4.15\r\n ",
       "start": 0,
       "end": 118,
       "loc": {
