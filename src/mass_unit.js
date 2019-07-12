@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.15
+ * @version 1.4.16
  */
 
 /**
@@ -68,7 +68,7 @@ export default class MassUnit {
 
         /**
          * @protected
-         * @member {number} weight
+         * @member {number} _weight
          */
         this._weight = weight;
     }

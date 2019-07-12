@@ -3,7 +3,7 @@
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
- * @version 1.4.15
+ * @version 1.4.16
  */
 
 import MassUnit from './mass_unit';
