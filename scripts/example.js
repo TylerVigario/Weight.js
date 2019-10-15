@@ -1,19 +1,25 @@
 /* eslint no-console: 0 */
 
-var Ounces = require('../dist/weight').Ounces;
+var Mass = require('../dist/mass');
 
+//
 // Example
+//
 
-let ounces = Ounces.parse('5lbs  4 oz');
+// Parse string for ounces
+let ounces = Mass.parse('5lbs  4 oz');
 
-console.log(ounces.value); // 84
+console.log(ounces); // 84
 
-ounces.add(new Ounces(6));
+// Add 6 ounces
+ounces = ounces + 6;
 
-console.log(ounces.value); // 90
+console.log(ounces); // 90
 
-if (ounces.isSame(new Ounces(90))) {
-    console.log(ounces.toString()); // "5 lbs 10 oz"
+// Verify total is 90 ounces
+if (ounces === 90) {
+    // Format total for human-readable string
+    console.log(Mass.format(ounces)); // "5 lbs 10 oz"
 }
 
 //

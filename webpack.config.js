@@ -4,13 +4,14 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     mode: 'production',
     entry: {
-        'weight': './src/weight.js',
-        'weight.min': './src/weight.js',
+        'mass': './src/mass.js',
+        'mass.min': './src/mass.js',
     },
     output: {
-        library: 'weight.js',
+        library: 'Mass',
         libraryTarget: 'umd',
         filename: '[name].js',
+        libraryExport: 'default',
         path: path.resolve(__dirname, 'dist'),
         globalObject: 'typeof self !== \'undefined\' ? self : this'
     },

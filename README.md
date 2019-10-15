@@ -4,8 +4,6 @@ Weight.js
 =========
 JavaScript classes to convert imperial mass units as well as output and parse as text.
 
-**[Documentation](https://meeklogic.github.io/Weight.js/)**
-
 Install
 -------
 ```javascript
@@ -16,36 +14,24 @@ Usage
 -----
 **ES6**
 ```javascript
-import {Ounces, Pounds} from 'weight.js/src/weight';
-//or
-import Ounces from 'weight.js/src/ounces';
-//or
-import Pounds from 'weight.js/src/pounds';
+import {Mass} from 'weight.js/src/mass';
 ```
 
 **CommonJS**
 ```javascript
-var Weight = require('weight.js');
-var Ounces = Weight.Ounces;
-var Pounds = Weight.Pounds;
-//or
-var Ounces = require('weight.js').Ounces;
-//or
-var Pounds = require('weight.js').Pounds;
+var Mass = require('mass');
 ```
 
 Example
 -------
 ```javascript
-let ounces = Ounces.parse('5lbs  4 oz');
+let ounces = Mass.parse('5lbs  4 oz');
 
-console.log(ounces.value); // 84
+console.log(ounces); // 84
 
-ounces.add(new Ounces(6));
+ounces = ounces + 6; // 90
 
-console.log(ounces.value); // 90
-
-if (ounces.isSame(new Ounces(90))) {
-    console.log(ounces.toString()); // "5 lbs 10 oz"
+if (ounces === 90) {
+    console.log(Mass.format(ounces)); // "5 lbs 10 oz"
 }
 ```

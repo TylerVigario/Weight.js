@@ -1,9 +1,7 @@
 /* eslint no-console: 0 */
 
 var test = require('tape');
-var Weight = require('../dist/weight.js');
-var Pounds = Weight.Pounds;
-var Ounces = Weight.Ounces;
+var Mass = require('../dist/mass');
 
 var problems = [{
     question: '8lb 36oz',
@@ -90,93 +88,40 @@ var invalidWeights = [
     'not,a,weight'
 ];
 
-test('Ounces parse tests', function (t) {
+test('Parse tests', function (t) {
     t.plan(problems.length);
 
-    // Validate Ounces.parse()
+    // Validate Mass.parse()
     problems.forEach((problem) => {
-        let ounces = Ounces.parse(problem.question);
+        let ounces = Mass.parse(problem.question);
 
-        if (!(ounces instanceof Ounces)) {
+        if (typeof ounces !== 'number') {
             t.error(ounces, 'Error during parse.');
         }
 
-        t.equal(ounces.value, problem.ounces, problem.question);
-    });
-});
-
-test('Ounces format tests', function (t) {
-    t.plan(problems.length);
-
-    // Validate Ounces .toString()
-    problems.forEach((problem) => {
-        let ounces = Ounces.parse(problem.question).toString();
-
-        t.equal(ounces, problem.answer, ounces);
-    });
-});
-
-test('Pounds parse tests', function (t) {
-    t.plan(problems.length);
-
-    // Validate Pounds.parse()
-    problems.forEach((problem) => {
-        let pounds = Pounds.parse(problem.question);
-
-        if (!(pounds instanceof Pounds)) {
-            t.error(pounds, 'Error during parse.');
-        }
-
-        t.equal(pounds.value, problem.pounds, problem.question);
-    });
-});
-
-test('Pounds format tests', function (t) {
-    t.plan(problems.length);
-
-    // Validate Ounces .toString()
-    problems.forEach((problem) => {
-        let pounds = Pounds.parse(problem.question).toString();
-
-        t.equal(pounds, problem.answer, pounds);
+        t.equal(ounces, problem.ounces, problem.question);
     });
 });
 
 test('Invalid parse tests', function (t) {
     t.plan(invalidWeights.length);
 
-    // Ounces.parse() invalid weight handling
+    // Mass.parse() invalid weight handling
     invalidWeights.forEach((weight) => {
-        let ounces = Ounces.parse(weight);
+        let ounces = Mass.parse(weight);
 
         t.equal(ounces, false, weight);
     });
 });
 
-test('Comparison tests', function (t) {
-    t.plan(3);
+test('Format tests', function (t) {
+    t.plan(problems.length);
 
-    let smallWeight = new Pounds(1);
-    let largeWeight = new Pounds(80);
+    // Validate Mass.format()
+    problems.forEach((problem) => {
+        let ounces = Mass.parse(problem.question);
+        let massString = Mass.format(ounces);
 
-    t.true(largeWeight.isHeavier(smallWeight), 'isHeavier');
-    t.true(smallWeight.isLighter(largeWeight), 'isLighter');
-    t.true(smallWeight.isNotSame(largeWeight), 'isNotSame');
-});
-
-test('Additional tests', function (t) {
-    t.plan(3);
-
-    // Create Ounces object from number
-    let ounces1 = new Ounces(24);
-
-    t.true(ounces1 instanceof Ounces, 'Object handling #1');
-
-    // Create Ounces object from Ounces object
-    let ounces2 = new Ounces(ounces1);
-
-    t.true(ounces2 instanceof Ounces, 'Object handling #2');
-
-    // Validate both objects are equal
-    t.equal(ounces2.value, ounces1.value, 'Object handling #3');
+        t.equal(massString, problem.answer, massString);
+    });
 });
