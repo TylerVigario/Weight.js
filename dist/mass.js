@@ -161,12 +161,10 @@ function () {
       } // We expect to parse a string
       else if (typeof text !== 'string') {
           return false;
-        } // Remove all spaces
+        } // Remove all spaces and commas
 
 
-      text = text.replace(/\s/g, ''); // Remove all commas
-
-      text = text.replace(',', ''); // Is string empty?
+      text = text.replace(/[, ]+/g, ''); // Is string empty?
 
       if (text.length === 0) {
         return 0;

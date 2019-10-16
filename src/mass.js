@@ -36,11 +36,8 @@ export default class Mass
             return false;
         }
 
-        // Remove all spaces
-        text = text.replace(/\s/g, '');
-
-        // Remove all commas
-        text = text.replace(',', '');
+        // Remove all spaces and commas
+        text = text.replace(/[, ]+/g, '');
 
         // Is string empty?
         if (text.length === 0) {
