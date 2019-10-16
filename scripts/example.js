@@ -7,19 +7,21 @@ var Mass = require('../dist/mass');
 //
 
 // Parse string for ounces
-let ounces = Mass.parse('5lbs  4 oz');
+let pounds = Mass.parse('5lbs  4 oz');
 
-console.log(ounces); // 84
+console.log(pounds); // 5.25
 
-// Add 6 ounces
-ounces = ounces + 6;
+// Add 12 ounces
+pounds += (12 / 16);
 
-console.log(ounces); // 90
+console.log(pounds); // 6
 
 // Verify total is 90 ounces
-if (ounces === 90) {
+if (pounds === 6) {
     // Format total for human-readable string
-    console.log(Mass.format(ounces)); // "5 lbs 10 oz"
+    console.log(Mass.format(pounds)); // "6 lbs"
+} else {
+    console.error('Did we forget to run our tests?');
 }
 
 //

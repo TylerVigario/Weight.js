@@ -1,0 +1,835 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/mass.js",
+    "content": "  \r\n/** \r\n * Parsing and formatting imperial mass units.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 2.0.0\r\n */\r\n\r\nimport {MassUnits} from './massUnits';\r\n\r\n/**\r\n * Class for working with string representations of mass.\r\n */\r\nexport default class Mass\r\n{\r\n    /**\r\n     * Parse variable for Mass.\r\n     * \r\n     * @param {(number|string)} text - Variable to parse for mass.\r\n     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.\r\n     * @see {@link Mass.parseUnit}\r\n     */\r\n    static parse(text)\r\n    {\r\n        if (typeof text === 'number') {\r\n            // Value cannot be lower than zero\r\n            if (text < 0) {\r\n                text = 0;\r\n            }\r\n            \r\n            return text;\r\n        }\r\n        // We expect to parse a string\r\n        else if (typeof text !== 'string') {\r\n            return false;\r\n        }\r\n\r\n        // Remove all spaces\r\n        text = text.replace(/\\s/g, '');\r\n\r\n        // Remove all commas\r\n        text = text.replace(',', '');\r\n\r\n        // Is string empty?\r\n        if (text.length === 0) {\r\n            return 0;\r\n        }\r\n\r\n        // Remove possible case sensitivity\r\n        text = text.toLowerCase();\r\n\r\n        // Find all signifiers within string\r\n        let signifiers = Mass.findSignifiers(text);\r\n\r\n        // Did we not find any signifiers?\r\n        if (signifiers.length === 0) {\r\n            return false;\r\n        }\r\n\r\n        // Extract individual unit for parsing\r\n        let total = 0;\r\n        let i = 0;\r\n        signifiers.forEach((signifier) => {\r\n            // Copy single unit from string\r\n            let singleUnit = text.substring(i, signifier.splitAt);\r\n\r\n            // Parse individual unit and add result to total\r\n            total += Mass.parseUnit(singleUnit, MassUnits[signifier.unit]);\r\n\r\n            // Set starting point for next search\r\n            i = signifier.splitAt;\r\n        });\r\n\r\n        // Return total mass (as pounds)\r\n        return total;\r\n    }\r\n\r\n    /**\r\n     * Find mass unit signifiers within string.\r\n     *\r\n     * @param {string} text\r\n     * @returns {array}\r\n     */\r\n    static findSignifiers(text) {\r\n        // Find first signifier\r\n        let signifiers = [];\r\n\r\n        // Loop through MassUnits\r\n        for (let MassUnit in MassUnits) {\r\n            let signifier = -1;\r\n\r\n            // Loop through each MassUnit's signifiers\r\n            MassUnits[MassUnit].signifiers.forEach((s) => {\r\n                // Look for signifier\r\n                let o = text.indexOf(s);\r\n\r\n                // Did we find signifier?\r\n                if (o !== -1) {\r\n                    // Since we want the index to represent the split BETWEEN units\r\n                    // we will add the length of the signifier to include it\r\n                    o = o + s.length;\r\n\r\n                    // We want to find the first signifier in the string\r\n                    if (signifier === -1 || o > signifier.splitAt) {\r\n                        signifier = {\r\n                            unit: MassUnit,\r\n                            signifier: s,\r\n                            splitAt: o\r\n                        };\r\n                    }\r\n                }\r\n            });\r\n\r\n            // We want to find the first signifier in the string\r\n            if (signifier !== -1 ) {\r\n                // Add only one (found) signifier per unit\r\n                signifiers.push(signifier);\r\n            }\r\n        }\r\n\r\n        // Sort ascending by splitAt index\r\n        signifiers.sort((a, b) => {\r\n            return a.splitAt - b.splitAt;\r\n        });\r\n\r\n        return signifiers;\r\n    }\r\n\r\n    /**\r\n     * Parse string for single mass unit.\r\n     * \r\n     * @param {string} text - String to parse for single mass unit.\r\n     * @param {object} MassUnit\r\n     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.\r\n     */\r\n    static parseUnit(text, MassUnit)\r\n    {\r\n        // Validate variable is of type string\r\n        if (typeof text !== 'string') {\r\n            return false;\r\n        }\r\n\r\n        // Pull number from string\r\n        let mass = parseFloat(text);\r\n\r\n        // Validate we were able to extract a number\r\n        if (isNaN(mass)) {\r\n            return false;\r\n        }\r\n\r\n        // Value cannot be lower than zero\r\n        if (mass < 0) {\r\n            // Return lowest possible value\r\n            return 0;\r\n        }\r\n\r\n        // Convert to base unit\r\n        return mass / MassUnit.value;\r\n    }\r\n\r\n    /**\r\n     * Format mass as text.\r\n     * \r\n     * @param {number} pounds - Mass (represented as base unit pound) to format.\r\n     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.\r\n     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.\r\n     * @returns {string} Formatted mass string.\r\n     */\r\n    static format(pounds, spaces = true, roundTo = 0)\r\n    {\r\n        let formattedWeight = '';\r\n        \r\n        // Convert pounds to ounces\r\n        let ounces = pounds * 16;\r\n\r\n        // Check if pounds is less than one\r\n        if (pounds < 1) {\r\n            // Return formatted ounces only\r\n            return ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n        }\r\n\r\n        // Floor pounds to remove change\r\n        pounds = Math.floor(pounds);\r\n\r\n        // Subtract ounces equal to whole pounds (leaving remaining ounces)\r\n        ounces -= (pounds * 16);\r\n\r\n        // Format pounds\r\n        formattedWeight = pounds + (spaces ? ' ' : '') + (pounds > 1 ? 'lbs' : 'lb');\r\n\r\n        // Verify remaining ounces\r\n        if (ounces > 0) {\r\n            // Format ounces\r\n            formattedWeight += ' ' + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n        }\r\n\r\n        return formattedWeight;\r\n    }\r\n}",
+    "static": true,
+    "longname": "D:/Users/Tyler/Documents/Projects/Weight.js/src/mass.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "Mass",
+    "memberof": "src/mass.js",
+    "static": true,
+    "longname": "src/mass.js~Mass",
+    "access": "public",
+    "export": true,
+    "importPath": "mass.js/src/mass.js",
+    "importStyle": "Mass",
+    "description": "Class for working with string representations of mass.",
+    "lineNumber": 15,
+    "interface": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "method",
+    "name": "parse",
+    "memberof": "src/mass.js~Mass",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/mass.js~Mass.parse",
+    "access": "public",
+    "description": "Parse variable for Mass.",
+    "see": [
+      "{@link Mass.parseUnit}"
+    ],
+    "lineNumber": 24,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{(number|false)} Returns mass represented in it's base imperial unit (pound) or false."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number",
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Variable to parse for mass."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number",
+        "false"
+      ],
+      "spread": false,
+      "description": "Returns mass represented in it's base imperial unit (pound) or false."
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "method",
+    "name": "findSignifiers",
+    "memberof": "src/mass.js~Mass",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/mass.js~Mass.findSignifiers",
+    "access": "public",
+    "description": "Find mass unit signifiers within string.",
+    "lineNumber": 85,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{array}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "array"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "method",
+    "name": "parseUnit",
+    "memberof": "src/mass.js~Mass",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/mass.js~Mass.parseUnit",
+    "access": "public",
+    "description": "Parse string for single mass unit.",
+    "lineNumber": 137,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{(number|false)} Returns mass represented in it's base imperial unit (pound) or false."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "String to parse for single mass unit."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "MassUnit",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number",
+        "false"
+      ],
+      "spread": false,
+      "description": "Returns mass represented in it's base imperial unit (pound) or false."
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "method",
+    "name": "format",
+    "memberof": "src/mass.js~Mass",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/mass.js~Mass.format",
+    "access": "public",
+    "description": "Format mass as text.",
+    "lineNumber": 170,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string} Formatted mass string."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "pounds",
+        "description": "Mass (represented as base unit pound) to format."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": " true",
+        "defaultRaw": true,
+        "name": "spaces",
+        "description": "Whether to add spaces between weight and signifier."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": " 0",
+        "defaultRaw": 0,
+        "name": "roundTo",
+        "description": "The rounding to perform on the ounces."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "Formatted mass string."
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "file",
+    "name": "src/massUnits.js",
+    "content": "var MassUnits = {\r\n    Ounce: {\r\n        value: 16,\r\n        signifiers: [\r\n            'oz',\r\n            'ounce',\r\n            'ounces'\r\n        ]\r\n    },\r\n    Pound: {\r\n        value: 1,\r\n        signifiers: [\r\n            'lb',\r\n            'lbs',\r\n            'pound',\r\n            'pounds'\r\n        ]\r\n    }\r\n};\r\n\r\nexport { MassUnits };",
+    "static": true,
+    "longname": "D:/Users/Tyler/Documents/Projects/Weight.js/src/massUnits.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 55,
+    "kind": "variable",
+    "name": "MassUnits",
+    "memberof": "src/massUnits.js",
+    "static": true,
+    "longname": "src/massUnits.js~MassUnits",
+    "access": "public",
+    "export": true,
+    "importPath": "mass.js/src/massUnits.js",
+    "importStyle": "{MassUnits}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"Ounce\": *, \"Pound\": *}"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e1f9c8a954f4c21b850f7b1ab4f4575)](https://www.codacy.com/app/MeekLogic/Weight.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeekLogic/Weight.js&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.com/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.com/MeekLogic/Weight.js) [![Coverage Status](https://coveralls.io/repos/github/MeekLogic/Weight.js/badge.svg?branch=master)](https://coveralls.io/github/MeekLogic/Weight.js?branch=master) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)\r\n\r\nmass.js\r\n=========\r\nJavaScript classes to convert imperial mass units as well as output and parse as text.\r\n\r\nInstall\r\n-------\r\n```javascript\r\nnpm install weight.js\r\n```\r\n\r\nUsage\r\n-----\r\n**ES6**\r\n```javascript\r\nimport {Mass} from 'weight.js/src/mass';\r\n```\r\n\r\n**CommonJS**\r\n```javascript\r\nvar Mass = require('mass');\r\n```\r\n\r\nExample\r\n-------\r\n```javascript\r\nlet ounces = Mass.parse('5lbs  4 oz');\r\n\r\nconsole.log(ounces); // 84\r\n\r\nounces = ounces + 6; // 90\r\n\r\nif (ounces === 90) {\r\n    console.log(Mass.format(ounces)); // \"5 lbs 10 oz\"\r\n}\r\n```\r\n",
+    "longname": "D:\\Users\\Tyler\\Documents\\Projects\\Weight.js\\README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\r\n  \"name\": \"mass.js\",\r\n  \"version\": \"2.0.0\",\r\n  \"description\": \"JavaScript classes to convert imperial mass units as well as output and parse as text.\",\r\n  \"homepage\": \"https://meeklogic.github.io/mass.js/\",\r\n  \"main\": \"./dist/mass.min.js\",\r\n  \"scripts\": {\r\n    \"build\": \"npx webpack --config webpack.config.js\",\r\n    \"lint\": \"./node_modules/.bin/eslint --config ./.eslintrc.js ./src\",\r\n    \"test\": \"npm run tests\",\r\n    \"tests\": \"node ./scripts/tests.js | tap-spec\",\r\n    \"test:coverage\": \"npm run tests:coverage\",\r\n    \"tests:coverage\": \"npx nyc npm run tests\",\r\n    \"speed\": \"npm run performance\",\r\n    \"performance\": \"node ./scripts/performance.js\",\r\n    \"doc\": \"npm run documentation\",\r\n    \"docs\": \"npm run documentation\",\r\n    \"documentation\": \"npx esdoc\",\r\n    \"example\": \"node ./scripts/example.js\"\r\n  },\r\n  \"keywords\": [\r\n    \"weight\",\r\n    \"conversion\",\r\n    \"imperial\",\r\n    \"pound\",\r\n    \"ounce\",\r\n    \"mass\"\r\n  ],\r\n  \"repository\": {\r\n    \"type\": \"git\",\r\n    \"url\": \"git+https://github.com/MeekLogic/mass.js\"\r\n  },\r\n  \"bugs\": {\r\n    \"url\": \"https://github.com/MeekLogic/mass.js/issues\"\r\n  },\r\n  \"author\": \"MeekLogic (Tyler Vigario)\",\r\n  \"license\": \"GPL-3.0-only\",\r\n  \"devDependencies\": {\r\n    \"@babel/core\": \"^7.6.4\",\r\n    \"@babel/preset-env\": \"^7.6.3\",\r\n    \"babel-loader\": \"^8.0.6\",\r\n    \"esdoc\": \"^1.1.0\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\",\r\n    \"eslint\": \"^6.5.1\",\r\n    \"microtime\": \"^3.0.0\",\r\n    \"nyc\": \"^14.1.1\",\r\n    \"tap-spec\": \"^5.0.0\",\r\n    \"tape\": \"^4.11.0\",\r\n    \"uglifyjs-webpack-plugin\": \"^2.2.0\",\r\n    \"webpack\": \"^4.41.1\",\r\n    \"webpack-cli\": \"^3.3.9\"\r\n  },\r\n  \"dependencies\": {},\r\n  \"nyc\": {\r\n    \"include\": [\r\n      \"**/dist/mass.js\"\r\n    ]\r\n  }\r\n}\r\n",
+    "longname": "D:\\Users\\Tyler\\Documents\\Projects\\Weight.js\\package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

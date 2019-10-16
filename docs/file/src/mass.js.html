@@ -1,4 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/mass.js | mass.js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="JavaScript classes to convert imperial mass units as well as output and parse as text."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="mass.js"><meta property="twitter:description" content="JavaScript classes to convert imperial mass units as well as output and parse as text."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
   
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/MeekLogic/mass.js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mass.js~Mass.html">Mass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MassUnits">MassUnits</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/mass.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">  
 /** 
  * Parsing and formatting imperial mass units.
  *
@@ -7,7 +45,7 @@
  * @version 2.0.0
  */
 
-import {MassUnits} from './massUnits';
+import {MassUnits} from &apos;./massUnits&apos;;
 
 /**
  * Class for working with string representations of mass.
@@ -18,29 +56,29 @@ export default class Mass
      * Parse variable for Mass.
      * 
      * @param {(number|string)} text - Variable to parse for mass.
-     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.
+     * @returns {(number|false)} Returns mass represented in it&apos;s base imperial unit (pound) or false.
      * @see {@link Mass.parseUnit}
      */
     static parse(text)
     {
-        if (typeof text === 'number') {
+        if (typeof text === &apos;number&apos;) {
             // Value cannot be lower than zero
-            if (text < 0) {
+            if (text &lt; 0) {
                 text = 0;
             }
             
             return text;
         }
         // We expect to parse a string
-        else if (typeof text !== 'string') {
+        else if (typeof text !== &apos;string&apos;) {
             return false;
         }
 
         // Remove all spaces
-        text = text.replace(/\s/g, '');
+        text = text.replace(/\s/g, &apos;&apos;);
 
         // Remove all commas
-        text = text.replace(',', '');
+        text = text.replace(&apos;,&apos;, &apos;&apos;);
 
         // Is string empty?
         if (text.length === 0) {
@@ -61,7 +99,7 @@ export default class Mass
         // Extract individual unit for parsing
         let total = 0;
         let i = 0;
-        signifiers.forEach((signifier) => {
+        signifiers.forEach((signifier) =&gt; {
             // Copy single unit from string
             let singleUnit = text.substring(i, signifier.splitAt);
 
@@ -90,8 +128,8 @@ export default class Mass
         for (let MassUnit in MassUnits) {
             let signifier = -1;
 
-            // Loop through each MassUnit's signifiers
-            MassUnits[MassUnit].signifiers.forEach((s) => {
+            // Loop through each MassUnit&apos;s signifiers
+            MassUnits[MassUnit].signifiers.forEach((s) =&gt; {
                 // Look for signifier
                 let o = text.indexOf(s);
 
@@ -102,7 +140,7 @@ export default class Mass
                     o = o + s.length;
 
                     // We want to find the first signifier in the string
-                    if (signifier === -1 || o > signifier.splitAt) {
+                    if (signifier === -1 || o &gt; signifier.splitAt) {
                         signifier = {
                             unit: MassUnit,
                             signifier: s,
@@ -120,7 +158,7 @@ export default class Mass
         }
 
         // Sort ascending by splitAt index
-        signifiers.sort((a, b) => {
+        signifiers.sort((a, b) =&gt; {
             return a.splitAt - b.splitAt;
         });
 
@@ -132,12 +170,12 @@ export default class Mass
      * 
      * @param {string} text - String to parse for single mass unit.
      * @param {object} MassUnit
-     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.
+     * @returns {(number|false)} Returns mass represented in it&apos;s base imperial unit (pound) or false.
      */
     static parseUnit(text, MassUnit)
     {
         // Validate variable is of type string
-        if (typeof text !== 'string') {
+        if (typeof text !== &apos;string&apos;) {
             return false;
         }
 
@@ -150,7 +188,7 @@ export default class Mass
         }
 
         // Value cannot be lower than zero
-        if (mass < 0) {
+        if (mass &lt; 0) {
             // Return lowest possible value
             return 0;
         }
@@ -169,15 +207,15 @@ export default class Mass
      */
     static format(pounds, spaces = true, roundTo = 0)
     {
-        let formattedWeight = '';
+        let formattedWeight = &apos;&apos;;
         
         // Convert pounds to ounces
         let ounces = pounds * 16;
 
         // Check if pounds is less than one
-        if (pounds < 1) {
+        if (pounds &lt; 1) {
             // Return formatted ounces only
-            return ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
+            return ounces.toFixed(roundTo) + (spaces ? &apos; &apos; : &apos;&apos;) + &apos;oz&apos;;
         }
 
         // Floor pounds to remove change
@@ -187,14 +225,30 @@ export default class Mass
         ounces -= (pounds * 16);
 
         // Format pounds
-        formattedWeight = pounds + (spaces ? ' ' : '') + (pounds > 1 ? 'lbs' : 'lb');
+        formattedWeight = pounds + (spaces ? &apos; &apos; : &apos;&apos;) + (pounds &gt; 1 ? &apos;lbs&apos; : &apos;lb&apos;);
 
         // Verify remaining ounces
-        if (ounces > 0) {
+        if (ounces &gt; 0) {
             // Format ounces
-            formattedWeight += ' ' + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
+            formattedWeight += &apos; &apos; + ounces.toFixed(roundTo) + (spaces ? &apos; &apos; : &apos;&apos;) + &apos;oz&apos;;
         }
 
         return formattedWeight;
     }
-}
+}</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

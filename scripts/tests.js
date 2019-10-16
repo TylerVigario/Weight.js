@@ -28,7 +28,7 @@ var problems = [{
     pounds: 3.0625
 },
 {
-    question: 48,
+    question: 3,
     answer: '3 lbs',
     ounces: 48,
     pounds: 3
@@ -41,12 +41,6 @@ var problems = [{
 },
 {
     question: '3lbs4oz',
-    answer: '3 lbs 4 oz',
-    ounces: 52,
-    pounds: 3.25
-},
-{
-    question: '3lbs 4',
     answer: '3 lbs 4 oz',
     ounces: 52,
     pounds: 3.25
@@ -93,13 +87,13 @@ test('Parse tests', function (t) {
 
     // Validate Mass.parse()
     problems.forEach((problem) => {
-        let ounces = Mass.parse(problem.question);
+        let pounds = Mass.parse(problem.question);
 
-        if (typeof ounces !== 'number') {
-            t.error(ounces, 'Error during parse.');
+        if (typeof pounds !== 'number') {
+            t.error(pounds, 'Error during parse.');
         }
 
-        t.equal(ounces, problem.ounces, problem.question);
+        t.equal(pounds, problem.pounds, problem.question);
     });
 });
 
@@ -108,9 +102,9 @@ test('Invalid parse tests', function (t) {
 
     // Mass.parse() invalid weight handling
     invalidWeights.forEach((weight) => {
-        let ounces = Mass.parse(weight);
+        let pounds = Mass.parse(weight);
 
-        t.equal(ounces, false, weight);
+        t.equal(pounds, false, weight);
     });
 });
 
@@ -119,8 +113,8 @@ test('Format tests', function (t) {
 
     // Validate Mass.format()
     problems.forEach((problem) => {
-        let ounces = Mass.parse(problem.question);
-        let massString = Mass.format(ounces);
+        let pounds = Mass.parse(problem.question);
+        let massString = Mass.format(pounds);
 
         t.equal(massString, problem.answer, massString);
     });

@@ -3,55 +3,50 @@
 var microtime = require('microtime');
 var Mass = require('../dist/mass');
 
+var rounds = 1000000;
 var time, i;
 
-// Ounces
-console.log('Performance');
-console.log('================');
-
 // parse
-time = microtime.now();
-
-for (i = 0; i < 1000000; i++) {
+test(() => {
     Mass.parse('25 lb  16oz');
-}
+}, 'parse');
 
-time = microtime.now() - time;
+// findSignifiers
+test(() => {
+    Mass.findSignifiers('25lb16oz');
+}, 'findSignifiers');
 
-console.log('parse: ' + Math.round(i / (time / 1000)).toLocaleString() + ' op/s');
-
-// parseSingleUnit
-time = microtime.now();
-
-for (i = 0; i < 1000000; i++) {
-    Mass.parseSingleUnit('25 oz');
-}
-
-time = microtime.now() - time;
-
-console.log('parseSingleUnit: ' + Math.round(i / (time / 1000)).toLocaleString() + ' op/s');
-
-// parseDualUnit
-time = microtime.now();
-
-for (i = 0; i < 1000000; i++) {
-    Mass.parseDualUnit('25 lb  16oz', 6);
-}
-
-time = microtime.now() - time;
-
-console.log('parseDualUnit: ' + Math.round(i / (time / 1000)).toLocaleString() + ' op/s');
+// parseUnit
+test(() => {
+    Mass.parseUnit('25 oz', {
+        value: 16
+    });
+}, 'parseUnit');
 
 // format
-time = microtime.now();
-
-for (i = 0; i < 1000000; i++) {
-    Mass.format(416);
-}
-
-time = microtime.now() - time;
-
-console.log('toString: ' + Math.round(i / (time / 1000)).toLocaleString() + ' op/s');
+test(() => {
+    Mass.format(26);
+}, 'format');
 
 //
 console.log();
+
+/**
+ * Function to run test
+ *
+ * @param {function} test
+ * @param {string} [name="Unknown method"]
+ */
+function test(test, name = 'Unknown method') {
+    time = microtime.now();
+
+    for (i = rounds; i > 0; i = i - 1) {
+        test();
+    }
+
+    time = microtime.now() - time;
+
+    time = time / 1000;
+
+    console.log(`${name}: ${Math.round(rounds / time).toLocaleString()}  op/s`);
+}
