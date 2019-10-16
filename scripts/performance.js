@@ -3,30 +3,31 @@
 var microtime = require('microtime');
 var Mass = require('../dist/mass');
 
-var rounds = 1000000;
-var time, i;
+//
+// Performance
+//
 
 // parse
-test(() => {
+test('parse', () => {
     Mass.parse('25 lb  16oz');
-}, 'parse');
+});
 
 // findSignifiers
-test(() => {
+test('findSignifiers', () => {
     Mass.findSignifiers('25lb16oz');
-}, 'findSignifiers');
+});
 
 // parseUnit
-test(() => {
+test('parseUnit', () => {
     Mass.parseUnit('25 oz', {
         value: 16
     });
-}, 'parseUnit');
+});
 
 // format
-test(() => {
+test('format', () => {
     Mass.format(26);
-}, 'format');
+});
 
 //
 console.log();
@@ -37,10 +38,10 @@ console.log();
  * @param {function} test
  * @param {string} [name="Unknown method"]
  */
-function test(test, name = 'Unknown method') {
-    time = microtime.now();
+function test(name, test, rounds = 1000000) {
+    let time = microtime.now();
 
-    for (i = rounds; i > 0; i = i - 1) {
+    for (let i = rounds; i > 0; i = i - 1) {
         test();
     }
 
