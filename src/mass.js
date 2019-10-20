@@ -218,7 +218,7 @@ export default class Mass
      * 
      * @param {number} value - Value to format.
      * @param {number} [unitValue = 1] - Value of unit.
-     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
+     * @param {(boolean|number)} [spaces = true] - Truthy values will add space between value and signifier.
      * @returns {string} Formatted mass string.
      */
     format(value, unitValue = 1, spaces = true)
@@ -242,19 +242,17 @@ export default class Mass
 
         // Loop through Units
         for (let unit of this.Units) {
-            let v = unit.value;
-
             // Check if Unit is displaying and value is greater than unit value
-            if (unit.display && value >= v) {
+            if (unit.display && value >= unit.value) {
                 // Calculate quantity of unit
-                let q = value / v;
+                let q = value / unit.value;
 
                 if (!unit.display.exclusive) {
                     //
                     q = Math.floor(q);
 
                     // Subtract quantity from total
-                    value -= q * v;
+                    value -= q * unit.value;
                 }
 
                 // Add space if text has content already
