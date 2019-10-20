@@ -6,12 +6,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "mass.js/src/massunits.js~massunits",
-    "variable/index.html#static-variable-MassUnits",
-    "<span>MassUnits</span> <span class=\"search-result-import-path\">mass.js/src/massUnits.js</span>",
-    "variable"
-  ],
-  [
     "src/.external-ecmascript.js~array",
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
     "src/.external-ecmascript.js~Array",
@@ -300,33 +294,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/mass.js~mass.findsignifiers",
-    "class/src/mass.js~Mass.html#static-method-findSignifiers",
-    "src/mass.js~Mass.findSignifiers",
+    "src/mass.js~mass#units",
+    "class/src/mass.js~Mass.html#instance-member-Units",
+    "src/mass.js~Mass#Units",
+    "member"
+  ],
+  [
+    "src/mass.js~mass#constructor",
+    "class/src/mass.js~Mass.html#instance-constructor-constructor",
+    "src/mass.js~Mass#constructor",
     "method"
   ],
   [
-    "src/mass.js~mass.format",
-    "class/src/mass.js~Mass.html#static-method-format",
-    "src/mass.js~Mass.format",
+    "src/mass.js~mass#format",
+    "class/src/mass.js~Mass.html#instance-method-format",
+    "src/mass.js~Mass#format",
     "method"
   ],
   [
-    "src/mass.js~mass.parse",
-    "class/src/mass.js~Mass.html#static-method-parse",
-    "src/mass.js~Mass.parse",
+    "src/mass.js~mass#parse",
+    "class/src/mass.js~Mass.html#instance-method-parse",
+    "src/mass.js~Mass#parse",
     "method"
-  ],
-  [
-    "src/mass.js~mass.parseunit",
-    "class/src/mass.js~Mass.html#static-method-parseUnit",
-    "src/mass.js~Mass.parseUnit",
-    "method"
-  ],
-  [
-    "src/massunits.js",
-    "file/src/massUnits.js.html",
-    "src/massUnits.js",
-    "file"
   ]
 ]

@@ -1,84 +1,97 @@
 /* eslint no-console: 0 */
 
 var test = require('tape');
-var Mass = require('../dist/mass');
+var mass = require('../dist/mass');
+var Mass = new mass();
+
+//
+// Tests
+//
 
 var problems = [{
+    question: '1 pound',
+    answer: '1 lb',
+    value: 1
+},{
     question: '8lb 36oz',
     answer: '10 lbs 4 oz',
-    ounces: 164,
-    pounds: 10.25
-},
-{
+    value: 10.25
+},{
     question: '164.85oz',
     answer: '10 lbs 5 oz',
-    ounces: 164.85,
-    pounds: 10.303125
-},
-{
+    value: 10.303125
+},{
     question: '10lbs',
     answer: '10 lbs',
-    ounces: 160,
-    pounds: 10
-},
-{
+    value: 10
+},{
     question: '2lbs ,  17oz',
     answer: '3 lbs 1 oz',
-    ounces: 49,
-    pounds: 3.0625
-},
-{
+    value: 3.0625
+},{
     question: 3,
     answer: '3 lbs',
-    ounces: 48,
-    pounds: 3
-},
-{
+    value: 3
+},{
     question: '17 lb 14 oz',
     answer: '17 lbs 14 oz',
-    ounces: 286,
-    pounds: 17.875
-},
-{
+    value: 17.875
+},{
     question: '3lbs4oz',
     answer: '3 lbs 4 oz',
-    ounces: 52,
-    pounds: 3.25
-},
-{
+    value: 3.25
+},{
     question: '4 oz',
     answer: '4 oz',
-    ounces: 4,
-    pounds: 0.25
-},
-{
+    value: 0.25
+},{
     question: '16oz4lb',
     answer: '5 lbs',
-    ounces: 80,
-    pounds: 5
-},
-{
+    value: 5
+},{
     question: -45,
     answer: '0 oz',
-    ounces: 0,
-    pounds: 0
-},
-{
+    value: 0
+},{
     question: '  ',
     answer: '0 oz',
-    ounces: 0,
-    pounds: 0
-},
-{
+    value: 0
+},{
     question: '20  lb, 20 o z ',
     answer: '21 lbs 4 oz',
-    ounces: 340,
-    pounds: 21.25
-}
-];
+    value: 21.25
+},{
+    question: '1 stone',
+    answer: '14 lbs',
+    value: 14
+},{
+    question: '7000 grain',
+    answer: '1 lb',
+    value: 1
+},{
+    question: '255.999dr',
+    answer: '1 lb',
+    value: 1
+},{
+    question: '1 qtr',
+    answer: '28 lbs',
+    value: 28
+},{
+    question: '2 hundredweight',
+    answer: '224 lbs',
+    value: 224
+},{
+    question: '65 hundredweight',
+    answer: '3.25 tons',
+    value: 7280
+},{
+    question: '3.5t',
+    answer: '3.50 tons',
+    value: 7840
+}];
 
 var invalidWeights = [
-    'weight.js',
+    'mass',
     'not,a,weight'
 ];
 
@@ -87,13 +100,13 @@ test('Parse tests', function (t) {
 
     // Validate Mass.parse()
     problems.forEach((problem) => {
-        let pounds = Mass.parse(problem.question);
+        let value = Mass.parse(problem.question);
 
-        if (typeof pounds !== 'number') {
-            t.error(pounds, 'Error during parse.');
+        if (typeof value !== 'number') {
+            t.error(value, 'Error during parse.');
         }
 
-        t.equal(pounds, problem.pounds, problem.question);
+        t.equal(value, problem.value, problem.question);
     });
 });
 
@@ -102,9 +115,9 @@ test('Invalid parse tests', function (t) {
 
     // Mass.parse() invalid weight handling
     invalidWeights.forEach((weight) => {
-        let pounds = Mass.parse(weight);
+        let value = Mass.parse(weight);
 
-        t.equal(pounds, false, weight);
+        t.equal(value, false, weight);
     });
 });
 
@@ -113,9 +126,9 @@ test('Format tests', function (t) {
 
     // Validate Mass.format()
     problems.forEach((problem) => {
-        let pounds = Mass.parse(problem.question);
-        let massString = Mass.format(pounds);
+        let value = Mass.parse(problem.question);
+        let text = Mass.format(value);
 
-        t.equal(massString, problem.answer, massString);
+        t.equal(text, problem.answer, text);
     });
 });

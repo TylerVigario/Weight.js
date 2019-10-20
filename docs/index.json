@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/mass.js",
-    "content": "  \r\n/** \r\n * Parsing and formatting imperial mass units.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 2.0.0\r\n */\r\n\r\nimport {MassUnits} from './massUnits';\r\n\r\n/**\r\n * Class for working with string representations of mass.\r\n */\r\nexport default class Mass\r\n{\r\n    /**\r\n     * Parse variable for Mass.\r\n     * \r\n     * @param {(number|string)} text - Variable to parse for mass.\r\n     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.\r\n     * @see {@link Mass.parseUnit}\r\n     */\r\n    static parse(text)\r\n    {\r\n        if (typeof text === 'number') {\r\n            // Value cannot be lower than zero\r\n            if (text < 0) {\r\n                text = 0;\r\n            }\r\n            \r\n            return text;\r\n        }\r\n        // We expect to parse a string\r\n        else if (typeof text !== 'string') {\r\n            return false;\r\n        }\r\n\r\n        // Remove all spaces\r\n        text = text.replace(/\\s/g, '');\r\n\r\n        // Remove all commas\r\n        text = text.replace(',', '');\r\n\r\n        // Is string empty?\r\n        if (text.length === 0) {\r\n            return 0;\r\n        }\r\n\r\n        // Remove possible case sensitivity\r\n        text = text.toLowerCase();\r\n\r\n        // Find all signifiers within string\r\n        let signifiers = Mass.findSignifiers(text);\r\n\r\n        // Did we not find any signifiers?\r\n        if (signifiers.length === 0) {\r\n            return false;\r\n        }\r\n\r\n        // Extract individual unit for parsing\r\n        let total = 0;\r\n        let i = 0;\r\n        signifiers.forEach((signifier) => {\r\n            // Copy single unit from string\r\n            let singleUnit = text.substring(i, signifier.splitAt);\r\n\r\n            // Parse individual unit and add result to total\r\n            total += Mass.parseUnit(singleUnit, MassUnits[signifier.unit]);\r\n\r\n            // Set starting point for next search\r\n            i = signifier.splitAt;\r\n        });\r\n\r\n        // Return total mass (as pounds)\r\n        return total;\r\n    }\r\n\r\n    /**\r\n     * Find mass unit signifiers within string.\r\n     *\r\n     * @param {string} text\r\n     * @returns {array}\r\n     */\r\n    static findSignifiers(text) {\r\n        // Find first signifier\r\n        let signifiers = [];\r\n\r\n        // Loop through MassUnits\r\n        for (let MassUnit in MassUnits) {\r\n            let signifier = -1;\r\n\r\n            // Loop through each MassUnit's signifiers\r\n            MassUnits[MassUnit].signifiers.forEach((s) => {\r\n                // Look for signifier\r\n                let o = text.indexOf(s);\r\n\r\n                // Did we find signifier?\r\n                if (o !== -1) {\r\n                    // Since we want the index to represent the split BETWEEN units\r\n                    // we will add the length of the signifier to include it\r\n                    o = o + s.length;\r\n\r\n                    // We want to find the first signifier in the string\r\n                    if (signifier === -1 || o > signifier.splitAt) {\r\n                        signifier = {\r\n                            unit: MassUnit,\r\n                            signifier: s,\r\n                            splitAt: o\r\n                        };\r\n                    }\r\n                }\r\n            });\r\n\r\n            // We want to find the first signifier in the string\r\n            if (signifier !== -1 ) {\r\n                // Add only one (found) signifier per unit\r\n                signifiers.push(signifier);\r\n            }\r\n        }\r\n\r\n        // Sort ascending by splitAt index\r\n        signifiers.sort((a, b) => {\r\n            return a.splitAt - b.splitAt;\r\n        });\r\n\r\n        return signifiers;\r\n    }\r\n\r\n    /**\r\n     * Parse string for single mass unit.\r\n     * \r\n     * @param {string} text - String to parse for single mass unit.\r\n     * @param {object} MassUnit\r\n     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.\r\n     */\r\n    static parseUnit(text, MassUnit)\r\n    {\r\n        // Validate variable is of type string\r\n        if (typeof text !== 'string') {\r\n            return false;\r\n        }\r\n\r\n        // Pull number from string\r\n        let mass = parseFloat(text);\r\n\r\n        // Validate we were able to extract a number\r\n        if (isNaN(mass)) {\r\n            return false;\r\n        }\r\n\r\n        // Value cannot be lower than zero\r\n        if (mass < 0) {\r\n            // Return lowest possible value\r\n            return 0;\r\n        }\r\n\r\n        // Convert to base unit\r\n        return mass / MassUnit.value;\r\n    }\r\n\r\n    /**\r\n     * Format mass as text.\r\n     * \r\n     * @param {number} pounds - Mass (represented as base unit pound) to format.\r\n     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.\r\n     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.\r\n     * @returns {string} Formatted mass string.\r\n     */\r\n    static format(pounds, spaces = true, roundTo = 0)\r\n    {\r\n        let formattedWeight = '';\r\n        \r\n        // Convert pounds to ounces\r\n        let ounces = pounds * 16;\r\n\r\n        // Check if pounds is less than one\r\n        if (pounds < 1) {\r\n            // Return formatted ounces only\r\n            return ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n        }\r\n\r\n        // Floor pounds to remove change\r\n        pounds = Math.floor(pounds);\r\n\r\n        // Subtract ounces equal to whole pounds (leaving remaining ounces)\r\n        ounces -= (pounds * 16);\r\n\r\n        // Format pounds\r\n        formattedWeight = pounds + (spaces ? ' ' : '') + (pounds > 1 ? 'lbs' : 'lb');\r\n\r\n        // Verify remaining ounces\r\n        if (ounces > 0) {\r\n            // Format ounces\r\n            formattedWeight += ' ' + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n        }\r\n\r\n        return formattedWeight;\r\n    }\r\n}",
+    "content": "  \r\n/** \r\n * Parsing and formatting mass units.\r\n *\r\n * @author Tyler Vigario (MeekLogic)\r\n * @license GPL-3.0-only\r\n * @version 2.0.0\r\n */\r\n\r\n/**\r\n * Class for working with string representations of mass.\r\n */\r\nexport default class Mass\r\n{\r\n    /**\r\n     * Creates an instance of Mass.\r\n     */\r\n    constructor(units = [\r\n        {\r\n            name: 'Grain',\r\n            value: -7000,\r\n            signifiers: [\r\n                'gr',\r\n                'grain',\r\n                'grains'\r\n            ]\r\n        },\r\n        {\r\n            name: 'Drachm',\r\n            value: -255.999,\r\n            signifiers: [\r\n                'dr',\r\n                'drachm',\r\n                'drachms'\r\n            ]\r\n        },\r\n        {\r\n            name: 'Ounce',\r\n            value: -16,\r\n            signifiers: [\r\n                'oz',\r\n                'ounce',\r\n                'ounces'\r\n            ]\r\n        },\r\n        {\r\n            name: 'Pound',\r\n            value: 1,\r\n            signifiers: [\r\n                'lb',\r\n                'lbs',\r\n                'pound',\r\n                'pounds'\r\n            ]\r\n        },\r\n        {\r\n            name: 'Stone',\r\n            value: 14,\r\n            signifiers: [\r\n                'st',\r\n                'stone',\r\n                'stones'\r\n            ]\r\n        },\r\n        {\r\n            name: 'Quarter',\r\n            value: 28,\r\n            signifiers: [\r\n                'qr',\r\n                'qtr',\r\n                'quarter',\r\n                'quarters'\r\n            ]\r\n        },\r\n        {\r\n            name: 'Hundredweight',\r\n            value: 112,\r\n            signifiers: [\r\n                'cwt',\r\n                'hundredweight'\r\n            ]\r\n        },\r\n        {\r\n            name: 'Ton',\r\n            value: 2240,\r\n            signifiers: [\r\n                't',\r\n                'ton',\r\n                'tons'\r\n            ]\r\n        }\r\n    ])\r\n    {\r\n        this.Units = units;\r\n    }\r\n\r\n    /**\r\n     * Parse variable for Mass.\r\n     * \r\n     * @param {(number|string)} text - Variable to parse for mass.\r\n     * @returns {(number|false)} Returns mass represented in it's base mass unit or false.\r\n     * @see {@link parseUnit}\r\n     */\r\n    parse(text)\r\n    {\r\n        if (typeof text === 'number') {\r\n            // Value cannot be lower than zero\r\n            if (text < 0) {\r\n                text = 0;\r\n            }\r\n            \r\n            return text;\r\n        }\r\n        // We expect to parse a string\r\n        else if (typeof text !== 'string') {\r\n            return false;\r\n        }\r\n\r\n        // Remove possible case sensitivity\r\n        text = text.toLowerCase();\r\n\r\n        // Remove non alphanumeric characters\r\n        text = text.replace(/[^0-9a-z.]/gi, '');\r\n\r\n        // Is string empty?\r\n        if (text.length === 0) {\r\n            return 0;\r\n        }\r\n\r\n        // Character trailing parser\r\n        let i = 0;\r\n        let value = '';\r\n        let signifier = '';\r\n        let pairs = [];\r\n\r\n        // Loop through each character of string\r\n        for (; i < text.length; i++) {\r\n            // Get current char\r\n            const char = text.charAt(i);\r\n\r\n            // Check for alphabet letter (a-z,0-9|a-z,0-9|...) [comma = separator between value and signifier, | = separator between pairs]\r\n            if (char.match(/[a-z]/i)) {\r\n                signifier += char;\r\n            } else {\r\n                // Check if this is next unit pair (i.e. value,signifier|value,signifier|...)\r\n                if (signifier.length > 0) {\r\n                    // Add pair to list of found pairs\r\n                    pairs.push({\r\n                        value: value,\r\n                        signifier: signifier\r\n                    });\r\n\r\n                    // Reset storage variables\r\n                    value = '';\r\n                    signifier = '';\r\n                }\r\n\r\n                value += char;\r\n            }\r\n        }\r\n\r\n        // Make sure we found both a value and a unit signifier\r\n        if (value.length === 0 || signifier.length === 0) {\r\n            return false;\r\n        }\r\n\r\n        // Add final pair\r\n        pairs.push({\r\n            value: value,\r\n            signifier: signifier\r\n        });\r\n\r\n        console.log(text);\r\n        console.log(pairs);\r\n\r\n        // Calculate total\r\n        let total = 0;\r\n\r\n        // Loop through each pair\r\n        pairs.forEach((pair) => {\r\n            let found = false;\r\n\r\n            // Loop through each Unit\r\n            this.Units.forEach((unit) => {\r\n                // Check if signifier matches Unit\r\n                if (unit.signifiers.includes(pair.signifier)) {\r\n                    found = true;\r\n\r\n                    // Convert to base unit value and add to total\r\n                    if (unit.value > 0) {\r\n                        total += pair.value * unit.value;\r\n                    } else {\r\n                        total += pair.value / Math.abs(unit.value);\r\n                    }\r\n\r\n                    // No need to keep searching\r\n                    return;\r\n                }\r\n            });\r\n\r\n            // Did we find a matching unit signifier\r\n            if (!found) {\r\n                // Output error to console\r\n                console.error('Unable to find a matching unit signifier.');\r\n            }\r\n        });\r\n\r\n        // Return total mass (as base unit)\r\n        return total;\r\n    }\r\n\r\n    /**\r\n     * Format mass as text.\r\n     * \r\n     * @param {number} value - Value to format.\r\n     * @param {number} [unitValue = 1] - Value of unit.\r\n     * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.\r\n     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.\r\n     * @returns {string} Formatted mass string.\r\n     */\r\n    format(value, unitValue = 1, spaces = true, roundTo = 0)\r\n    {\r\n        let formattedWeight = '';\r\n        \r\n        // Did they supply custom unit value ratio?\r\n        if (unitValue !== 1) {\r\n            // Validate number\r\n            if (typeof unitValue !== 'number') {\r\n                return false;\r\n            }\r\n\r\n            // Convert value to base unit value\r\n            if (unitValue > 0) {\r\n                value = value * unitValue;\r\n            } else {\r\n                value = value / Math.abs(unitValue);\r\n            }\r\n        }\r\n\r\n        let pounds = value;\r\n\r\n        // Convert base value to ounces\r\n        let ounces = pounds * 16;\r\n\r\n        // Check if pounds is less than one\r\n        if (ounces < 16) {\r\n            // Return formatted ounces only\r\n            return ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n        }\r\n\r\n        // Floor pounds to remove change\r\n        pounds = Math.floor(pounds);\r\n\r\n        // Subtract ounces equal to whole pounds (leaving remaining ounces)\r\n        ounces -= (pounds * 16);\r\n\r\n        // Check for excess pounds\r\n        if (pounds >= 2240) {\r\n            // Calculate tons from pounds\r\n            let tons = pounds / 2240;\r\n\r\n            // Format tons\r\n            return tons.toFixed(2) + (spaces ? ' ' : '') + (tons > 1 ? 'tons' : 'ton');\r\n        }\r\n\r\n        // Format pounds\r\n        formattedWeight = pounds + (spaces ? ' ' : '') + (pounds > 1 ? 'lbs' : 'lb');\r\n\r\n        // Verify remaining ounces\r\n        if (ounces > 0) {\r\n            // Format ounces\r\n            formattedWeight += ' ' + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';\r\n        }\r\n\r\n        return formattedWeight;\r\n    }\r\n}",
     "static": true,
     "longname": "D:/Users/Tyler/Documents/Projects/Weight.js/src/mass.js",
     "access": "public",
@@ -586,28 +586,58 @@
     "importPath": "mass.js/src/mass.js",
     "importStyle": "Mass",
     "description": "Class for working with string representations of mass.",
-    "lineNumber": 15,
+    "lineNumber": 13,
     "interface": false
   },
   {
     "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/mass.js~Mass",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/mass.js~Mass#constructor",
+    "access": "public",
+    "description": "Creates an instance of Mass.",
+    "lineNumber": 18
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "Units",
+    "memberof": "src/mass.js~Mass",
+    "static": false,
+    "longname": "src/mass.js~Mass#Units",
+    "access": "public",
+    "description": null,
+    "lineNumber": 94,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
     "kind": "method",
     "name": "parse",
     "memberof": "src/mass.js~Mass",
     "generator": false,
     "async": false,
-    "static": true,
-    "longname": "src/mass.js~Mass.parse",
+    "static": false,
+    "longname": "src/mass.js~Mass#parse",
     "access": "public",
     "description": "Parse variable for Mass.",
     "see": [
-      "{@link Mass.parseUnit}"
+      "{@link parseUnit}"
     ],
-    "lineNumber": 24,
+    "lineNumber": 104,
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{(number|false)} Returns mass represented in it's base imperial unit (pound) or false."
+        "tagValue": "{(number|false)} Returns mass represented in it's base mass unit or false."
       }
     ],
     "params": [
@@ -630,96 +660,7 @@
         "false"
       ],
       "spread": false,
-      "description": "Returns mass represented in it's base imperial unit (pound) or false."
-    }
-  },
-  {
-    "__docId__": 51,
-    "kind": "method",
-    "name": "findSignifiers",
-    "memberof": "src/mass.js~Mass",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/mass.js~Mass.findSignifiers",
-    "access": "public",
-    "description": "Find mass unit signifiers within string.",
-    "lineNumber": 85,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{array}"
-      }
-    ],
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "string"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "text",
-        "description": ""
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "array"
-      ],
-      "spread": false,
-      "description": ""
-    }
-  },
-  {
-    "__docId__": 52,
-    "kind": "method",
-    "name": "parseUnit",
-    "memberof": "src/mass.js~Mass",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/mass.js~Mass.parseUnit",
-    "access": "public",
-    "description": "Parse string for single mass unit.",
-    "lineNumber": 137,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{(number|false)} Returns mass represented in it's base imperial unit (pound) or false."
-      }
-    ],
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "string"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "text",
-        "description": "String to parse for single mass unit."
-      },
-      {
-        "nullable": null,
-        "types": [
-          "object"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "MassUnit",
-        "description": ""
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "number",
-        "false"
-      ],
-      "spread": false,
-      "description": "Returns mass represented in it's base imperial unit (pound) or false."
+      "description": "Returns mass represented in it's base mass unit or false."
     }
   },
   {
@@ -729,11 +670,11 @@
     "memberof": "src/mass.js~Mass",
     "generator": false,
     "async": false,
-    "static": true,
-    "longname": "src/mass.js~Mass.format",
+    "static": false,
+    "longname": "src/mass.js~Mass#format",
     "access": "public",
     "description": "Format mass as text.",
-    "lineNumber": 170,
+    "lineNumber": 221,
     "unknown": [
       {
         "tagName": "@returns",
@@ -748,8 +689,20 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "pounds",
-        "description": "Mass (represented as base unit pound) to format."
+        "name": "value",
+        "description": "Value to format."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": " 1",
+        "defaultRaw": 1,
+        "name": "unitValue",
+        "description": "Value of unit."
       },
       {
         "nullable": null,
@@ -786,39 +739,8 @@
     }
   },
   {
-    "__docId__": 54,
-    "kind": "file",
-    "name": "src/massUnits.js",
-    "content": "var MassUnits = {\r\n    Ounce: {\r\n        value: 16,\r\n        signifiers: [\r\n            'oz',\r\n            'ounce',\r\n            'ounces'\r\n        ]\r\n    },\r\n    Pound: {\r\n        value: 1,\r\n        signifiers: [\r\n            'lb',\r\n            'lbs',\r\n            'pound',\r\n            'pounds'\r\n        ]\r\n    }\r\n};\r\n\r\nexport { MassUnits };",
-    "static": true,
-    "longname": "D:/Users/Tyler/Documents/Projects/Weight.js/src/massUnits.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 55,
-    "kind": "variable",
-    "name": "MassUnits",
-    "memberof": "src/massUnits.js",
-    "static": true,
-    "longname": "src/massUnits.js~MassUnits",
-    "access": "public",
-    "export": true,
-    "importPath": "mass.js/src/massUnits.js",
-    "importStyle": "{MassUnits}",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"Ounce\": *, \"Pound\": *}"
-      ]
-    }
-  },
-  {
     "kind": "index",
-    "content": "[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e1f9c8a954f4c21b850f7b1ab4f4575)](https://www.codacy.com/app/MeekLogic/Weight.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeekLogic/Weight.js&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.com/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.com/MeekLogic/Weight.js) [![Coverage Status](https://coveralls.io/repos/github/MeekLogic/Weight.js/badge.svg?branch=master)](https://coveralls.io/github/MeekLogic/Weight.js?branch=master) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)\r\n\r\nmass.js\r\n=========\r\nJavaScript classes to convert imperial mass units as well as output and parse as text.\r\n\r\nInstall\r\n-------\r\n```javascript\r\nnpm install weight.js\r\n```\r\n\r\nUsage\r\n-----\r\n**ES6**\r\n```javascript\r\nimport {Mass} from 'weight.js/src/mass';\r\n```\r\n\r\n**CommonJS**\r\n```javascript\r\nvar Mass = require('mass');\r\n```\r\n\r\nExample\r\n-------\r\n```javascript\r\nlet ounces = Mass.parse('5lbs  4 oz');\r\n\r\nconsole.log(ounces); // 84\r\n\r\nounces = ounces + 6; // 90\r\n\r\nif (ounces === 90) {\r\n    console.log(Mass.format(ounces)); // \"5 lbs 10 oz\"\r\n}\r\n```\r\n",
+    "content": "[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e1f9c8a954f4c21b850f7b1ab4f4575)](https://www.codacy.com/app/MeekLogic/Weight.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeekLogic/Weight.js&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.com/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.com/MeekLogic/Weight.js) [![Coverage Status](https://coveralls.io/repos/github/MeekLogic/Weight.js/badge.svg?branch=master)](https://coveralls.io/github/MeekLogic/Weight.js?branch=master) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)\r\n\r\nmass.js\r\n=========\r\nJavaScript classes to convert imperial mass units as well as output and parse as text.\r\n\r\n**[Documentation](https://meeklogic.github.io/Weight.js/)**\r\n\r\nInstall\r\n-------\r\n```javascript\r\nnpm install weight.js\r\n```\r\n\r\nUsage\r\n-----\r\n**ES6**\r\n```javascript\r\nimport {Mass} from 'weight.js/src/mass';\r\n```\r\n\r\n**CommonJS**\r\n```javascript\r\nvar Mass = require('mass');\r\n```\r\n\r\nExample\r\n-------\r\n```javascript\r\n// Parse string for ounces\r\nlet pounds = Mass.parse('5lbs  4 oz');\r\n\r\nconsole.log(pounds); // 5.25\r\n\r\n// Add 12 ounces\r\npounds += (12 / 16);\r\n\r\nconsole.log(pounds); // 6\r\n\r\n// Verify total is 90 ounces\r\nif (pounds === 6) {\r\n    // Format total for human-readable string\r\n    console.log(Mass.format(pounds)); // \"6 lbs\"\r\n} else {\r\n    console.error('Did we forget to run our tests?');\r\n}\r\n```\r\n",
     "longname": "D:\\Users\\Tyler\\Documents\\Projects\\Weight.js\\README.md",
     "name": "./README.md",
     "static": true,

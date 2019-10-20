@@ -1,7 +1,8 @@
 /* eslint no-console: 0 */
 
 var microtime = require('microtime');
-var Mass = require('../dist/mass');
+var mass = require('../dist/mass');
+var Mass = new mass();
 
 //
 // Performance
@@ -10,18 +11,6 @@ var Mass = require('../dist/mass');
 // parse
 test('parse', () => {
     Mass.parse('25 lb  16oz');
-});
-
-// findSignifiers
-test('findSignifiers', () => {
-    Mass.findSignifiers('25lb16oz');
-});
-
-// parseUnit
-test('parseUnit', () => {
-    Mass.parseUnit('25 oz', {
-        value: 16
-    });
 });
 
 // format

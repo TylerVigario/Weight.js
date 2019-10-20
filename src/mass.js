@@ -1,13 +1,11 @@
   
 /** 
- * Parsing and formatting imperial mass units.
+ * Parsing and formatting mass units.
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
  * @version 2.0.0
  */
-
-import {MassUnits} from './massUnits';
 
 /**
  * Class for working with string representations of mass.
@@ -15,13 +13,95 @@ import {MassUnits} from './massUnits';
 export default class Mass
 {
     /**
+     * Creates an instance of Mass.
+     */
+    constructor(units = [
+        {
+            name: 'Grain',
+            value: -7000,
+            signifiers: [
+                'gr',
+                'grain',
+                'grains'
+            ]
+        },
+        {
+            name: 'Drachm',
+            value: -255.999,
+            signifiers: [
+                'dr',
+                'drachm',
+                'drachms'
+            ]
+        },
+        {
+            name: 'Ounce',
+            value: -16,
+            signifiers: [
+                'oz',
+                'ounce',
+                'ounces'
+            ]
+        },
+        {
+            name: 'Pound',
+            value: 1,
+            signifiers: [
+                'lb',
+                'lbs',
+                'pound',
+                'pounds'
+            ]
+        },
+        {
+            name: 'Stone',
+            value: 14,
+            signifiers: [
+                'st',
+                'stone',
+                'stones'
+            ]
+        },
+        {
+            name: 'Quarter',
+            value: 28,
+            signifiers: [
+                'qr',
+                'qtr',
+                'quarter',
+                'quarters'
+            ]
+        },
+        {
+            name: 'Hundredweight',
+            value: 112,
+            signifiers: [
+                'cwt',
+                'hundredweight'
+            ]
+        },
+        {
+            name: 'Ton',
+            value: 2240,
+            signifiers: [
+                't',
+                'ton',
+                'tons'
+            ]
+        }
+    ])
+    {
+        this.Units = units;
+    }
+
+    /**
      * Parse variable for Mass.
      * 
      * @param {(number|string)} text - Variable to parse for mass.
-     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.
-     * @see {@link Mass.parseUnit}
+     * @returns {(number|false)} Returns mass represented in it's base mass unit or false.
+     * @see {@link parseUnit}
      */
-    static parse(text)
+    parse(text)
     {
         if (typeof text === 'number') {
             // Value cannot be lower than zero
@@ -36,143 +116,134 @@ export default class Mass
             return false;
         }
 
-        // Remove all spaces and commas
-        text = text.replace(/[, ]+/g, '');
+        // Remove possible case sensitivity
+        text = text.toLowerCase();
+
+        // Remove non alphanumeric characters
+        text = text.replace(/[^0-9a-z.]/gi, '');
 
         // Is string empty?
         if (text.length === 0) {
             return 0;
         }
 
-        // Remove possible case sensitivity
-        text = text.toLowerCase();
-
-        // Find all signifiers within string
-        let signifiers = Mass.findSignifiers(text);
-
-        // Did we not find any signifiers?
-        if (signifiers.length === 0) {
-            return false;
-        }
-
-        // Extract individual unit for parsing
-        let total = 0;
+        // Character trailing parser
         let i = 0;
-        signifiers.forEach((signifier) => {
-            // Copy single unit from string
-            let singleUnit = text.substring(i, signifier.splitAt);
+        let value = '';
+        let signifier = '';
+        let pairs = [];
 
-            // Parse individual unit and add result to total
-            total += Mass.parseUnit(singleUnit, MassUnits[signifier.unit]);
+        // Loop through each character of string
+        for (; i < text.length; i++) {
+            // Get current char
+            const char = text.charAt(i);
 
-            // Set starting point for next search
-            i = signifier.splitAt;
-        });
+            // Check for alphabet letter (a-z,0-9|a-z,0-9|...) [comma = separator between value and signifier, | = separator between pairs]
+            if (char.match(/[a-z]/i)) {
+                signifier += char;
+            } else {
+                // Check if this is next unit pair (i.e. value,signifier|value,signifier|...)
+                if (signifier.length > 0) {
+                    // Add pair to list of found pairs
+                    pairs.push({
+                        value: value,
+                        signifier: signifier
+                    });
 
-        // Return total mass (as pounds)
-        return total;
-    }
-
-    /**
-     * Find mass unit signifiers within string.
-     *
-     * @param {string} text
-     * @returns {array}
-     */
-    static findSignifiers(text) {
-        // Find first signifier
-        let signifiers = [];
-
-        // Loop through MassUnits
-        for (let MassUnit in MassUnits) {
-            let signifier = -1;
-
-            // Loop through each MassUnit's signifiers
-            MassUnits[MassUnit].signifiers.forEach((s) => {
-                // Look for signifier
-                let o = text.indexOf(s);
-
-                // Did we find signifier?
-                if (o !== -1) {
-                    // Since we want the index to represent the split BETWEEN units
-                    // we will add the length of the signifier to include it
-                    o = o + s.length;
-
-                    // We want to find the first signifier in the string
-                    if (signifier === -1 || o > signifier.splitAt) {
-                        signifier = {
-                            unit: MassUnit,
-                            signifier: s,
-                            splitAt: o
-                        };
-                    }
+                    // Reset storage variables
+                    value = '';
+                    signifier = '';
                 }
-            });
 
-            // We want to find the first signifier in the string
-            if (signifier !== -1 ) {
-                // Add only one (found) signifier per unit
-                signifiers.push(signifier);
+                value += char;
             }
         }
 
-        // Sort ascending by splitAt index
-        signifiers.sort((a, b) => {
-            return a.splitAt - b.splitAt;
+        // Make sure we found both a value and a unit signifier
+        if (value.length === 0 || signifier.length === 0) {
+            return false;
+        }
+
+        // Add final pair
+        pairs.push({
+            value: value,
+            signifier: signifier
         });
 
-        return signifiers;
-    }
+        console.log(text);
+        console.log(pairs);
 
-    /**
-     * Parse string for single mass unit.
-     * 
-     * @param {string} text - String to parse for single mass unit.
-     * @param {object} MassUnit
-     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.
-     */
-    static parseUnit(text, MassUnit)
-    {
-        // Validate variable is of type string
-        if (typeof text !== 'string') {
-            return false;
-        }
+        // Calculate total
+        let total = 0;
 
-        // Pull number from string
-        let mass = parseFloat(text);
+        // Loop through each pair
+        pairs.forEach((pair) => {
+            let found = false;
 
-        // Validate we were able to extract a number
-        if (isNaN(mass)) {
-            return false;
-        }
+            // Loop through each Unit
+            this.Units.forEach((unit) => {
+                // Check if signifier matches Unit
+                if (unit.signifiers.includes(pair.signifier)) {
+                    found = true;
 
-        // Value cannot be lower than zero
-        if (mass < 0) {
-            // Return lowest possible value
-            return 0;
-        }
+                    // Convert to base unit value and add to total
+                    if (unit.value > 0) {
+                        total += pair.value * unit.value;
+                    } else {
+                        total += pair.value / Math.abs(unit.value);
+                    }
 
-        // Convert to base unit
-        return mass / MassUnit.value;
+                    // No need to keep searching
+                    return;
+                }
+            });
+
+            // Did we find a matching unit signifier
+            if (!found) {
+                // Output error to console
+                console.error('Unable to find a matching unit signifier.');
+            }
+        });
+
+        // Return total mass (as base unit)
+        return total;
     }
 
     /**
      * Format mass as text.
      * 
-     * @param {number} pounds - Mass (represented as base unit pound) to format.
+     * @param {number} value - Value to format.
+     * @param {number} [unitValue = 1] - Value of unit.
      * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
      * @param {number} [roundTo = 0] - The rounding to perform on the ounces.
      * @returns {string} Formatted mass string.
      */
-    static format(pounds, spaces = true, roundTo = 0)
+    format(value, unitValue = 1, spaces = true, roundTo = 0)
     {
         let formattedWeight = '';
         
-        // Convert pounds to ounces
+        // Did they supply custom unit value ratio?
+        if (unitValue !== 1) {
+            // Validate number
+            if (typeof unitValue !== 'number') {
+                return false;
+            }
+
+            // Convert value to base unit value
+            if (unitValue > 0) {
+                value = value * unitValue;
+            } else {
+                value = value / Math.abs(unitValue);
+            }
+        }
+
+        let pounds = value;
+
+        // Convert base value to ounces
         let ounces = pounds * 16;
 
         // Check if pounds is less than one
-        if (pounds < 1) {
+        if (ounces < 16) {
             // Return formatted ounces only
             return ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
         }
@@ -182,6 +253,15 @@ export default class Mass
 
         // Subtract ounces equal to whole pounds (leaving remaining ounces)
         ounces -= (pounds * 16);
+
+        // Check for excess pounds
+        if (pounds >= 2240) {
+            // Calculate tons from pounds
+            let tons = pounds / 2240;
+
+            // Format tons
+            return tons.toFixed(2) + (spaces ? ' ' : '') + (tons > 1 ? 'tons' : 'ton');
+        }
 
         // Format pounds
         formattedWeight = pounds + (spaces ? ' ' : '') + (pounds > 1 ? 'lbs' : 'lb');

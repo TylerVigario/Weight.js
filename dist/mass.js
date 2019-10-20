@@ -100,21 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-
-// CONCATENATED MODULE: ./src/massUnits.js
-var MassUnits = {
-  Ounce: {
-    value: 16,
-    signifiers: ['oz', 'ounce', 'ounces']
-  },
-  Pound: {
-    value: 1,
-    signifiers: ['lb', 'lbs', 'pound', 'pounds']
-  }
-};
-
-// CONCATENATED MODULE: ./src/mass.js
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return mass_Mass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Mass; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -122,7 +108,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 /** 
- * Parsing and formatting imperial mass units.
+ * Parsing and formatting mass units.
  *
  * @author Tyler Vigario (MeekLogic)
  * @license GPL-3.0-only
@@ -132,25 +118,65 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /**
  * Class for working with string representations of mass.
  */
-
-var mass_Mass =
+var Mass =
 /*#__PURE__*/
 function () {
+  /**
+   * Creates an instance of Mass.
+   */
   function Mass() {
+    var units = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [{
+      name: 'Grain',
+      value: -7000,
+      signifiers: ['gr', 'grain', 'grains']
+    }, {
+      name: 'Drachm',
+      value: -255.999,
+      signifiers: ['dr', 'drachm', 'drachms']
+    }, {
+      name: 'Ounce',
+      value: -16,
+      signifiers: ['oz', 'ounce', 'ounces']
+    }, {
+      name: 'Pound',
+      value: 1,
+      signifiers: ['lb', 'lbs', 'pound', 'pounds']
+    }, {
+      name: 'Stone',
+      value: 14,
+      signifiers: ['st', 'stone', 'stones']
+    }, {
+      name: 'Quarter',
+      value: 28,
+      signifiers: ['qr', 'qtr', 'quarter', 'quarters']
+    }, {
+      name: 'Hundredweight',
+      value: 112,
+      signifiers: ['cwt', 'hundredweight']
+    }, {
+      name: 'Ton',
+      value: 2240,
+      signifiers: ['t', 'ton', 'tons']
+    }];
+
     _classCallCheck(this, Mass);
+
+    this.Units = units;
   }
+  /**
+   * Parse variable for Mass.
+   * 
+   * @param {(number|string)} text - Variable to parse for mass.
+   * @returns {(number|false)} Returns mass represented in it's base mass unit or false.
+   * @see {@link parseUnit}
+   */
 
-  _createClass(Mass, null, [{
+
+  _createClass(Mass, [{
     key: "parse",
-
-    /**
-     * Parse variable for Mass.
-     * 
-     * @param {(number|string)} text - Variable to parse for mass.
-     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.
-     * @see {@link Mass.parseUnit}
-     */
     value: function parse(text) {
+      var _this = this;
+
       if (typeof text === 'number') {
         // Value cannot be lower than zero
         if (text < 0) {
@@ -161,125 +187,95 @@ function () {
       } // We expect to parse a string
       else if (typeof text !== 'string') {
           return false;
-        } // Remove all spaces and commas
+        } // Remove possible case sensitivity
 
 
-      text = text.replace(/[, ]+/g, ''); // Is string empty?
+      text = text.toLowerCase(); // Remove non alphanumeric characters
+
+      text = text.replace(/[^0-9a-z.]/gi, ''); // Is string empty?
 
       if (text.length === 0) {
         return 0;
-      } // Remove possible case sensitivity
+      } // Character trailing parser
 
 
-      text = text.toLowerCase(); // Find all signifiers within string
-
-      var signifiers = Mass.findSignifiers(text); // Did we not find any signifiers?
-
-      if (signifiers.length === 0) {
-        return false;
-      } // Extract individual unit for parsing
-
-
-      var total = 0;
       var i = 0;
-      signifiers.forEach(function (signifier) {
-        // Copy single unit from string
-        var singleUnit = text.substring(i, signifier.splitAt); // Parse individual unit and add result to total
+      var value = '';
+      var signifier = '';
+      var pairs = []; // Loop through each character of string
 
-        total += Mass.parseUnit(singleUnit, MassUnits[signifier.unit]); // Set starting point for next search
+      for (; i < text.length; i++) {
+        // Get current char
+        var _char = text.charAt(i); // Check for alphabet letter (a-z,0-9|a-z,0-9|...) [comma = separator between value and signifier, | = separator between pairs]
 
-        i = signifier.splitAt;
-      }); // Return total mass (as pounds)
+
+        if (_char.match(/[a-z]/i)) {
+          signifier += _char;
+        } else {
+          // Check if this is next unit pair (i.e. value,signifier|value,signifier|...)
+          if (signifier.length > 0) {
+            // Add pair to list of found pairs
+            pairs.push({
+              value: value,
+              signifier: signifier
+            }); // Reset storage variables
+
+            value = '';
+            signifier = '';
+          }
+
+          value += _char;
+        }
+      } // Make sure we found both a value and a unit signifier
+
+
+      if (value.length === 0 || signifier.length === 0) {
+        return false;
+      } // Add final pair
+
+
+      pairs.push({
+        value: value,
+        signifier: signifier
+      });
+      console.log(text);
+      console.log(pairs); // Calculate total
+
+      var total = 0; // Loop through each pair
+
+      pairs.forEach(function (pair) {
+        var found = false; // Loop through each Unit
+
+        _this.Units.forEach(function (unit) {
+          // Check if signifier matches Unit
+          if (unit.signifiers.includes(pair.signifier)) {
+            found = true; // Convert to base unit value and add to total
+
+            if (unit.value > 0) {
+              total += pair.value * unit.value;
+            } else {
+              total += pair.value / Math.abs(unit.value);
+            } // No need to keep searching
+
+
+            return;
+          }
+        }); // Did we find a matching unit signifier
+
+
+        if (!found) {
+          // Output error to console
+          console.error('Unable to find a matching unit signifier.');
+        }
+      }); // Return total mass (as base unit)
 
       return total;
     }
     /**
-     * Find mass unit signifiers within string.
-     *
-     * @param {string} text
-     * @returns {array}
-     */
-
-  }, {
-    key: "findSignifiers",
-    value: function findSignifiers(text) {
-      // Find first signifier
-      var signifiers = []; // Loop through MassUnits
-
-      var _loop = function _loop(MassUnit) {
-        var signifier = -1; // Loop through each MassUnit's signifiers
-
-        MassUnits[MassUnit].signifiers.forEach(function (s) {
-          // Look for signifier
-          var o = text.indexOf(s); // Did we find signifier?
-
-          if (o !== -1) {
-            // Since we want the index to represent the split BETWEEN units
-            // we will add the length of the signifier to include it
-            o = o + s.length; // We want to find the first signifier in the string
-
-            if (signifier === -1 || o > signifier.splitAt) {
-              signifier = {
-                unit: MassUnit,
-                signifier: s,
-                splitAt: o
-              };
-            }
-          }
-        }); // We want to find the first signifier in the string
-
-        if (signifier !== -1) {
-          // Add only one (found) signifier per unit
-          signifiers.push(signifier);
-        }
-      };
-
-      for (var MassUnit in MassUnits) {
-        _loop(MassUnit);
-      } // Sort ascending by splitAt index
-
-
-      signifiers.sort(function (a, b) {
-        return a.splitAt - b.splitAt;
-      });
-      return signifiers;
-    }
-    /**
-     * Parse string for single mass unit.
-     * 
-     * @param {string} text - String to parse for single mass unit.
-     * @param {object} MassUnit
-     * @returns {(number|false)} Returns mass represented in it's base imperial unit (pound) or false.
-     */
-
-  }, {
-    key: "parseUnit",
-    value: function parseUnit(text, MassUnit) {
-      // Validate variable is of type string
-      if (typeof text !== 'string') {
-        return false;
-      } // Pull number from string
-
-
-      var mass = parseFloat(text); // Validate we were able to extract a number
-
-      if (isNaN(mass)) {
-        return false;
-      } // Value cannot be lower than zero
-
-
-      if (mass < 0) {
-        // Return lowest possible value
-        return 0;
-      } // Convert to base unit
-
-
-      return mass / MassUnit.value;
-    }
-    /**
      * Format mass as text.
      * 
-     * @param {number} pounds - Mass (represented as base unit pound) to format.
+     * @param {number} value - Value to format.
+     * @param {number} [unitValue = 1] - Value of unit.
      * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
      * @param {number} [roundTo = 0] - The rounding to perform on the ounces.
      * @returns {string} Formatted mass string.
@@ -287,14 +283,31 @@ function () {
 
   }, {
     key: "format",
-    value: function format(pounds) {
-      var spaces = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-      var roundTo = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-      var formattedWeight = ''; // Convert pounds to ounces
+    value: function format(value) {
+      var unitValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+      var spaces = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      var roundTo = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+      var formattedWeight = ''; // Did they supply custom unit value ratio?
+
+      if (unitValue !== 1) {
+        // Validate number
+        if (typeof unitValue !== 'number') {
+          return false;
+        } // Convert value to base unit value
+
+
+        if (unitValue > 0) {
+          value = value * unitValue;
+        } else {
+          value = value / Math.abs(unitValue);
+        }
+      }
+
+      var pounds = value; // Convert base value to ounces
 
       var ounces = pounds * 16; // Check if pounds is less than one
 
-      if (pounds < 1) {
+      if (ounces < 16) {
         // Return formatted ounces only
         return ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
       } // Floor pounds to remove change
@@ -302,7 +315,15 @@ function () {
 
       pounds = Math.floor(pounds); // Subtract ounces equal to whole pounds (leaving remaining ounces)
 
-      ounces -= pounds * 16; // Format pounds
+      ounces -= pounds * 16; // Check for excess pounds
+
+      if (pounds >= 2240) {
+        // Calculate tons from pounds
+        var tons = pounds / 2240; // Format tons
+
+        return tons.toFixed(2) + (spaces ? ' ' : '') + (tons > 1 ? 'tons' : 'ton');
+      } // Format pounds
+
 
       formattedWeight = pounds + (spaces ? ' ' : '') + (pounds > 1 ? 'lbs' : 'lb'); // Verify remaining ounces
 
