@@ -450,10 +450,10 @@
                                             }
                                           },
                                           "extra": {
-                                            "rawValue": 2240,
-                                            "raw": "2240"
+                                            "rawValue": 2000,
+                                            "raw": "2000"
                                           },
-                                          "value": 2240
+                                          "value": 2000
                                         }
                                       },
                                       {
@@ -12446,7 +12446,7 @@
         "binop": null,
         "updateContext": null
       },
-      "value": 2240,
+      "value": 2000,
       "start": 443,
       "end": 447,
       "loc": {

@@ -2,7 +2,7 @@
   "name": "mass.js",
   "version": "2.0.0",
   "description": "JavaScript classes to convert imperial mass units as well as output and parse as text.",
-  "homepage": "https://meeklogic.github.io/mass.js/",
+  "homepage": "https://meeklogic.github.io/Mass.js/",
   "main": "./dist/mass.min.js",
   "scripts": {
     "build": "npx webpack --config webpack.config.js",
@@ -28,10 +28,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MeekLogic/mass.js"
+    "url": "git+https://github.com/MeekLogic/Mass.js"
   },
   "bugs": {
-    "url": "https://github.com/MeekLogic/mass.js/issues"
+    "url": "https://github.com/MeekLogic/Mass.js/issues"
   },
   "author": "MeekLogic (Tyler Vigario)",
   "license": "GPL-3.0-only",

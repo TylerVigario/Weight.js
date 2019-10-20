@@ -1,28 +1,28 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e1f9c8a954f4c21b850f7b1ab4f4575)](https://www.codacy.com/app/MeekLogic/Weight.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeekLogic/Weight.js&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.com/MeekLogic/Weight.js.svg?branch=master)](https://travis-ci.com/MeekLogic/Weight.js) [![Coverage Status](https://coveralls.io/repos/github/MeekLogic/Weight.js/badge.svg?branch=master)](https://coveralls.io/github/MeekLogic/Weight.js?branch=master) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMeekLogic%2FWeight.js?ref=badge_shield)
 
-mass.js
+Mass.js
 =========
 JavaScript classes to convert imperial mass units as well as output and parse as text.
 
-**[Documentation](https://meeklogic.github.io/Weight.js/)**
+**[Documentation](https://meeklogic.github.io/Mass.js/)**
 
 Install
 -------
 ```javascript
-npm install weight.js
+npm install Mass.js
 ```
 
 Usage
 -----
 **ES6**
 ```javascript
-import {mass} from 'weight.js/src/mass';
+import {Mass as mass} from 'Mass.js/src/mass';
 var Mass = new mass();
 ```
 
 **CommonJS**
 ```javascript
-var mass = require('mass');
+var mass = require('Mass.js');
 var Mass = new mass();
 ```
 
