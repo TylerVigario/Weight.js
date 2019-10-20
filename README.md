@@ -16,12 +16,14 @@ Usage
 -----
 **ES6**
 ```javascript
-import {Mass} from 'weight.js/src/mass';
+import {mass} from 'weight.js/src/mass';
+var Mass = new mass();
 ```
 
 **CommonJS**
 ```javascript
-var Mass = require('mass');
+var mass = require('mass');
+var Mass = new mass();
 ```
 
 Example
