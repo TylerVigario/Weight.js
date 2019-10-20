@@ -187,7 +187,7 @@ function () {
         } // Remove possible case sensitivity
 
 
-      text = text.toLowerCase(); // Remove non alphanumeric characters
+      text = text.toLowerCase(); // Remove non alphanumeric characters except periods
 
       text = text.replace(/[^0-9a-z.]/gi, ''); // Is string empty?
 

@@ -118,7 +118,7 @@ export default class Mass
         // Remove possible case sensitivity
         text = text.toLowerCase();
 
-        // Remove non alphanumeric characters
+        // Remove non alphanumeric characters except periods
         text = text.replace(/[^0-9a-z.]/gi, '');
 
         // Is string empty?
@@ -177,7 +177,7 @@ export default class Mass
             let found = false;
 
             // Loop through each Unit
-            for(let unit of this.Units) {
+            for (let unit of this.Units) {
                 // Check if signifier matches Unit
                 if (unit.signifiers.includes(pair.signifier)) {
                     found = true;
