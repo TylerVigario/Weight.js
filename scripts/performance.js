@@ -10,12 +10,12 @@ var Mass = new mass();
 
 // parse
 test('parse', () => {
-    Mass.parse('25 lb  16oz');
+    Mass.parse('12 pounds  8oz');
 });
 
 // format
 test('format', () => {
-    Mass.format(26);
+    Mass.format(12.5);
 });
 
 //

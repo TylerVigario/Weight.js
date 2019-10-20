@@ -40,10 +40,12 @@
 <h2 id="install">Install</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">npm install weight.js</code>
 </code></pre>
 <h2 id="usage">Usage</h2><p><strong>ES6</strong></p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">import {Mass} from &apos;weight.js/src/mass&apos;;</code>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import {mass} from &apos;weight.js/src/mass&apos;;
+var Mass = new mass();</code>
 </code></pre>
 <p><strong>CommonJS</strong></p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">var Mass = require(&apos;mass&apos;);</code>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">var mass = require(&apos;mass&apos;);
+var Mass = new mass();</code>
 </code></pre>
 <h2 id="example">Example</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">// Parse string for ounces
 let pounds = Mass.parse(&apos;5lbs  4 oz&apos;);

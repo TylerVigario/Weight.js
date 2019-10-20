@@ -168,15 +168,12 @@ function () {
    * 
    * @param {(number|string)} text - Variable to parse for mass.
    * @returns {(number|false)} Returns mass represented in it's base mass unit or false.
-   * @see {@link parseUnit}
    */
 
 
   _createClass(Mass, [{
     key: "parse",
     value: function parse(text) {
-      var _this = this;
-
       if (typeof text === 'number') {
         // Value cannot be lower than zero
         if (text < 0) {
@@ -237,37 +234,58 @@ function () {
       pairs.push({
         value: value,
         signifier: signifier
-      });
-      console.log(text);
-      console.log(pairs); // Calculate total
+      }); // Calculate total
 
       var total = 0; // Loop through each pair
 
-      pairs.forEach(function (pair) {
+      for (var _i = 0, _pairs = pairs; _i < _pairs.length; _i++) {
+        var pair = _pairs[_i];
         var found = false; // Loop through each Unit
 
-        _this.Units.forEach(function (unit) {
-          // Check if signifier matches Unit
-          if (unit.signifiers.includes(pair.signifier)) {
-            found = true; // Convert to base unit value and add to total
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
 
-            if (unit.value > 0) {
-              total += pair.value * unit.value;
-            } else {
-              total += pair.value / Math.abs(unit.value);
-            } // No need to keep searching
+        try {
+          for (var _iterator = this.Units[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var unit = _step.value;
+
+            // Check if signifier matches Unit
+            if (unit.signifiers.includes(pair.signifier)) {
+              found = true; // Convert to base unit value and add to total
+
+              if (unit.value > 0) {
+                total += pair.value * unit.value;
+              } else {
+                total += pair.value / Math.abs(unit.value);
+              } // No need to keep searching
 
 
-            return;
+              break;
+            }
+          } // Did we find a matching unit signifier
+
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+              _iterator["return"]();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
           }
-        }); // Did we find a matching unit signifier
-
+        }
 
         if (!found) {
           // Output error to console
           console.error('Unable to find a matching unit signifier.');
         }
-      }); // Return total mass (as base unit)
+      } // Return total mass (as base unit)
+
 
       return total;
     }
@@ -277,7 +295,7 @@ function () {
      * @param {number} value - Value to format.
      * @param {number} [unitValue = 1] - Value of unit.
      * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
-     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.
+     * @param {object} [rounding = {tons: 2, ounces: 0}] - The rounding to perform.
      * @returns {string} Formatted mass string.
      */
 
@@ -286,7 +304,10 @@ function () {
     value: function format(value) {
       var unitValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
       var spaces = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-      var roundTo = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+      var rounding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
+        tons: 2,
+        ounces: 0
+      };
       var formattedWeight = ''; // Did they supply custom unit value ratio?
 
       if (unitValue !== 1) {
@@ -309,7 +330,7 @@ function () {
 
       if (ounces < 16) {
         // Return formatted ounces only
-        return ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
+        return ounces.toFixed(rounding.ounces) + (spaces ? ' ' : '') + 'oz';
       } // Floor pounds to remove change
 
 
@@ -321,7 +342,7 @@ function () {
         // Calculate tons from pounds
         var tons = pounds / 2240; // Format tons
 
-        return tons.toFixed(2) + (spaces ? ' ' : '') + (tons > 1 ? 'tons' : 'ton');
+        return tons.toFixed(rounding.tons) + (spaces ? ' ' : '') + (tons > 1 ? 'tons' : 'ton');
       } // Format pounds
 
 
@@ -329,7 +350,7 @@ function () {
 
       if (ounces > 0) {
         // Format ounces
-        formattedWeight += ' ' + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
+        formattedWeight += ' ' + ounces.toFixed(rounding.ounces) + (spaces ? ' ' : '') + 'oz';
       }
 
       return formattedWeight;

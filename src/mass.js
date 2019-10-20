@@ -99,7 +99,6 @@ export default class Mass
      * 
      * @param {(number|string)} text - Variable to parse for mass.
      * @returns {(number|false)} Returns mass represented in it's base mass unit or false.
-     * @see {@link parseUnit}
      */
     parse(text)
     {
@@ -170,18 +169,15 @@ export default class Mass
             signifier: signifier
         });
 
-        console.log(text);
-        console.log(pairs);
-
         // Calculate total
         let total = 0;
 
         // Loop through each pair
-        pairs.forEach((pair) => {
+        for (let pair of pairs) {
             let found = false;
 
             // Loop through each Unit
-            this.Units.forEach((unit) => {
+            for(let unit of this.Units) {
                 // Check if signifier matches Unit
                 if (unit.signifiers.includes(pair.signifier)) {
                     found = true;
@@ -194,16 +190,16 @@ export default class Mass
                     }
 
                     // No need to keep searching
-                    return;
+                    break;
                 }
-            });
+            }
 
             // Did we find a matching unit signifier
             if (!found) {
                 // Output error to console
                 console.error('Unable to find a matching unit signifier.');
             }
-        });
+        }
 
         // Return total mass (as base unit)
         return total;
@@ -215,10 +211,10 @@ export default class Mass
      * @param {number} value - Value to format.
      * @param {number} [unitValue = 1] - Value of unit.
      * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
-     * @param {number} [roundTo = 0] - The rounding to perform on the ounces.
+     * @param {object} [rounding = {tons: 2, ounces: 0}] - The rounding to perform.
      * @returns {string} Formatted mass string.
      */
-    format(value, unitValue = 1, spaces = true, roundTo = 0)
+    format(value, unitValue = 1, spaces = true, rounding = {tons: 2, ounces: 0})
     {
         let formattedWeight = '';
         
@@ -245,7 +241,7 @@ export default class Mass
         // Check if pounds is less than one
         if (ounces < 16) {
             // Return formatted ounces only
-            return ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
+            return ounces.toFixed(rounding.ounces) + (spaces ? ' ' : '') + 'oz';
         }
 
         // Floor pounds to remove change
@@ -260,7 +256,7 @@ export default class Mass
             let tons = pounds / 2240;
 
             // Format tons
-            return tons.toFixed(2) + (spaces ? ' ' : '') + (tons > 1 ? 'tons' : 'ton');
+            return tons.toFixed(rounding.tons) + (spaces ? ' ' : '') + (tons > 1 ? 'tons' : 'ton');
         }
 
         // Format pounds
@@ -269,7 +265,7 @@ export default class Mass
         // Verify remaining ounces
         if (ounces > 0) {
             // Format ounces
-            formattedWeight += ' ' + ounces.toFixed(roundTo) + (spaces ? ' ' : '') + 'oz';
+            formattedWeight += ' ' + ounces.toFixed(rounding.ounces) + (spaces ? ' ' : '') + 'oz';
         }
 
         return formattedWeight;
