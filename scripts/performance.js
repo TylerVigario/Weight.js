@@ -22,10 +22,11 @@ test('format', () => {
 console.log();
 
 /**
- * Function to run test
+ * Function to run performance test
  *
- * @param {function} test
- * @param {string} [name="Unknown method"]
+ * @param {string} name - Name of test.
+ * @param {function} test - Callback function with test procedure.
+ * @param {number} [rounds = 1000000] - Number of times to perform test.
  */
 function test(name, test, rounds = 1000000) {
     let time = microtime.now();
