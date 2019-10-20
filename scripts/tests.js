@@ -91,8 +91,11 @@ var problems = [{
 }];
 
 var invalidWeights = [
-    'mass',
-    'not,a,weight'
+    'not,a,weight',
+    '165 pounds 24',
+    '25 metric tons',
+    '95gallons',
+    'pounds 6'
 ];
 
 test('Parse tests', function (t) {
@@ -110,17 +113,6 @@ test('Parse tests', function (t) {
     });
 });
 
-test('Invalid parse tests', function (t) {
-    t.plan(invalidWeights.length);
-
-    // Mass.parse() invalid weight handling
-    invalidWeights.forEach((weight) => {
-        let value = Mass.parse(weight);
-
-        t.equal(value, false, weight);
-    });
-});
-
 test('Format tests', function (t) {
     t.plan(problems.length);
 
@@ -130,5 +122,16 @@ test('Format tests', function (t) {
         let text = Mass.format(value);
 
         t.equal(text, problem.answer, text);
+    });
+});
+
+test('Invalid parse tests', function (t) {
+    t.plan(invalidWeights.length);
+
+    // Mass.parse() invalid weight handling
+    invalidWeights.forEach((weight) => {
+        let value = Mass.parse(weight);
+
+        t.equal(value, false, weight);
     });
 });

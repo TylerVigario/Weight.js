@@ -211,7 +211,12 @@ function () {
         } else {
           // Check if this is next unit pair (i.e. value,signifier|value,signifier|...)
           if (signifier.length > 0) {
-            // Add pair to list of found pairs
+            // Catch the case where they supply text prior to the value
+            if (value.length === 0) {
+              return false;
+            } // Add pair to list of found pairs
+
+
             pairs.push({
               value: value,
               signifier: signifier
@@ -281,8 +286,8 @@ function () {
         }
 
         if (!found) {
-          // Output error to console
-          console.error('Unable to find a matching unit signifier.');
+          // Return false
+          return false;
         }
       } // Return total mass (as base unit)
 

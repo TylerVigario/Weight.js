@@ -155,7 +155,7 @@ export default class Mass
         // Remove possible case sensitivity
         text = text.toLowerCase();
 
-        // Remove non alphanumeric characters
+        // Remove non alphanumeric characters except periods
         text = text.replace(/[^0-9a-z.]/gi, &apos;&apos;);
 
         // Is string empty?
@@ -180,6 +180,11 @@ export default class Mass
             } else {
                 // Check if this is next unit pair (i.e. value,signifier|value,signifier|...)
                 if (signifier.length &gt; 0) {
+                    // Catch the case where they supply text prior to the value
+                    if (value.length === 0) {
+                        return false;
+                    }
+
                     // Add pair to list of found pairs
                     pairs.push({
                         value: value,
@@ -214,7 +219,7 @@ export default class Mass
             let found = false;
 
             // Loop through each Unit
-            for(let unit of this.Units) {
+            for (let unit of this.Units) {
                 // Check if signifier matches Unit
                 if (unit.signifiers.includes(pair.signifier)) {
                     found = true;
@@ -233,8 +238,8 @@ export default class Mass
 
             // Did we find a matching unit signifier
             if (!found) {
-                // Output error to console
-                console.error(&apos;Unable to find a matching unit signifier.&apos;);
+                // Return false
+                return false;
             }
         }
 
