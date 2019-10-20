@@ -133,8 +133,8 @@ function () {
 
     if (units === null) {
       units = [{
-        name: 'Ton',
-        value: 2240,
+        name: 'ton',
+        value: 2000,
         display: {
           singular: 'ton',
           plural: 'tons',
@@ -143,19 +143,15 @@ function () {
         },
         signifiers: ['t', 'ton', 'tons']
       }, {
-        name: 'Hundredweight',
-        value: 112,
+        name: 'hundredweight',
+        value: 100,
         signifiers: ['cwt', 'hundredweight']
       }, {
-        name: 'Quarter',
-        value: 28,
+        name: 'quarter',
+        value: 25,
         signifiers: ['qr', 'qtr', 'quarter', 'quarters']
       }, {
-        name: 'Stone',
-        value: 14,
-        signifiers: ['st', 'stone', 'stones']
-      }, {
-        name: 'Pound',
+        name: 'pound',
         value: 1,
         display: {
           singular: 'lb',
@@ -163,16 +159,16 @@ function () {
         },
         signifiers: ['lb', 'lbs', 'pound', 'pounds']
       }, {
-        name: 'Ounce',
+        name: 'ounce',
         value: 0.0625,
         display: 'oz',
         signifiers: ['oz', 'ounce', 'ounces']
       }, {
-        name: 'Drachm',
+        name: 'dram',
         value: 0.00390625,
-        signifiers: ['dr', 'dram', 'drams', 'drachm', 'drachms']
+        signifiers: ['dr', 'dram', 'drams']
       }, {
-        name: 'Grain',
+        name: 'grain',
         value: 1.4285714285714285714285714285714e-4,
         signifiers: ['gr', 'grain', 'grains']
       }];

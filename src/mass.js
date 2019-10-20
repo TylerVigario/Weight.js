@@ -19,8 +19,8 @@ export default class Mass
     {
         if (units === null) {
             units = [{
-                name: 'Ton',
-                value: 2240,
+                name: 'ton',
+                value: 2000,
                 display: {
                     singular: 'ton',
                     plural: 'tons',
@@ -33,15 +33,15 @@ export default class Mass
                     'tons'
                 ]
             },{
-                name: 'Hundredweight',
-                value: 112,
+                name: 'hundredweight',
+                value: 100,
                 signifiers: [
                     'cwt',
                     'hundredweight'
                 ]
             },{
-                name: 'Quarter',
-                value: 28,
+                name: 'quarter',
+                value: 25,
                 signifiers: [
                     'qr',
                     'qtr',
@@ -49,15 +49,7 @@ export default class Mass
                     'quarters'
                 ]
             },{
-                name: 'Stone',
-                value: 14,
-                signifiers: [
-                    'st',
-                    'stone',
-                    'stones'
-                ]
-            },{
-                name: 'Pound',
+                name: 'pound',
                 value: 1,
                 display: {
                     singular: 'lb',
@@ -70,7 +62,7 @@ export default class Mass
                     'pounds'
                 ]
             },{
-                name: 'Ounce',
+                name: 'ounce',
                 value: 0.0625,
                 display: 'oz',
                 signifiers: [
@@ -79,17 +71,15 @@ export default class Mass
                     'ounces'
                 ]
             },{
-                name: 'Drachm',
+                name: 'dram',
                 value: 0.00390625,
                 signifiers: [
                     'dr',
                     'dram',
-                    'drams',
-                    'drachm',
-                    'drachms'
+                    'drams'
                 ]
             },{
-                name: 'Grain',
+                name: 'grain',
                 value: 1.4285714285714285714285714285714e-4,
                 signifiers: [
                     'gr',

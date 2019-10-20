@@ -61,10 +61,6 @@ var problems = [{
     answer: '21 lbs 4 oz',
     value: 21.25
 },{
-    question: '1 stone',
-    answer: '14 lbs',
-    value: 14
-},{
     question: '7000 grains',
     answer: '1 lb',
     value: 1
@@ -74,20 +70,20 @@ var problems = [{
     value: 1
 },{
     question: '1 qtr',
-    answer: '28 lbs',
-    value: 28
+    answer: '25 lbs',
+    value: 25
 },{
     question: '2 hundredweight',
-    answer: '224 lbs',
-    value: 224
+    answer: '200 lbs',
+    value: 200
 },{
     question: '65 hundredweight',
     answer: '3.25 tons',
-    value: 7280
+    value: 6500
 },{
     question: '3.5t',
     answer: '3.50 tons',
-    value: 7840
+    value: 7000
 }];
 
 var invalidWeights = [
