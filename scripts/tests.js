@@ -17,9 +17,9 @@ var problems = [{
     answer: '10 lbs 4 oz',
     value: 10.25
 },{
-    question: '164.85oz',
-    answer: '10 lbs 5 oz',
-    value: 10.303125
+    question: '169oz',
+    answer: '10 lbs 9 oz',
+    value: 10.5625
 },{
     question: '10lbs',
     answer: '10 lbs',
@@ -50,11 +50,11 @@ var problems = [{
     value: 5
 },{
     question: -45,
-    answer: '0 oz',
+    answer: '0',
     value: 0
 },{
     question: '  ',
-    answer: '0 oz',
+    answer: '0',
     value: 0
 },{
     question: '20  lb, 20 o z ',
@@ -65,11 +65,11 @@ var problems = [{
     answer: '14 lbs',
     value: 14
 },{
-    question: '7000 grain',
+    question: '7000 grains',
     answer: '1 lb',
     value: 1
 },{
-    question: '255.999dr',
+    question: '256dr',
     answer: '1 lb',
     value: 1
 },{

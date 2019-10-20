@@ -52,82 +52,90 @@ export default class Mass
     /**
      * Creates an instance of Mass.
      */
-    constructor(units = [
-        {
-            name: &apos;Grain&apos;,
-            value: -7000,
-            signifiers: [
-                &apos;gr&apos;,
-                &apos;grain&apos;,
-                &apos;grains&apos;
-            ]
-        },
-        {
-            name: &apos;Drachm&apos;,
-            value: -255.999,
-            signifiers: [
-                &apos;dr&apos;,
-                &apos;drachm&apos;,
-                &apos;drachms&apos;
-            ]
-        },
-        {
-            name: &apos;Ounce&apos;,
-            value: -16,
-            signifiers: [
-                &apos;oz&apos;,
-                &apos;ounce&apos;,
-                &apos;ounces&apos;
-            ]
-        },
-        {
-            name: &apos;Pound&apos;,
-            value: 1,
-            signifiers: [
-                &apos;lb&apos;,
-                &apos;lbs&apos;,
-                &apos;pound&apos;,
-                &apos;pounds&apos;
-            ]
-        },
-        {
-            name: &apos;Stone&apos;,
-            value: 14,
-            signifiers: [
-                &apos;st&apos;,
-                &apos;stone&apos;,
-                &apos;stones&apos;
-            ]
-        },
-        {
-            name: &apos;Quarter&apos;,
-            value: 28,
-            signifiers: [
-                &apos;qr&apos;,
-                &apos;qtr&apos;,
-                &apos;quarter&apos;,
-                &apos;quarters&apos;
-            ]
-        },
-        {
-            name: &apos;Hundredweight&apos;,
-            value: 112,
-            signifiers: [
-                &apos;cwt&apos;,
-                &apos;hundredweight&apos;
-            ]
-        },
-        {
-            name: &apos;Ton&apos;,
-            value: 2240,
-            signifiers: [
-                &apos;t&apos;,
-                &apos;ton&apos;,
-                &apos;tons&apos;
-            ]
-        }
-    ])
+    constructor(units = null)
     {
+        if (units === null) {
+            units = [{
+                name: &apos;Ton&apos;,
+                value: 2240,
+                display: {
+                    singular: &apos;ton&apos;,
+                    plural: &apos;tons&apos;,
+                    rounding: 2,
+                    exclusive: true
+                },
+                signifiers: [
+                    &apos;t&apos;,
+                    &apos;ton&apos;,
+                    &apos;tons&apos;
+                ]
+            },{
+                name: &apos;Hundredweight&apos;,
+                value: 112,
+                signifiers: [
+                    &apos;cwt&apos;,
+                    &apos;hundredweight&apos;
+                ]
+            },{
+                name: &apos;Quarter&apos;,
+                value: 28,
+                signifiers: [
+                    &apos;qr&apos;,
+                    &apos;qtr&apos;,
+                    &apos;quarter&apos;,
+                    &apos;quarters&apos;
+                ]
+            },{
+                name: &apos;Stone&apos;,
+                value: 14,
+                signifiers: [
+                    &apos;st&apos;,
+                    &apos;stone&apos;,
+                    &apos;stones&apos;
+                ]
+            },{
+                name: &apos;Pound&apos;,
+                value: 1,
+                display: {
+                    singular: &apos;lb&apos;,
+                    plural: &apos;lbs&apos;
+                },
+                signifiers: [
+                    &apos;lb&apos;,
+                    &apos;lbs&apos;,
+                    &apos;pound&apos;,
+                    &apos;pounds&apos;
+                ]
+            },{
+                name: &apos;Ounce&apos;,
+                value: 0.0625,
+                display: &apos;oz&apos;,
+                signifiers: [
+                    &apos;oz&apos;,
+                    &apos;ounce&apos;,
+                    &apos;ounces&apos;
+                ]
+            },{
+                name: &apos;Drachm&apos;,
+                value: 0.00390625,
+                signifiers: [
+                    &apos;dr&apos;,
+                    &apos;dram&apos;,
+                    &apos;drams&apos;,
+                    &apos;drachm&apos;,
+                    &apos;drachms&apos;
+                ]
+            },{
+                name: &apos;Grain&apos;,
+                value: 1.4285714285714285714285714285714e-4,
+                signifiers: [
+                    &apos;gr&apos;,
+                    &apos;grain&apos;,
+                    &apos;grains&apos;
+                ]
+            }];
+        }
+
         this.Units = units;
     }
 
@@ -164,27 +172,26 @@ export default class Mass
         }
 
         // Character trailing parser
-        let i = 0;
         let value = &apos;&apos;;
         let signifier = &apos;&apos;;
         let pairs = [];
 
         // Loop through each character of string
-        for (; i &lt; text.length; i++) {
+        for (let i = 0; i &lt; text.length; i++) {
             // Get current char
             const char = text.charAt(i);
 
             // Check for alphabet letter (a-z,0-9|a-z,0-9|...) [comma = separator between value and signifier, | = separator between pairs]
             if (char.match(/[a-z]/i)) {
+                // Catch the case where they supply text prior to the value
+                if (value.length === 0) {
+                    return false;
+                }
+
                 signifier += char;
             } else {
                 // Check if this is next unit pair (i.e. value,signifier|value,signifier|...)
                 if (signifier.length &gt; 0) {
-                    // Catch the case where they supply text prior to the value
-                    if (value.length === 0) {
-                        return false;
-                    }
-
                     // Add pair to list of found pairs
                     pairs.push({
                         value: value,
@@ -225,11 +232,7 @@ export default class Mass
                     found = true;
 
                     // Convert to base unit value and add to total
-                    if (unit.value &gt; 0) {
-                        total += pair.value * unit.value;
-                    } else {
-                        total += pair.value / Math.abs(unit.value);
-                    }
+                    total += pair.value * unit.value;
 
                     // No need to keep searching
                     break;
@@ -253,12 +256,15 @@ export default class Mass
      * @param {number} value - Value to format.
      * @param {number} [unitValue = 1] - Value of unit.
      * @param {boolean} [spaces = true] - Whether to add spaces between weight and signifier.
-     * @param {object} [rounding = {tons: 2, ounces: 0}] - The rounding to perform.
      * @returns {string} Formatted mass string.
      */
-    format(value, unitValue = 1, spaces = true, rounding = {tons: 2, ounces: 0})
+    format(value, unitValue = 1, spaces = true)
     {
-        let formattedWeight = &apos;&apos;;
+        let formatted = &apos;&apos;;
+
+        if (value &lt;= 0) {
+            return &apos;0&apos;;
+        }
         
         // Did they supply custom unit value ratio?
         if (unitValue !== 1) {
@@ -268,49 +274,53 @@ export default class Mass
             }
 
             // Convert value to base unit value
-            if (unitValue &gt; 0) {
-                value = value * unitValue;
-            } else {
-                value = value / Math.abs(unitValue);
+            value = value * unitValue;
+        }
+
+        // Loop through Units
+        for (let unit of this.Units) {
+            let v = unit.value;
+
+            // Check if Unit is displaying and value is greater than unit value
+            if (unit.display &amp;&amp; value &gt;= v) {
+                // Calculate quantity of unit
+                let q = value / v;
+
+                if (!unit.display.exclusive) {
+                    //
+                    q = Math.floor(q);
+
+                    // Subtract quantity from total
+                    value -= q * v;
+                }
+
+                // Add space if text has content already
+                if (formatted.length &gt; 0) {
+                    formatted += &apos; &apos;;
+                }
+
+                // Add formatted value
+                formatted += q.toFixed(unit.display.rounding ? unit.display.rounding : 0);
+
+                // Add spaces (if applicable)
+                if (spaces) {
+                    formatted += &apos; &apos;;
+                }
+
+                // Add unit signifier
+                if (typeof unit.display === &apos;object&apos;) {
+                    formatted += (q === 1 ? unit.display.singular : unit.display.plural);
+                } else {
+                    formatted += unit.display;
+                }
+
+                if (unit.display.exclusive || value === 0) {
+                    break;
+                }
             }
         }
 
-        let pounds = value;
-
-        // Convert base value to ounces
-        let ounces = pounds * 16;
-
-        // Check if pounds is less than one
-        if (ounces &lt; 16) {
-            // Return formatted ounces only
-            return ounces.toFixed(rounding.ounces) + (spaces ? &apos; &apos; : &apos;&apos;) + &apos;oz&apos;;
-        }
-
-        // Floor pounds to remove change
-        pounds = Math.floor(pounds);
-
-        // Subtract ounces equal to whole pounds (leaving remaining ounces)
-        ounces -= (pounds * 16);
-
-        // Check for excess pounds
-        if (pounds &gt;= 2240) {
-            // Calculate tons from pounds
-            let tons = pounds / 2240;
-
-            // Format tons
-            return tons.toFixed(rounding.tons) + (spaces ? &apos; &apos; : &apos;&apos;) + (tons &gt; 1 ? &apos;tons&apos; : &apos;ton&apos;);
-        }
-
-        // Format pounds
-        formattedWeight = pounds + (spaces ? &apos; &apos; : &apos;&apos;) + (pounds &gt; 1 ? &apos;lbs&apos; : &apos;lb&apos;);
-
-        // Verify remaining ounces
-        if (ounces &gt; 0) {
-            // Format ounces
-            formattedWeight += &apos; &apos; + ounces.toFixed(rounding.ounces) + (spaces ? &apos; &apos; : &apos;&apos;) + &apos;oz&apos;;
-        }
-
-        return formattedWeight;
+        return formatted;
     }
 }</code></pre>
 
