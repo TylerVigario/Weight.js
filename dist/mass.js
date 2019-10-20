@@ -210,7 +210,7 @@ function () {
 
       if (text.length === 0) {
         return 0;
-      } // Character trailing parser
+      } // Linear char parser
 
 
       var value = '';
@@ -319,7 +319,7 @@ function () {
     value: function format(value) {
       var unitValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
       var spaces = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-      var formatted = '';
+      var formatted = ''; // We can't assign a value of zero to any unit
 
       if (value <= 0) {
         return '0';
@@ -328,7 +328,7 @@ function () {
 
       if (unitValue !== 1) {
         // Validate number
-        if (typeof unitValue !== 'number') {
+        if (typeof unitValue !== 'number' || unitValue < 0) {
           return false;
         } // Convert value to base unit value
 
@@ -348,11 +348,12 @@ function () {
           // Check if Unit is displaying and value is greater than unit value
           if (unit.display && value >= unit.value) {
             // Calculate quantity of unit
-            var q = value / unit.value;
+            var q = value / unit.value; // Exclusive means it will display the whole value under its sole unit
+            // Here we check to make sure it isn't exclusive so we can remove the change from value and make it whole
 
             if (!unit.display.exclusive) {
-              //
-              q = Math.floor(q); // Subtract quantity from total
+              // Whole unit quantity
+              q = Math.floor(q); // Subtract change from total
 
               value -= q * unit.value;
             } // Add space if text has content already
@@ -374,7 +375,8 @@ function () {
               formatted += q === 1 ? unit.display.singular : unit.display.plural;
             } else {
               formatted += unit.display;
-            }
+            } // Is unit exclusive or is there no longer any value to format?
+
 
             if (unit.display.exclusive || value === 0) {
               break;

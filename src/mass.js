@@ -134,7 +134,7 @@ export default class Mass
             return 0;
         }
 
-        // Character trailing parser
+        // Linear char parser
         let value = '';
         let signifier = '';
         let pairs = [];
@@ -225,6 +225,7 @@ export default class Mass
     {
         let formatted = '';
 
+        // We can't assign a value of zero to any unit
         if (value <= 0) {
             return '0';
         }
@@ -232,7 +233,7 @@ export default class Mass
         // Did they supply custom unit value ratio?
         if (unitValue !== 1) {
             // Validate number
-            if (typeof unitValue !== 'number') {
+            if (typeof unitValue !== 'number' || unitValue < 0) {
                 return false;
             }
 
@@ -247,11 +248,13 @@ export default class Mass
                 // Calculate quantity of unit
                 let q = value / unit.value;
 
+                // Exclusive means it will display the whole value under its sole unit
+                // Here we check to make sure it isn't exclusive so we can remove the change from value and make it whole
                 if (!unit.display.exclusive) {
-                    //
+                    // Whole unit quantity
                     q = Math.floor(q);
 
-                    // Subtract quantity from total
+                    // Subtract change from total
                     value -= q * unit.value;
                 }
 
@@ -275,6 +278,7 @@ export default class Mass
                     formatted += unit.display;
                 }
 
+                // Is unit exclusive or is there no longer any value to format?
                 if (unit.display.exclusive || value === 0) {
                     break;
                 }
