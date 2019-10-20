@@ -127,13 +127,12 @@ export default class Mass
         }
 
         // Character trailing parser
-        let i = 0;
         let value = '';
         let signifier = '';
         let pairs = [];
 
         // Loop through each character of string
-        for (; i < text.length; i++) {
+        for (let i = 0; i < text.length; i++) {
             // Get current char
             const char = text.charAt(i);
 

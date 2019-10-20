@@ -95,7 +95,8 @@ var invalidWeights = [
     '165 pounds 24',
     '25 metric tons',
     '95gallons',
-    'pounds 6'
+    'pounds 6',
+    '78 pnds, 4 ounce'
 ];
 
 test('Parse tests', function (t) {
